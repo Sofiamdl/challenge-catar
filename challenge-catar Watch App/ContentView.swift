@@ -6,15 +6,39 @@
 //
 
 import SwiftUI
+import Charts
+
+struct Data: Identifiable {
+    var id: String
+    
+    var time: Int
+    var value:Int
+}
 
 struct ContentView: View {
+    let data = [Data(id: UUID().uuidString, time: 2, value: 20),
+                Data(id: UUID().uuidString, time: 1, value: 10),
+                Data(id: UUID().uuidString, time: 2, value: 120),
+                Data(id: UUID().uuidString, time: 3, value: 30),
+                Data(id: UUID().uuidString, time: 2, value: 20)]
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
+        Chart {
+
+                  ForEach(data) { temp in
+
+                      LineMark(
+
+                          x: .value("Time", temp.time),
+
+                          y: .value("Temp", temp.value)
+
+                      )
+
+                  }
+
+              }
+
+              .frame(height: 200)
         .padding()
     }
 }
