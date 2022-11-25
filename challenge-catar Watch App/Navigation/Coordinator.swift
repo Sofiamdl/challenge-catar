@@ -15,7 +15,7 @@ class Coordinator: ObservableObject {
 
     @Published var path: [Destination] = []
 
-    func gotoHomePage() {
+    func goBack() {
         path.removeLast(path.count)
     }
 

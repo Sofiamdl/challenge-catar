@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct SomeView: View {
+    @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
         HStack{
-            NavigationLink(destination: ContentView()) {
-                Text("Oi")
+            Button("Oi") {
+                coordinator.goBack()
             }
         }
     }
