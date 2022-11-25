@@ -44,8 +44,14 @@ struct ContentView: View {
             .frame(height: 200)
             .padding()
         }
-        Button("Oi") {
-            coordinator.goToSomeView()
+        if #available(iOS 16.0, *) {
+            Button("Oi") {
+                coordinator.goToSomeView()
+            }
+        } else {
+            NavigationLink(destination: SomeView()) {
+                Text("Oi")
+            }
         }
 
     }

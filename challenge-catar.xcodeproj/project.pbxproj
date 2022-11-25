@@ -84,11 +84,9 @@
 		BF4FFED3293134DD008C321A /* challenge-catar Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				BF4FFEF2293160A6008C321A /* Views */,
 				BF4FFEEB29315A42008C321A /* Navigation */,
-				BF4FFEE8293159DF008C321A /* Factories */,
 				BF4FFED4293134DD008C321A /* challenge_catarApp.swift */,
-				BF4FFED6293134DD008C321A /* ContentView.swift */,
-				BF4FFEE6293158D3008C321A /* SomeView.swift */,
 				BF4FFED8293134DF008C321A /* Assets.xcassets */,
 				BF4FFEDA293134DF008C321A /* Preview Content */,
 			);
@@ -103,20 +101,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BF4FFEE8293159DF008C321A /* Factories */ = {
-			isa = PBXGroup;
-			children = (
-				BF4FFEE9293159F5008C321A /* ViewFactory.swift */,
-			);
-			path = Factories;
-			sourceTree = "<group>";
-		};
 		BF4FFEEB29315A42008C321A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				BF4FFEEC29315A52008C321A /* Coordinator.swift */,
+				BF4FFEE9293159F5008C321A /* ViewFactory.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		BF4FFEF2293160A6008C321A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF4FFEE6293158D3008C321A /* SomeView.swift */,
+				BF4FFED6293134DD008C321A /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

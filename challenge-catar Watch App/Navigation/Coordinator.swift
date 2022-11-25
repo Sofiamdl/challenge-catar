@@ -15,10 +15,6 @@ class Coordinator: ObservableObject {
 
     @Published var path: [Destination] = []
 
-    func goBack() {
-        path.removeLast(path.count)
-    }
-
     func goToSomeView() {
         path.append(Destination.someView)
     }

@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct SomeView: View {
-    @EnvironmentObject private var coordinator: Coordinator
-
     var body: some View {
         HStack{
             Button("Oi") {
-                coordinator.goBack()
+                print("oi")
             }
         }
     }
