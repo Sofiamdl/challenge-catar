@@ -5,7 +5,7 @@
 //  Created by alexdamascena on 27/11/22.
 //
 
-import Foundation
+import SwiftUI
 
 struct TextStyle {
     let size: CGFloat
