@@ -15,43 +15,6 @@ struct Data: Identifiable {
     var value:Int
 }
 
-extension WKInterfaceDevice {
-    
-    static var size: CGRect {
-        return WKInterfaceDevice.current().screenBounds
-    }
-}
-
-enum LineOrientation {
-    
-    case vertical
-    case horizontal
-        
-    var size: CGSize {
-        switch self {
-        case .horizontal:
-            return CGSize(width: WKInterfaceDevice.size.width, height: 1)
-        case .vertical:
-            return CGSize(width: 3, height: 19)
-        }
-    }
-}
-
-struct Line: View {
-
-    let orienttion: LineOrientation
-    let withColor: Color
-    
-    var body: some View {
-        Rectangle()
-            .fill(withColor)
-            .frame(width: orienttion.size.width,
-                   height: orienttion.size.height,
-                   alignment: .center)
-            .cornerRadius(2)
-    }
-}
-
 struct TextStyle {
     let size: CGFloat
     let weight: Font.Weight
