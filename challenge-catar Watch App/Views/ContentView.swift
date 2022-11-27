@@ -37,8 +37,6 @@ enum LineOrientation {
     }
 }
 
-
-
 struct Line: View {
 
     let orienttion: LineOrientation
@@ -54,6 +52,48 @@ struct Line: View {
     }
 }
 
+struct TextStyle {
+    let size: CGFloat
+    let weight: Font.Weight
+}
+
+enum TextType {
+    
+    case title
+    case description
+    case value
+    
+    var textStyle: TextStyle {
+        switch self {
+        case .title:
+            return TextStyle(size: 14, weight: .medium)
+        case .description:
+            return TextStyle(size: 12, weight: .medium)
+        case .value:
+            return TextStyle(size: 16, weight: .medium)
+        }
+    }
+}
+
+struct TextView: View {
+    
+    let text: String
+    let color: Color
+    let type: TextType
+    
+    var body: some View {
+        Text(text)
+            .font(.system(size: type.textStyle.size,
+                          weight: type.textStyle.weight))
+            .foregroundColor(color)
+    }
+}
+
+struct ColorConstant {
+    static let BLUE = "blue"
+    static let LIGHT_GRAY = "light_gray"
+}
+
 struct ContentView: View {
     @EnvironmentObject private var coordinator: Coordinator
 
@@ -67,24 +107,39 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Hoje")
+        VStack(alignment: .leading, spacing: 8) {
+            TextView(text: "Hoje",
+                     color: Color(ColorConstant.BLUE),
+                     type: .title)
                 .padding(insets)
+            
             HStack(spacing: 32){
-                Text("Tempo")
-                Text("Qualidade")
+//                Text("Tempo")
+                TextView(text: "Tempo",
+                         color: Color(ColorConstant.LIGHT_GRAY),
+                         type: .description)
+                TextView(text: "Qualidade",
+                         color: Color(ColorConstant.LIGHT_GRAY),
+                         type: .description)
             }
             .padding(insets)
             
             HStack(spacing: 24) {
-                Text("5 horas")
-                Line(orienttion: .vertical, withColor: .blue)
-                Text("80%")
+                TextView(text: "5 horas",
+                         color: .white,
+                         type: .value)
+//                Text("5 horas")
+                Line(orienttion: .vertical,
+                     withColor: Color(ColorConstant.BLUE))
+                TextView(text: "80%",
+                         color: .white,
+                         type: .value)
             }
             .padding(insets)
             
-            Line(orienttion: .horizontal, withColor: .blue)
-                    
+            Line(orienttion: .horizontal,
+                 withColor: Color(ColorConstant.BLUE))
+                
         }
         
 
