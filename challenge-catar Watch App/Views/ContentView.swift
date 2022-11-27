@@ -15,14 +15,6 @@ struct Data: Identifiable {
     var value:Int
 }
 
-
-
-
-enum Screen {
-    case running
-    case sleep
-}
-
 struct ContentView: View {
     
     @EnvironmentObject private var coordinator: Coordinator
