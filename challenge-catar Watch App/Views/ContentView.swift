@@ -16,11 +16,6 @@ struct Data: Identifiable {
 }
 
 
-enum IconStatus: String {
-    case increasing = "arrow.up"
-    case decreasing = "arrow.down"
-    case withoutIcon
-}
 
 enum TitleCardInformation: String {
     case today = "Hoje"
