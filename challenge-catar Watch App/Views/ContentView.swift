@@ -20,11 +20,15 @@ struct ContentView: View {
     @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
-        let cardContent = CardValues(leftSideContent: "5 horas", rightSideContent: "80%")
-        CardInformation(values: cardContent,
-                        iconStatus: .withoutIcon,
-                        title: .today,
-                        page: .sleep)
+//        let cardContent = CardValues(leftSideContent: "5 horas", rightSideContent: "80%")
+//        CardInformation(values: cardContent,
+//                        iconStatus: .withoutIcon,
+//                        title: .today,
+//                        page: .sleep)
+        
+        NavigationStack {
+            NavigationLink("Some view", destination: SomeView())
+        }
     }
 }
 
