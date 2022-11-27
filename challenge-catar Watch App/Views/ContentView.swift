@@ -84,14 +84,62 @@ struct TextView: View {
     var body: some View {
         Text(text)
             .font(.system(size: type.textStyle.size,
-                          weight: type.textStyle.weight))
+                          weight: type.textStyle.weight,
+                          design: .rounded))
             .foregroundColor(color)
     }
+}
+
+enum StatusValue {
+    case increasing
+    case decreasing
+    case withoutIcon
 }
 
 struct ColorConstant {
     static let BLUE = "blue"
     static let LIGHT_GRAY = "light_gray"
+}
+
+struct CardInformation: View {
+    let status: StatusValue
+    
+    let insets = EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0)
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            TextView(text: "Hoje",
+                     color: Color(ColorConstant.BLUE),
+                     type: .title)
+                .padding(insets)
+            
+            HStack(spacing: 56){
+                TextView(text: "Tempo",
+                         color: Color(ColorConstant.LIGHT_GRAY),
+                         type: .description)
+                TextView(text: "Qualidade",
+                         color: Color(ColorConstant.LIGHT_GRAY),
+                         type: .description)
+            }
+            .padding(insets)
+            
+            HStack(spacing: 18) {
+                TextView(text: "5 horas",
+                         color: .white,
+                         type: .value)
+                Line(orienttion: .vertical,
+                     withColor: Color(ColorConstant.BLUE))
+                
+                TextView(text: "80%",
+                         color: .white,
+                         type: .value)
+            }
+            .padding(insets)
+            
+            Line(orienttion: .horizontal,
+                 withColor: Color(ColorConstant.BLUE))
+    }
+    
 }
 
 struct ContentView: View {
@@ -103,44 +151,12 @@ struct ContentView: View {
 //                Data(id: UUID().uuidString, time: 3, value: 30),
 //                Data(id: UUID().uuidString, time: 2, value: 20)]
     
-    let insets = EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0)
+
     
     var body: some View {
-        
-        VStack(alignment: .leading, spacing: 8) {
-            TextView(text: "Hoje",
-                     color: Color(ColorConstant.BLUE),
-                     type: .title)
-                .padding(insets)
-            
-            HStack(spacing: 32){
-//                Text("Tempo")
-                TextView(text: "Tempo",
-                         color: Color(ColorConstant.LIGHT_GRAY),
-                         type: .description)
-                TextView(text: "Qualidade",
-                         color: Color(ColorConstant.LIGHT_GRAY),
-                         type: .description)
-            }
-            .padding(insets)
-            
-            HStack(spacing: 24) {
-                TextView(text: "5 horas",
-                         color: .white,
-                         type: .value)
-//                Text("5 horas")
-                Line(orienttion: .vertical,
-                     withColor: Color(ColorConstant.BLUE))
-                TextView(text: "80%",
-                         color: .white,
-                         type: .value)
-            }
-            .padding(insets)
-            
-            Line(orienttion: .horizontal,
-                 withColor: Color(ColorConstant.BLUE))
-                
-        }
+        CardInformation(status: .increasing)
+    
+    }
         
 
 //        HStack{
