@@ -37,6 +37,8 @@ enum LineOrientation {
     }
 }
 
+
+
 struct Line: View {
 
     let orienttion: LineOrientation
@@ -61,22 +63,27 @@ struct ContentView: View {
 //                Data(id: UUID().uuidString, time: 3, value: 30),
 //                Data(id: UUID().uuidString, time: 2, value: 20)]
     
+    let insets = EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0)
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 12) {
             Text("Hoje")
+                .padding(insets)
             HStack(spacing: 32){
                 Text("Tempo")
                 Text("Qualidade")
             }
+            .padding(insets)
             
             HStack(spacing: 24) {
                 Text("5 horas")
                 Line(orienttion: .vertical, withColor: .blue)
-                
-            
                 Text("80%")
             }
+            .padding(insets)
+            
+            Line(orienttion: .horizontal, withColor: .blue)
                     
         }
         
