@@ -16,6 +16,8 @@
 		0D6B87642934115C00E7C5DA /* CardValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B87632934115C00E7C5DA /* CardValues.swift */; };
 		0D6B8767293411F900E7C5DA /* CardInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B8766293411F900E7C5DA /* CardInformation.swift */; };
 		0D6B87692934125500E7C5DA /* IconStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B87682934125500E7C5DA /* IconStatus.swift */; };
+		0D6B876B2934128B00E7C5DA /* TitleCardInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B876A2934128B00E7C5DA /* TitleCardInformation.swift */; };
+		0D6B876E293412EE00E7C5DA /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B876D293412EE00E7C5DA /* ColorConstant.swift */; };
 		BF4FFED0293134DD008C321A /* challenge-catar Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED4293134DD008C321A /* challenge_catarApp.swift */; };
 		BF4FFED7293134DD008C321A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED6293134DD008C321A /* ContentView.swift */; };
@@ -60,6 +62,8 @@
 		0D6B87632934115C00E7C5DA /* CardValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardValues.swift; sourceTree = "<group>"; };
 		0D6B8766293411F900E7C5DA /* CardInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInformation.swift; sourceTree = "<group>"; };
 		0D6B87682934125500E7C5DA /* IconStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconStatus.swift; sourceTree = "<group>"; };
+		0D6B876A2934128B00E7C5DA /* TitleCardInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCardInformation.swift; sourceTree = "<group>"; };
+		0D6B876D293412EE00E7C5DA /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
 		BF4FFEC9293134DD008C321A /* challenge-catar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFED4293134DD008C321A /* challenge_catarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_catarApp.swift; sourceTree = "<group>"; };
@@ -132,8 +136,17 @@
 			children = (
 				0D6B8766293411F900E7C5DA /* CardInformation.swift */,
 				0D6B87682934125500E7C5DA /* IconStatus.swift */,
+				0D6B876A2934128B00E7C5DA /* TitleCardInformation.swift */,
 			);
 			path = CardInformation;
+			sourceTree = "<group>";
+		};
+		0D6B876C293412D700E7C5DA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0D6B876D293412EE00E7C5DA /* ColorConstant.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		BF4FFEC2293134DD008C321A = {
@@ -156,6 +169,7 @@
 		BF4FFED3293134DD008C321A /* challenge-catar Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				0D6B876C293412D700E7C5DA /* Constants */,
 				0D6B87602934111700E7C5DA /* Models */,
 				0D6B875829340F8900E7C5DA /* Extensions */,
 				BF4FFEF2293160A6008C321A /* Views */,
@@ -298,6 +312,8 @@
 				0D6B875729340D5400E7C5DA /* LineOrientation.swift in Sources */,
 				0D6B87692934125500E7C5DA /* IconStatus.swift in Sources */,
 				BF4FFED7293134DD008C321A /* ContentView.swift in Sources */,
+				0D6B876B2934128B00E7C5DA /* TitleCardInformation.swift in Sources */,
+				0D6B876E293412EE00E7C5DA /* ColorConstant.swift in Sources */,
 				BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */,
 				BF4FFEED29315A52008C321A /* Coordinator.swift in Sources */,
 				0D6B875529340D3900E7C5DA /* Line.swift in Sources */,

@@ -17,16 +17,6 @@ struct Data: Identifiable {
 
 
 
-enum TitleCardInformation: String {
-    case today = "Hoje"
-    case avarage = "Média Semanal"
-}
-
-struct ColorConstant {
-    static let BLUE = "blue"
-    static let LIGHT_GRAY = "light_gray"
-    static let PURPLE = "purple"
-}
 
 enum Screen {
     case running
