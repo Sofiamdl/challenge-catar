@@ -143,54 +143,15 @@ struct CardInformation: View {
 }
 
 struct ContentView: View {
+    
     @EnvironmentObject private var coordinator: Coordinator
 
-//    let data = [Data(id: UUID().uuidString, time: 2, value: 20),
-//                Data(id: UUID().uuidString, time: 1, value: 10),
-//                Data(id: UUID().uuidString, time: 2, value: 120),
-//                Data(id: UUID().uuidString, time: 3, value: 30),
-//                Data(id: UUID().uuidString, time: 2, value: 20)]
-    
-
-    
     var body: some View {
         CardInformation(status: .increasing)
     
     }
-        
-
-//        HStack{
-//            Chart {
-//
-//                ForEach(data) { temp in
-//
-//                    LineMark(
-//
-//                        x: .value("Time", temp.time),
-//
-//                        y: .value("Temp", temp.value)
-//
-//                    )
-//
-//                }
-//
-//            }
-//
-//            .frame(height: 200)
-//            .padding()
-//        }
-//        if #available(iOS 16.0, *) {
-//            Button("Oi") {
-//                coordinator.goToSomeView()
-//            }
-//        } else {
-//            NavigationLink(destination: SomeView()) {
-//                Text("Oi")
-//            }
-//        }
-
-    }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
