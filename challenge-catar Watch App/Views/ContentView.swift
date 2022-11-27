@@ -68,9 +68,9 @@ enum TextType {
         case .title:
             return TextStyle(size: 14, weight: .medium)
         case .description:
-            return TextStyle(size: 12, weight: .medium)
+            return TextStyle(size: 12, weight: .bold)
         case .value:
-            return TextStyle(size: 16, weight: .medium)
+            return TextStyle(size: 16, weight: .bold)
         }
     }
 }
@@ -90,9 +90,9 @@ struct TextView: View {
     }
 }
 
-enum StatusValue {
-    case increasing
-    case decreasing
+enum IconStatus: String {
+    case increasing = "arrow.up"
+    case decreasing = "arrow.down"
     case withoutIcon
 }
 
@@ -102,17 +102,28 @@ struct ColorConstant {
 }
 
 struct CardInformation: View {
-    let status: StatusValue
+    let iconStatus: IconStatus
     
     let insets = EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0)
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            TextView(text: "Hoje",
-                     color: Color(ColorConstant.BLUE),
-                     type: .title)
-                .padding(insets)
+        VStack(alignment: .leading, spacing: 6) {
             
+            HStack(spacing: 8){
+                TextView(text: "Hoje",
+                         color: Color(ColorConstant.BLUE),
+                         type: .title)
+                .padding(insets)
+                
+                if iconStatus != .withoutIcon {
+                    Image(systemName: iconStatus.rawValue)
+                        .foregroundColor(
+                            iconStatus == .increasing ? .green : .red
+                        )
+                        .font(.system(size: 12, weight: .bold))
+                }
+            }
+                        
             HStack(spacing: 56){
                 TextView(text: "Tempo",
                          color: Color(ColorConstant.LIGHT_GRAY),
@@ -138,8 +149,8 @@ struct CardInformation: View {
             
             Line(orienttion: .horizontal,
                  withColor: Color(ColorConstant.BLUE))
+        }
     }
-    
 }
 
 struct ContentView: View {
@@ -147,8 +158,7 @@ struct ContentView: View {
     @EnvironmentObject private var coordinator: Coordinator
 
     var body: some View {
-        CardInformation(status: .increasing)
-    
+        CardInformation(iconStatus: .withoutIcon)
     }
 }
 
