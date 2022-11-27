@@ -15,43 +15,6 @@ struct Data: Identifiable {
     var value:Int
 }
 
-struct TextStyle {
-    let size: CGFloat
-    let weight: Font.Weight
-}
-
-enum TextType {
-    
-    case title
-    case description
-    case value
-    
-    var textStyle: TextStyle {
-        switch self {
-        case .title:
-            return TextStyle(size: 14, weight: .medium)
-        case .description:
-            return TextStyle(size: 12, weight: .bold)
-        case .value:
-            return TextStyle(size: 16, weight: .bold)
-        }
-    }
-}
-
-struct TextView: View {
-    
-    let text: String
-    let color: Color
-    let type: TextType
-    
-    var body: some View {
-        Text(text)
-            .font(.system(size: type.textStyle.size,
-                          weight: type.textStyle.weight,
-                          design: .rounded))
-            .foregroundColor(color)
-    }
-}
 
 enum IconStatus: String {
     case increasing = "arrow.up"
@@ -75,10 +38,7 @@ enum Screen {
     case sleep
 }
 
-struct CardValues {
-    let leftSideContent: String
-    let rightSideContent: String
-}
+
 
 struct CardInformation: View {
     
