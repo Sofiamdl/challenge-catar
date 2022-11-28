@@ -62,7 +62,7 @@ struct ContentView: View {
                     }
                 }
                 .padding(EdgeInsets(top: 24,
-                                    leading: 0, bottom: 0,
+                                    leading: 0, bottom: 12,
                                     trailing: 0))
                 .scrollDisabled(true)
                  .onChange(of: scrolling, perform: { _ in
