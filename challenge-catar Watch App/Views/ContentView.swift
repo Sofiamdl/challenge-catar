@@ -15,50 +15,98 @@ struct Data: Identifiable {
     var value:Int
 }
 
-struct teste: Identifiable {
+struct ScreenAvaiable: Identifiable {
     let id: Int
     let name: String
     var height: CGFloat
 }
 
-class Opa: ObservableObject {
+class ScreenObserver: ObservableObject {
 
-    @Published var testes: [teste] = [
-        teste(id: 0, name: "opa", height: 87),
-        teste(id: 1, name: "opa1", height: 87),
-        teste(id: 2, name: "opa2", height: 87)
+    @Published var screens: [ScreenAvaiable] = [
+        ScreenAvaiable(id: 0, name: "opa", height: 87),
+        ScreenAvaiable(id: 1, name: "opa1", height: 87),
+        ScreenAvaiable(id: 2, name: "opa2", height: 87)
     ]
+}
+
+protocol ScrollableDirection {
+    func execute(with screens: [ScreenAvaiable], andCurrent scrolling: Int) -> ([ScreenAvaiable], Int)
+}
+
+class ScrollUp: ScrollableDirection {
+    
+    func execute(with screens: [ScreenAvaiable], andCurrent scrolling: Int) -> ([ScreenAvaiable], Int) {
+        var newScreens = screens
+        var newScrolling = scrolling
+        newScrolling -= 1
+        if newScrolling < 0 { newScrolling = 0 }
+        newScreens[newScrolling].height = 87
+
+        return (newScreens, newScrolling)
+    }
+}
+
+class ScrollDown: ScrollableDirection {
+    
+    func execute(with screens: [ScreenAvaiable], andCurrent scrolling: Int) -> ([ScreenAvaiable], Int) {
+        var newScreens = screens
+        var newScrolling = scrolling
+        if newScrolling != screens.count - 1 { newScreens[scrolling].height = 70 }
+        newScrolling += 1
+        if newScrolling == screens.count { newScrolling -= 1 }
+        return (newScreens, newScrolling)
+    }
+
+}
+
+class ScrollFactory {
+    
+    static func scrollToUpOrDown(withGesture value: DragGesture.Value) -> ScrollableDirection {
+        if value.translation.height < 0 {
+            return ScrollDown()
+        }
+        return ScrollUp()
+    }
+}
+
+
+
+struct ScreenButton: View {
+    
+    typealias HandleWithUserAction = (() -> ())
+    
+    let screenSelect: ScreenAvaiable
+    let didUseTapButton: HandleWithUserAction
+    
+    var body: some View {
+        Button(action: {
+            didUseTapButton()
+        }, label: {
+            Text("testando")
+                .frame(height: screenSelect.height)
+        })
+    }
 }
 
 struct ContentView: View {
     
     @EnvironmentObject private var coordinator: Coordinator
-    @StateObject var testao = Opa()
-        
+    
+    @ObservedObject var screenObserver = ScreenObserver()
     @State private var scrolling = 0
 
     var body: some View {
         
-        
-//        let cardContent = CardValues(leftSideContent: "5 horas", rightSideContent: "80%")
-//        CardInformation(values: cardContent,
-//                        iconStatus: .withoutIcon,
-//                        title: .today,
-//                        page: .sleep)
-        
-        VStack{
+        VStack {
             Spacer()
             ScrollViewReader { scroll in
-                
                 List {
-                    ForEach(testao.testes, id: \.id){ test in
-                        Button(action: {
+                    ForEach(screenObserver.screens, id: \.id){ screen in
+                        ScreenButton(screenSelect: screen){
                             print("oi")
-                        }, label: {
-                            Text("testando \(test.id)")
-                                .frame(height: test.height)
-                        })
-                        .id(test.id)
+                        }
+                        .id(screen.id)
                     }
                 }
                 .padding(EdgeInsets(top: 24,
@@ -74,30 +122,19 @@ struct ContentView: View {
             }
             .gesture(
                 DragGesture(minimumDistance: 0).onEnded { value in
-                    if value.translation.height < 0 {
-                        testao.testes[scrolling].height = 70
-                        scrolling = (scrolling+1) % testao.testes.count
-      
-                    } else {
-                        scrolling -= 1
-                        testao.testes[scrolling].height = 87
-                        if scrolling < 0 {
-                            scrolling = 0
-                        }
-                        
-                    }
+                    
+                    let scrollDirection = ScrollFactory.scrollToUpOrDown(withGesture: value)
+                    let (screens, newScrolling) = scrollDirection.execute(with: screenObserver.screens,
+                                                                          andCurrent: scrolling)
+                    scrolling = newScrolling
+                    screenObserver.screens = screens
                 }
             )
             Spacer()
         }
     }
-            
 }
             
-//        NavigationStack {
-//            NavigationLink("Some view", destination: SomeView())
-//        }
-
 
 
 struct ContentView_Previews: PreviewProvider {
