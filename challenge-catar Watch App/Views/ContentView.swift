@@ -24,9 +24,9 @@ struct ScreenAvaiable: Identifiable {
 class ScreenObserver: ObservableObject {
 
     @Published var screens: [ScreenAvaiable] = [
-        ScreenAvaiable(id: 0, name: "opa", height: 87),
-        ScreenAvaiable(id: 1, name: "opa1", height: 87),
-        ScreenAvaiable(id: 2, name: "opa2", height: 87)
+        ScreenAvaiable(id: 0, name: "opa", height: 96),
+        ScreenAvaiable(id: 1, name: "opa1", height: 96),
+        ScreenAvaiable(id: 2, name: "opa2", height: 96)
     ]
 }
 
@@ -41,7 +41,7 @@ class ScrollUp: ScrollableDirection {
         var newScrolling = scrolling
         newScrolling -= 1
         if newScrolling < 0 { newScrolling = 0 }
-        newScreens[newScrolling].height = 87
+        newScreens[newScrolling].height = 96
 
         return (newScreens, newScrolling)
     }
@@ -52,7 +52,7 @@ class ScrollDown: ScrollableDirection {
     func execute(with screens: [ScreenAvaiable], andCurrent scrolling: Int) -> ([ScreenAvaiable], Int) {
         var newScreens = screens
         var newScrolling = scrolling
-        if newScrolling != screens.count - 1 { newScreens[scrolling].height = 70 }
+        if newScrolling != screens.count - 1 { newScreens[scrolling].height = 82 }
         newScrolling += 1
         if newScrolling == screens.count { newScrolling -= 1 }
         return (newScreens, newScrolling)
@@ -83,9 +83,16 @@ struct ScreenButton: View {
         Button(action: {
             didUseTapButton()
         }, label: {
-            Text("testando")
+            VStack(alignment: .leading, spacing: 8){
+                Image(systemName: "figure.run")
+                    .foregroundColor(Color(ColorConstant.PURPLE))
+                    .font(.system(size: 38, weight: .bold))
+                TextView(text: "Relatório Semanal",
+                         color: .white,
+                         type: .value)
+            }
         })
-        .frame(width: WKInterfaceDevice.size.width, height: screenSelect.height)
+        .frame(height: screenSelect.height)
     }
 }
 
