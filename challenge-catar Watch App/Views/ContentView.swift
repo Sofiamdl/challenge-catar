@@ -84,8 +84,8 @@ struct ScreenButton: View {
             didUseTapButton()
         }, label: {
             Text("testando")
-                .frame(height: screenSelect.height)
         })
+        .frame(width: WKInterfaceDevice.size.width, height: screenSelect.height)
     }
 }
 
@@ -121,7 +121,7 @@ struct ContentView: View {
                     })
             }
             .gesture(
-                DragGesture(minimumDistance: 0).onEnded { value in
+                DragGesture().onEnded { value in
                     
                     let scrollDirection = ScrollFactory.scrollToUpOrDown(withGesture: value)
                     let (screens, newScrolling) = scrollDirection.execute(with: screenObserver.screens,
