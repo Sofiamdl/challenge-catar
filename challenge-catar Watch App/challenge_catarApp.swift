@@ -14,7 +14,7 @@ struct challenge_catar_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $coordinator.path) {
-                ContentView()
+                AppCore()
                 .navigationDestination(for: Destination.self) { destination in
                     ViewFactory.viewForDestination(destination)
                 }
