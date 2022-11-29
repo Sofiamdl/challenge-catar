@@ -15,9 +15,7 @@ struct Data: Identifiable {
 }
 
 struct AppCore: View {
-    
-    @EnvironmentObject private var coordinator: Coordinator
-    
+        
     private var selectScreen: some View {
         SelectScreen()
             .navigationDestination(for: RouteScreen.self){ route in
@@ -25,7 +23,7 @@ struct AppCore: View {
                 case .runningScreen:
                     SomeView()
                 case .sleepScreen:
-                    SomeView()
+                    TestGraphFile()
                 case .reportScreen:
                     SomeView()
                 }
