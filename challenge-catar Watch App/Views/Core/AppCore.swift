@@ -23,7 +23,7 @@ struct AppCore: View {
             .navigationDestination(for: RouteScreen.self){ route in
                 switch route {
                 case .runningScreen:
-                    SomeView()
+                    RunningScreen()
                 case .sleepScreen:
                     SomeView()
                 case .reportScreen:
