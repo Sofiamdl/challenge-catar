@@ -70,19 +70,19 @@ class ScrollFactory {
     }
 }
 
+struct ScreenButtonViewModel {
+    let imageName: String
+    let textLabel: String
+}
+
 
 
 struct ScreenButton: View {
-    
-    typealias HandleWithUserAction = (() -> ())
-    
+
     let screenSelect: ScreenAvaiable
-    let didUseTapButton: HandleWithUserAction
     
     var body: some View {
-        Button(action: {
-            didUseTapButton()
-        }, label: {
+        NavigationLink(value: Route.sleepScreen, label: {
             VStack(alignment: .leading, spacing: 8){
                 Image(systemName: "figure.run")
                     .foregroundColor(Color(ColorConstant.PURPLE))
@@ -96,40 +96,46 @@ struct ScreenButton: View {
     }
 }
 
-struct ContentView: View {
-    
-    @EnvironmentObject private var coordinator: Coordinator
+enum Route: Hashable {
+    case selectScreen
+    case runningScreen
+    case sleepScreen
+}
+
+struct SelectScreen: View {
     
     @ObservedObject var screenObserver = ScreenObserver()
     @State private var scrolling = 0
-
+    
+    private let insets = EdgeInsets(top: 24,
+                            leading: 0,
+                            bottom: 12,
+                            trailing: 0)
+    
+    private var selectScreenList: some View {
+        List {
+            ForEach(screenObserver.screens, id: \.id){ screen in
+                ScreenButton(screenSelect: screen)
+                .id(screen.id)
+            }
+        }
+        .padding(insets)
+        .scrollDisabled(true)
+    }
+    
     var body: some View {
-        
         VStack {
             Spacer()
             ScrollViewReader { scroll in
-                List {
-                    ForEach(screenObserver.screens, id: \.id){ screen in
-                        ScreenButton(screenSelect: screen){
-                            print("oi")
+                selectScreenList
+                    .onChange(of: scrolling, perform: { _ in
+                        withAnimation {
+                            scroll.scrollTo(scrolling)
                         }
-                        .id(screen.id)
-                    }
-                }
-                .padding(EdgeInsets(top: 24,
-                                    leading: 0, bottom: 12,
-                                    trailing: 0))
-                .scrollDisabled(true)
-                 .onChange(of: scrolling, perform: { _ in
-                     withAnimation{
-                         scroll.scrollTo(scrolling)
-                     }
-
                     })
             }
             .gesture(
                 DragGesture().onEnded { value in
-                    
                     let scrollDirection = ScrollFactory.scrollToUpOrDown(withGesture: value)
                     let (screens, newScrolling) = scrollDirection.execute(with: screenObserver.screens,
                                                                           andCurrent: scrolling)
@@ -141,6 +147,30 @@ struct ContentView: View {
         }
     }
 }
+
+struct ContentView: View {
+    
+    @EnvironmentObject private var coordinator: Coordinator
+    
+    var body: some View {
+        
+        NavigationStack {
+            SelectScreen()
+                .navigationDestination(for: Route.self){ route in
+                    switch route {
+                    case .runningScreen:
+                        SomeView()
+                    case .sleepScreen:
+                        SomeView()
+                    case .selectScreen:
+                        SomeView()
+                    }
+                    
+                }
+        }
+    }
+}
+
             
 
 
@@ -149,3 +179,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
