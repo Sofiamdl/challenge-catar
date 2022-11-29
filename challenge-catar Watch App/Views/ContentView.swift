@@ -32,19 +32,6 @@ class ScreenObserver: ObservableObject {
 
 
 
-
-
-
-class ScrollFactory {
-    
-    static func scrollToUpOrDown(withGesture value: DragGesture.Value) -> ScrollableDirection {
-        if value.translation.height < 0 {
-            return ScrollDown()
-        }
-        return ScrollUp()
-    }
-}
-
 struct ScreenButtonViewModel {
     let imageName: String
     let textLabel: String
