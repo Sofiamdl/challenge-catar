@@ -13,7 +13,7 @@ struct SomeView: View {
             Button("Oi") {
                 print("oi")
             }
-            DailyProgressGraphicView(values: [4,6,5,8,6,8,9], labels: ["S","T","Q","Q","S","S","D"])
+            DailyProgressGraphicView(values: [4,6,5,8,6,8,9], labels: ["S","T","Q","Q","S","S","D"], maxValue: 9, screen: .runningScreen)
         }
     }
 }

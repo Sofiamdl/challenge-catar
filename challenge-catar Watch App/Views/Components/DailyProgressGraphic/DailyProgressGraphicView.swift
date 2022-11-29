@@ -10,15 +10,21 @@ import Charts
 
 struct DailyProgressGraphicView: View {
     
-    let values: [Int]
+    let values: [Float]
     let labels: [String]
+    let maxValue: Float
+    let screen: RouteScreen
+    
+    var blueOrPurple: Color {
+        return screen == .runningScreen ? Color(ColorConstant.BLUE) : Color(ColorConstant.PURPLE)
+    }
     
     var body: some View {
         VStack{
             Spacer().frame(height: 4)
             
             HStack{
-                Image(systemName: "calendar").foregroundStyle(Color(ColorConstant.PURPLE))
+                Image(systemName: "calendar").foregroundStyle(blueOrPurple)
                 Spacer().frame(width: 12)
                 
                 TextView(text: "Progresso Diário", color: .white, type: TextType.graphTitle)
@@ -26,76 +32,44 @@ struct DailyProgressGraphicView: View {
                 Spacer()
             }
             
-            //            HStack{
-            //                Spacer().frame(width: 24)
-            //                Chart{
-            //                    BarMark(
-            //                        x: .value("Dia da semana", "Seg"),
-            //                        y: .value("Tempo", 6)
-            //                    )
-            //
-            //                    BarMark(
-            //                        x: .value("Dia da semana", "Ter"),
-            //                        y: .value("Tempo", 4)
-            //                    )
-            //
-            //                    BarMark(
-            //                        x: .value("Dia da semana", "Qua"),
-            //                        y: .value("Tempo", 5)
-            //                    )
-            //
-            //                    BarMark(
-            //                        x: .value("Dia da semana", "Qui"),
-            //                        y: .value("Tempo", 8)
-            //                    )
-            //
-            //                    BarMark(
-            //                        x: .value("Dia da semana", "Sex"),
-            //                        y: .value("Tempo", 5)
-            //                    )
-            //
-            //                    BarMark(
-            //                        x: .value("Dia da semana", "Sab"),
-            //                        y: .value("Tempo", 9)
-            //                    )
-            //
-            //                    BarMark(
-            //                        x: .value("Dia da semana", "Dom"),
-            //                        y: .value("Tempo", 8)
-            //                    )
-            //                }.foregroundStyle(Color(ColorConstant.PURPLE))
-            //                    .frame(height: 60)
-            //                Spacer().frame(width: 16)
-            //            }
-            
             Spacer().frame(height: 8)
             
-            HStack(alignment: .bottom) {
-                ForEach(values.indices, id: \.self) { index in
-                    
-                    let label = labels[index]
-                    let value = values[index]
-                    
-                    VStack {
-                        HStack {
-                            Rectangle()
-                                .frame(width: 1,height: CGFloat(9*4))
-                                .foregroundColor(Color(ColorConstant.MEDIUM_BLACK))
-                            
-                            ZStack (alignment: .bottom){
-                                Rectangle()
-                                    .frame(width: 8, height: CGFloat(9*4))
-                                    .cornerRadius(4)
-                                    .foregroundStyle(Color.white)
-                                
-                                Rectangle()
-                                    .frame(width: 8, height: CGFloat(value*4))
-                                    .cornerRadius(4)
-                                    .foregroundStyle(Color(ColorConstant.PURPLE))
-                            }
-                        }
-                        TextView(text: label, color: Color(ColorConstant.LIGHT_GRAY), type: TextType.description)
+            VStack{
+                HStack {
+                    VStack (spacing: 16){
+                        TextView(text: "9", color: Color(ColorConstant.LIGHT_GRAY), type: TextType.description)
+                        TextView(text: "0", color: Color(ColorConstant.LIGHT_GRAY), type: TextType.description)
+                        Spacer().frame(height: 4)
                     }
+                    Spacer().frame(width: 12)
+                    ForEach(values.indices, id: \.self) { index in
+                        
+                        let label = labels[index]
+                        let value = values[index]
+                        
+                        VStack {
+                            HStack {
+                                Rectangle()
+                                    .frame(width: 1,height: CGFloat(10*5))
+                                    .foregroundColor(Color(ColorConstant.MEDIUM_BLACK))
+                                
+                                ZStack (alignment: .bottom){
+                                    Rectangle()
+                                        .frame(width: 8, height: CGFloat(45))
+                                        .cornerRadius(4)
+                                        .foregroundStyle(blueOrPurple)
+                                        .opacity(0.26)
+                                    
+                                    Rectangle()
+                                        .frame(width: 8, height: CGFloat((value/maxValue)*45))
+                                        .cornerRadius(4)
+                                        .foregroundStyle(blueOrPurple)
+                                }
+                            }
+                            TextView(text: label, color: Color(ColorConstant.LIGHT_GRAY), type: TextType.description)
+                        }
+                    }
+                    Spacer()
                 }
             }
         }
@@ -104,6 +78,6 @@ struct DailyProgressGraphicView: View {
 
 struct DailyProgressGraphicView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyProgressGraphicView(values: [4,6,5,8,6,8,9], labels: ["S","T","Q","Q","S","S","D"])
+        DailyProgressGraphicView(values: [4,6,5,8,6,8,9], labels: ["S","T","Q","Q","S","S","D"], maxValue: 9, screen: .runningScreen)
     }
 }
