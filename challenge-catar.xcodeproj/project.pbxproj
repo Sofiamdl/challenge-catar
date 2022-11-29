@@ -219,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				0D6B87882935B47500E7C5DA /* SelectScreen.swift */,
+				BF4FFEE6293158D3008C321A /* SomeView.swift */,
+				BF4FFED6293134DD008C321A /* AppCore.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -280,8 +282,6 @@
 			children = (
 				0D6B87872935B46700E7C5DA /* Core */,
 				0D6B875229340D2100E7C5DA /* Components */,
-				BF4FFEE6293158D3008C321A /* SomeView.swift */,
-				BF4FFED6293134DD008C321A /* AppCore.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

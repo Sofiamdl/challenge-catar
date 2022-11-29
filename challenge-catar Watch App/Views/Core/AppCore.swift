@@ -18,19 +18,23 @@ struct AppCore: View {
     
     @EnvironmentObject private var coordinator: Coordinator
     
+    private var selectScreen: some View {
+        SelectScreen()
+            .navigationDestination(for: RouteScreen.self){ route in
+                switch route {
+                case .runningScreen:
+                    SomeView()
+                case .sleepScreen:
+                    SomeView()
+                case .reportScreen:
+                    SomeView()
+                }
+            }
+    }
+    
     var body: some View {
         NavigationStack {
-            SelectScreen()
-                .navigationDestination(for: RouteScreen.self){ route in
-                    switch route {
-                    case .runningScreen:
-                        SomeView()
-                    case .sleepScreen:
-                        SomeView()
-                    case .reportScreen:
-                        SomeView()
-                    }
-                }
+            selectScreen
         }
     }
 }
