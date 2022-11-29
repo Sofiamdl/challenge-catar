@@ -21,6 +21,7 @@
 		0D6B8770293413E200E7C5DA /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B876F293413E200E7C5DA /* Screen.swift */; };
 		0D6B8773293592EC00E7C5DA /* RouteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B8772293592EC00E7C5DA /* RouteScreen.swift */; };
 		0D6B87772935954200E7C5DA /* ScrollableDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B87762935954200E7C5DA /* ScrollableDirection.swift */; };
+		0D6B87792935957B00E7C5DA /* ScrollUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B87782935957B00E7C5DA /* ScrollUp.swift */; };
 		BF4FFED0293134DD008C321A /* challenge-catar Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED4293134DD008C321A /* challenge_catarApp.swift */; };
 		BF4FFED7293134DD008C321A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED6293134DD008C321A /* ContentView.swift */; };
@@ -70,6 +71,7 @@
 		0D6B876F293413E200E7C5DA /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		0D6B8772293592EC00E7C5DA /* RouteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScreen.swift; sourceTree = "<group>"; };
 		0D6B87762935954200E7C5DA /* ScrollableDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableDirection.swift; sourceTree = "<group>"; };
+		0D6B87782935957B00E7C5DA /* ScrollUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollUp.swift; sourceTree = "<group>"; };
 		BF4FFEC9293134DD008C321A /* challenge-catar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFED4293134DD008C321A /* challenge_catarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_catarApp.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				0D6B87762935954200E7C5DA /* ScrollableDirection.swift */,
+				0D6B87782935957B00E7C5DA /* ScrollUp.swift */,
 			);
 			path = Scroll;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				0D6B876B2934128B00E7C5DA /* TitleCardInformation.swift in Sources */,
 				0D6B87772935954200E7C5DA /* ScrollableDirection.swift in Sources */,
 				0D6B876E293412EE00E7C5DA /* ColorConstant.swift in Sources */,
+				0D6B87792935957B00E7C5DA /* ScrollUp.swift in Sources */,
 				BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */,
 				0D6B8773293592EC00E7C5DA /* RouteScreen.swift in Sources */,
 				BF4FFEED29315A52008C321A /* Coordinator.swift in Sources */,

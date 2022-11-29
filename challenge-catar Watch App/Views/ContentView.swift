@@ -31,18 +31,7 @@ class ScreenObserver: ObservableObject {
 
 
 
-class ScrollUp: ScrollableDirection {
-    
-    func execute(with screens: [ScreenAvaiable], andCurrent scrolling: Int) -> ([ScreenAvaiable], Int) {
-        var newScreens = screens
-        var newScrolling = scrolling
-        newScrolling -= 1
-        if newScrolling < 0 { newScrolling = 0 }
-        newScreens[newScrolling].height = 96
 
-        return (newScreens, newScrolling)
-    }
-}
 
 class ScrollDown: ScrollableDirection {
     
