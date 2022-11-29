@@ -29,9 +29,7 @@ class ScreenObserver: ObservableObject {
     ]
 }
 
-protocol ScrollableDirection {
-    func execute(with screens: [ScreenAvaiable], andCurrent scrolling: Int) -> ([ScreenAvaiable], Int)
-}
+
 
 class ScrollUp: ScrollableDirection {
     
