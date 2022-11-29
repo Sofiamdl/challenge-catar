@@ -13,12 +13,7 @@ struct SelectScreen: View {
     @State private var scrolling = 0
     
     private let routesScreen: [RouteScreen] = [ .reportScreen, .runningScreen, .sleepScreen ]
-    
-    private let insets = EdgeInsets(top: 12,
-                            leading: 0,
-                            bottom: 0,
-                            trailing: 0)
-    
+
     private var selectScreenList: some View {
         List {
             ForEach(0..<screenObserver.screens.count){ index in
@@ -29,7 +24,6 @@ struct SelectScreen: View {
                 .id(screen.id)
             }
         }
-        .padding(insets)
         .scrollDisabled(true)
     }
     
