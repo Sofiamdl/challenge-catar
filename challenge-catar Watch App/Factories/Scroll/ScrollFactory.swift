@@ -5,7 +5,7 @@
 //  Created by alexdamascena on 28/11/22.
 //
 
-import Foundation
+import SwiftUI
 
 class ScrollFactory {
     

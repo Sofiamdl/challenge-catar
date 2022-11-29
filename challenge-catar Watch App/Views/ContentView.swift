@@ -14,46 +14,36 @@ struct Data: Identifiable {
     var value:Int
 }
 
-struct ScreenAvaiable: Identifiable {
-    let id: Int
-    let name: String
-    var height: CGFloat
-}
+
 
 class ScreenObserver: ObservableObject {
 
     @Published var screens: [ScreenAvaiable] = [
-        ScreenAvaiable(id: 0, name: "opa", height: 96),
-        ScreenAvaiable(id: 1, name: "opa1", height: 96),
-        ScreenAvaiable(id: 2, name: "opa2", height: 96)
+        ScreenAvaiable(id: 0, name: "Relatório Semanal", height: 96),
+        ScreenAvaiable(id: 1, name: "Acompanhe Corrida", height: 96),
+        ScreenAvaiable(id: 2, name: "Acompanhe Sono", height: 96)
     ]
 }
-
-
-
-
-struct ScreenButtonViewModel {
-    let imageName: String
-    let textLabel: String
-}
-
 
 struct ScreenButton: View {
 
     let screenSelect: ScreenAvaiable
+    let withRouteScreen: RouteScreen
     
     var body: some View {
-        NavigationLink(value: RouteScreen.sleepScreen, label: {
+        NavigationLink(value: withRouteScreen, label: {
             VStack(alignment: .leading, spacing: 8){
-                Image(systemName: "figure.run")
+                Image(systemName: withRouteScreen.imageName)
                     .foregroundColor(Color(ColorConstant.PURPLE))
                     .font(.system(size: 38, weight: .bold))
-                TextView(text: "Relatório Semanal",
+                TextView(text: screenSelect.name,
                          color: .white,
                          type: .value)
             }
+
         })
         .frame(height: screenSelect.height)
+        
     }
 }
 
@@ -63,6 +53,10 @@ struct SelectScreen: View {
     @ObservedObject var screenObserver = ScreenObserver()
     @State private var scrolling = 0
     
+    private let routesScreen: [RouteScreen] = [
+        .reportScreen, .runningScreen, .sleepScreen
+    ]
+    
     private let insets = EdgeInsets(top: 24,
                             leading: 0,
                             bottom: 12,
@@ -70,8 +64,11 @@ struct SelectScreen: View {
     
     private var selectScreenList: some View {
         List {
-            ForEach(screenObserver.screens, id: \.id){ screen in
-                ScreenButton(screenSelect: screen)
+            ForEach(0..<screenObserver.screens.count){ index in
+                let screen = screenObserver.screens[index]
+                let route = routesScreen[index]
+                ScreenButton(screenSelect: screenObserver.screens[index],
+                             withRouteScreen: route)
                 .id(screen.id)
             }
         }
@@ -117,16 +114,14 @@ struct ContentView: View {
                         SomeView()
                     case .sleepScreen:
                         SomeView()
-                    case .selectScreen:
+                    case .reportScreen:
                         SomeView()
                     }
-                    
                 }
         }
     }
 }
 
-            
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
