@@ -12,7 +12,7 @@ struct Avarage: View {
     let distancePerHour: String
     let sleepingHours: String
     
-    private var contentView: some View {
+    private var avarageInformation: some View {
         HStack(spacing: 12) {
             createIcon(withImage: "figure.run")
             TextView(text: distancePerHour,
@@ -32,7 +32,7 @@ struct Avarage: View {
             TextView(text: "Médias",
                      color: Color(ColorConstant.LIGHT_GRAY),
                      type: .description)
-            contentView
+            avarageInformation
         }
     }
     
