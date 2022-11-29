@@ -37,7 +37,7 @@ struct DailyProgressGraphicView: View {
             VStack{
                 HStack {
                     VStack (spacing: 16){
-                        TextView(text: "9", color: Color(ColorConstant.LIGHT_GRAY), type: TextType.description)
+                        TextView(text: String(Int(maxValue)), color: Color(ColorConstant.LIGHT_GRAY), type: TextType.description)
                         TextView(text: "0", color: Color(ColorConstant.LIGHT_GRAY), type: TextType.description)
                         Spacer().frame(height: 4)
                     }
