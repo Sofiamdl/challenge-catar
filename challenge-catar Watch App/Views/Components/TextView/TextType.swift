@@ -12,6 +12,7 @@ enum TextType {
     case title
     case description
     case value
+    case graphTitle
     
     var textStyle: TextStyle {
         switch self {
@@ -21,6 +22,8 @@ enum TextType {
             return TextStyle(size: 12, weight: .bold)
         case .value:
             return TextStyle(size: 16, weight: .bold)
+        case .graphTitle:
+            return TextStyle(size: 12, weight: .medium)
         }
     }
 }

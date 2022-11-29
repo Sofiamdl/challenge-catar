@@ -37,6 +37,7 @@
 		BF4FFEE7293158D3008C321A /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEE6293158D3008C321A /* SomeView.swift */; };
 		BF4FFEEA293159F5008C321A /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEE9293159F5008C321A /* ViewFactory.swift */; };
 		BF4FFEED29315A52008C321A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEEC29315A52008C321A /* Coordinator.swift */; };
+		CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		BF4FFEE6293158D3008C321A /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		BF4FFEE9293159F5008C321A /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		BF4FFEEC29315A52008C321A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressGraphicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				0D6B878A2936792800E7C5DA /* Avarage */,
+				CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */,
 				0D6B87832935B42700E7C5DA /* ScreenButton */,
 				0D6B8765293411D000E7C5DA /* CardInformation */,
 				0D6B875B29340FC500E7C5DA /* TextView */,
@@ -297,6 +300,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */ = {
+			isa = PBXGroup;
+			children = (
+				CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */,
+			);
+			path = DailyProgressGraphic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -396,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D6B877F2935B0FA00E7C5DA /* ScreenAvaiable.swift in Sources */,
+				CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */,
 				0D6B8767293411F900E7C5DA /* CardInformation.swift in Sources */,
 				0D6B875A29340FA100E7C5DA /* WKInterfaceDevice+Size.swift in Sources */,
 				0D6B87892935B47500E7C5DA /* SelectScreen.swift in Sources */,
