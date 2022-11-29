@@ -11,4 +11,5 @@ struct ColorConstant {
     static let BLUE = "blue"
     static let LIGHT_GRAY = "light_gray"
     static let PURPLE = "purple"
+    static let MEDIUM_BLACK = "medium_black"
 }
