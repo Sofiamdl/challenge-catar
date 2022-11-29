@@ -14,9 +14,9 @@ struct SelectScreen: View {
     
     private let routesScreen: [RouteScreen] = [ .reportScreen, .runningScreen, .sleepScreen ]
     
-    private let insets = EdgeInsets(top: 24,
+    private let insets = EdgeInsets(top: 12,
                             leading: 0,
-                            bottom: 12,
+                            bottom: 0,
                             trailing: 0)
     
     private var selectScreenList: some View {
