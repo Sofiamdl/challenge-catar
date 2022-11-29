@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Route: Hashable {
+enum RouteScreen: Hashable {
     case selectScreen
     case runningScreen
     case sleepScreen

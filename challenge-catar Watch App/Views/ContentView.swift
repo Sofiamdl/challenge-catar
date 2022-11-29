@@ -10,7 +10,6 @@ import Charts
 
 struct Data: Identifiable {
     var id: String
-    
     var time: Int
     var value:Int
 }
@@ -57,7 +56,6 @@ class ScrollDown: ScrollableDirection {
         if newScrolling == screens.count { newScrolling -= 1 }
         return (newScreens, newScrolling)
     }
-
 }
 
 class ScrollFactory {
@@ -81,7 +79,7 @@ struct ScreenButton: View {
     let screenSelect: ScreenAvaiable
     
     var body: some View {
-        NavigationLink(value: Route.sleepScreen, label: {
+        NavigationLink(value: RouteScreen.sleepScreen, label: {
             VStack(alignment: .leading, spacing: 8){
                 Image(systemName: "figure.run")
                     .foregroundColor(Color(ColorConstant.PURPLE))
@@ -94,7 +92,6 @@ struct ScreenButton: View {
         .frame(height: screenSelect.height)
     }
 }
-
 
 
 struct SelectScreen: View {
@@ -148,10 +145,9 @@ struct ContentView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
-        
         NavigationStack {
             SelectScreen()
-                .navigationDestination(for: Route.self){ route in
+                .navigationDestination(for: RouteScreen.self){ route in
                     switch route {
                     case .runningScreen:
                         SomeView()
