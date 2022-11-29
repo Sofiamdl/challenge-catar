@@ -37,6 +37,7 @@
 		BF4FFEE7293158D3008C321A /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEE6293158D3008C321A /* SomeView.swift */; };
 		BF4FFEF429364F51008C321A /* TestGraphFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF329364F51008C321A /* TestGraphFile.swift */; };
 		BF4FFEF729366A4D008C321A /* IdealSleepGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */; };
+		BF4FFEF929369916008C321A /* ReportsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF829369916008C321A /* ReportsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		BF4FFEE6293158D3008C321A /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		BF4FFEF329364F51008C321A /* TestGraphFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGraphFile.swift; sourceTree = "<group>"; };
 		BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealSleepGraph.swift; sourceTree = "<group>"; };
+		BF4FFEF829369916008C321A /* ReportsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				BF4FFEE6293158D3008C321A /* SomeView.swift */,
 				BF4FFED6293134DD008C321A /* AppCore.swift */,
 				BF4FFEF329364F51008C321A /* TestGraphFile.swift */,
+				BF4FFEF829369916008C321A /* ReportsScreen.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				0D6B876B2934128B00E7C5DA /* TitleCardInformation.swift in Sources */,
 				0D6B87772935954200E7C5DA /* ScrollableDirection.swift in Sources */,
 				0D6B876E293412EE00E7C5DA /* ColorConstant.swift in Sources */,
+				BF4FFEF929369916008C321A /* ReportsScreen.swift in Sources */,
 				0D6B87792935957B00E7C5DA /* ScrollUp.swift in Sources */,
 				BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */,
 				0D6B877D293596AF00E7C5DA /* ScrollFactory.swift in Sources */,
