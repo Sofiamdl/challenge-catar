@@ -76,7 +76,6 @@ struct ScreenButtonViewModel {
 }
 
 
-
 struct ScreenButton: View {
 
     let screenSelect: ScreenAvaiable
@@ -96,11 +95,7 @@ struct ScreenButton: View {
     }
 }
 
-enum Route: Hashable {
-    case selectScreen
-    case runningScreen
-    case sleepScreen
-}
+
 
 struct SelectScreen: View {
     
@@ -172,8 +167,6 @@ struct ContentView: View {
 }
 
             
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
