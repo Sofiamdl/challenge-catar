@@ -27,17 +27,21 @@ struct SelectScreen: View {
         .scrollDisabled(true)
     }
     
+    private var scrollViewReaderWithAnimation: some View {
+        ScrollViewReader { scroll in
+            selectScreenList
+                .onChange(of: scrolling, perform: { _ in
+                    withAnimation {
+                        scroll.scrollTo(scrolling)
+                    }
+                })
+        }
+    }
+    
     var body: some View {
         VStack {
             Spacer()
-            ScrollViewReader { scroll in
-                selectScreenList
-                    .onChange(of: scrolling, perform: { _ in
-                        withAnimation {
-                            scroll.scrollTo(scrolling)
-                        }
-                    })
-            }
+            scrollViewReaderWithAnimation
             .gesture(
                 DragGesture().onEnded { value in
                     let scrollDirection = ScrollFactory.scrollToUpOrDown(withGesture: value)

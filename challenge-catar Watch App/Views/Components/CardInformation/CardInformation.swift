@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct CardInformation: View {
     
     let values: CardValues
@@ -16,10 +18,24 @@ struct CardInformation: View {
     
     let insets = EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0)
     
+    private struct TitleLabel {
+        let leftLabel: String
+        let rightLabel: String
+    }
+    
+    private var blueOrPurple: Color {
+        return page == .running ? Color(ColorConstant.BLUE) : Color(ColorConstant.PURPLE)
+    }
+    
+    private var titleToWrite: TitleLabel {
+        if page == .sleep { return TitleLabel(leftLabel: "Tempo", rightLabel: "Qualidade")}
+        return TitleLabel(leftLabel: "Distância", rightLabel: "Velocidade")
+    }
+    
     private var titleLabel: some View {
         HStack(spacing: 10){
             TextView(text: title.rawValue,
-                     color: Color(page == .sleep ? ColorConstant.PURPLE : ColorConstant.BLUE),
+                     color: blueOrPurple,
                      type: .title)
             .padding(insets)
             
@@ -35,10 +51,10 @@ struct CardInformation: View {
     
     private var subtitleLabel: some View {
         HStack(spacing: page == .sleep ? 56 : 40){
-            TextView(text: page == .sleep ? "Tempo" : "Distância",
+            TextView(text: titleToWrite.leftLabel,
                      color: Color(ColorConstant.LIGHT_GRAY),
                      type: .description)
-            TextView(text: page == .sleep ? "Qualidade" : "Velocidade",
+            TextView(text: titleToWrite.rightLabel,
                      color: Color(ColorConstant.LIGHT_GRAY),
                      type: .description)
         }
@@ -51,7 +67,7 @@ struct CardInformation: View {
                      color: .white,
                      type: .value)
             Line(orienttion: .vertical,
-                 withColor: Color(page == .sleep ? ColorConstant.PURPLE : ColorConstant.BLUE))
+                 withColor: blueOrPurple)
             
             TextView(text: values.rightSideContent,
                      color: .white,
@@ -67,7 +83,7 @@ struct CardInformation: View {
             informationLabel
             
             Line(orienttion: .horizontal,
-                 withColor: Color(page == .sleep ? ColorConstant.PURPLE : ColorConstant.BLUE))
+                 withColor: blueOrPurple)
         }
     }
 }

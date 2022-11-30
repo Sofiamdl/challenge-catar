@@ -35,7 +35,7 @@ struct RunningScreen: View {
             }
             .padding()
         }
-        .navigationBarTitle("corrida")
+        .navigationBarTitle("Corrida")
     }
 }
 
