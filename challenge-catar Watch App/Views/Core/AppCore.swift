@@ -8,12 +8,6 @@
 import SwiftUI
 import Charts
 
-struct Data: Identifiable {
-    var id: String
-    var time: Int
-    var value:Int
-}
-
 struct AppCore: View {
         
     private var selectScreen: some View {
@@ -21,7 +15,7 @@ struct AppCore: View {
             .navigationDestination(for: RouteScreen.self){ route in
                 switch route {
                 case .runningScreen:
-                    SomeView()
+                    RunningScreen()
                 case .sleepScreen:
                     TestGraphFile()
                 case .reportScreen:

@@ -17,7 +17,7 @@ struct CardInformation: View {
     let insets = EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0)
     
     private var titleLabel: some View {
-        HStack(spacing: 8){
+        HStack(spacing: 10){
             TextView(text: title.rawValue,
                      color: Color(page == .sleep ? ColorConstant.PURPLE : ColorConstant.BLUE),
                      type: .title)
