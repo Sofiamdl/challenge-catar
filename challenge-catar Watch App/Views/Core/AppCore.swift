@@ -17,7 +17,7 @@ struct AppCore: View {
                 case .runningScreen:
                     RunningScreen()
                 case .sleepScreen:
-                    TestGraphFile()
+                    SleepScreen()
                 case .reportScreen:
                     SomeView()
                 }
