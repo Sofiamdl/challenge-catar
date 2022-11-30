@@ -19,7 +19,7 @@ struct ReportsScreen: View {
                     .padding(.top, 2)
                     .padding(.bottom, 2)
                 Line(orienttion: .horizontal, withColor: Color(ColorConstant.BLUE))
-                TextView(text: "A porcentagem ideal é acima de 85% enquanto a sua foi de x%.", color: Color(ColorConstant.LIGHT_GRAY), type: .idealSleep)
+                TextView(text: "A porcentagem ideal é acima de 85% enquanto a sua foi de x%.", color: Color(ColorConstant.LIGHT_GRAY), type: .regular)
                 Line(orienttion: .horizontal, withColor: Color(ColorConstant.BLUE))
                 TextView(text: "Aqui estão algumas dicas para melhorar sua qualidade de sono:", color: Color(ColorConstant.BLUE), type: .idealSleep)
                 BulletList(elements: ["Estabeleça uma rotina de sono.",

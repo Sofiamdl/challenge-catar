@@ -16,7 +16,8 @@ enum TextType {
     case idealSleep
     case secondValue
     case reportDescription
-
+    case regular
+    
 
     var textStyle: TextStyle {
         switch self {
@@ -34,6 +35,9 @@ enum TextType {
             return TextStyle(size: 16, weight: .medium)
         case .reportDescription:
             return TextStyle(size: 13, weight: .medium)
+        case .regular:
+            return TextStyle(size: 12, weight: .regular)
+
         }
         
     }
