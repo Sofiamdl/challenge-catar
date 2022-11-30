@@ -14,6 +14,7 @@ struct ReportsScreen: View {
                 Avarage(distancePerHour: "50k", sleepingHours: "4h")
                 IdealSleepGraph(idealSleepInMinute: 5, averageMinutesSlept: 4)
             }
+            .navigationBarTitle("Relatório Semanal")
             .padding()
             
         }

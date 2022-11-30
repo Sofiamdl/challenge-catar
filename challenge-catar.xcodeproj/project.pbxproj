@@ -29,15 +29,17 @@
 		0D6B87852935B43700E7C5DA /* ScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B87842935B43700E7C5DA /* ScreenButton.swift */; };
 		0D6B87892935B47500E7C5DA /* SelectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B87882935B47500E7C5DA /* SelectScreen.swift */; };
 		0D6B878E2936796F00E7C5DA /* Avarage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B878D2936796F00E7C5DA /* Avarage.swift */; };
+		0D6B87902936901800E7C5DA /* RunningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B878F2936901800E7C5DA /* RunningScreen.swift */; };
+		0D6B879229373EFF00E7C5DA /* SleepScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B879129373EFF00E7C5DA /* SleepScreen.swift */; };
 		BF4FFED0293134DD008C321A /* challenge-catar Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED4293134DD008C321A /* challenge_catarApp.swift */; };
 		BF4FFED7293134DD008C321A /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED6293134DD008C321A /* AppCore.swift */; };
 		BF4FFED9293134DF008C321A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4FFED8293134DF008C321A /* Assets.xcassets */; };
 		BF4FFEDC293134DF008C321A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4FFEDB293134DF008C321A /* Preview Assets.xcassets */; };
 		BF4FFEE7293158D3008C321A /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEE6293158D3008C321A /* SomeView.swift */; };
-		BF4FFEF429364F51008C321A /* TestGraphFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF329364F51008C321A /* TestGraphFile.swift */; };
 		BF4FFEF729366A4D008C321A /* IdealSleepGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */; };
 		BF4FFEF929369916008C321A /* ReportsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF829369916008C321A /* ReportsScreen.swift */; };
+		CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		0D6B87842935B43700E7C5DA /* ScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenButton.swift; sourceTree = "<group>"; };
 		0D6B87882935B47500E7C5DA /* SelectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectScreen.swift; sourceTree = "<group>"; };
 		0D6B878D2936796F00E7C5DA /* Avarage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avarage.swift; sourceTree = "<group>"; };
+		0D6B878F2936901800E7C5DA /* RunningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningScreen.swift; sourceTree = "<group>"; };
+		0D6B879129373EFF00E7C5DA /* SleepScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepScreen.swift; sourceTree = "<group>"; };
 		BF4FFEC9293134DD008C321A /* challenge-catar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFED4293134DD008C321A /* challenge_catarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_catarApp.swift; sourceTree = "<group>"; };
@@ -94,9 +98,9 @@
 		BF4FFED8293134DF008C321A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF4FFEDB293134DF008C321A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF4FFEE6293158D3008C321A /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
-		BF4FFEF329364F51008C321A /* TestGraphFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGraphFile.swift; sourceTree = "<group>"; };
 		BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealSleepGraph.swift; sourceTree = "<group>"; };
 		BF4FFEF829369916008C321A /* ReportsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsScreen.swift; sourceTree = "<group>"; };
+		CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressGraphicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		0D6B875229340D2100E7C5DA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */,
 				BF4FFEF5293669DC008C321A /* IdealSleepGraph */,
 				0D6B878A2936792800E7C5DA /* Avarage */,
 				0D6B87832935B42700E7C5DA /* ScreenButton */,
@@ -229,6 +234,8 @@
 				BF4FFED6293134DD008C321A /* AppCore.swift */,
 				BF4FFEF329364F51008C321A /* TestGraphFile.swift */,
 				BF4FFEF829369916008C321A /* ReportsScreen.swift */,
+				0D6B878F2936901800E7C5DA /* RunningScreen.swift */,
+				0D6B879129373EFF00E7C5DA /* SleepScreen.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -298,6 +305,14 @@
 				BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */,
 			);
 			path = IdealSleepGraph;
+			sourceTree = "<group>";
+		};
+		CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */ = {
+			isa = PBXGroup;
+			children = (
+				CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */,
+			);
+			path = DailyProgressGraphic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D6B877F2935B0FA00E7C5DA /* ScreenAvaiable.swift in Sources */,
+				CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */,
 				0D6B8767293411F900E7C5DA /* CardInformation.swift in Sources */,
 				0D6B875A29340FA100E7C5DA /* WKInterfaceDevice+Size.swift in Sources */,
 				0D6B87892935B47500E7C5DA /* SelectScreen.swift in Sources */,
@@ -407,7 +423,7 @@
 				0D6B875729340D5400E7C5DA /* LineOrientation.swift in Sources */,
 				0D6B87692934125500E7C5DA /* IconStatus.swift in Sources */,
 				BF4FFED7293134DD008C321A /* AppCore.swift in Sources */,
-				BF4FFEF429364F51008C321A /* TestGraphFile.swift in Sources */,
+				0D6B879229373EFF00E7C5DA /* SleepScreen.swift in Sources */,
 				0D6B876B2934128B00E7C5DA /* TitleCardInformation.swift in Sources */,
 				0D6B87772935954200E7C5DA /* ScrollableDirection.swift in Sources */,
 				0D6B876E293412EE00E7C5DA /* ColorConstant.swift in Sources */,
@@ -426,6 +442,7 @@
 				0D6B8770293413E200E7C5DA /* Screen.swift in Sources */,
 				0D6B875F293410D300E7C5DA /* TextType.swift in Sources */,
 				0D6B87822935B3E000E7C5DA /* ScreenObserver.swift in Sources */,
+				0D6B87902936901800E7C5DA /* RunningScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
