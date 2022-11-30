@@ -8,12 +8,6 @@
 import SwiftUI
 import Charts
 
-struct Data: Identifiable {
-    var id: String
-    var time: Int
-    var value:Int
-}
-
 struct AppCore: View {
         
     private var selectScreen: some View {
