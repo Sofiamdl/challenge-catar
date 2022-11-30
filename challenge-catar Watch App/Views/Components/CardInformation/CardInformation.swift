@@ -16,10 +16,14 @@ struct CardInformation: View {
     
     let insets = EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0)
     
+    private var blueOrPurple: Color {
+        return page == .running ? Color(ColorConstant.BLUE) : Color(ColorConstant.PURPLE)
+    }
+    
     private var titleLabel: some View {
         HStack(spacing: 10){
             TextView(text: title.rawValue,
-                     color: Color(page == .sleep ? ColorConstant.PURPLE : ColorConstant.BLUE),
+                     color: blueOrPurple,
                      type: .title)
             .padding(insets)
             
@@ -51,7 +55,7 @@ struct CardInformation: View {
                      color: .white,
                      type: .value)
             Line(orienttion: .vertical,
-                 withColor: Color(page == .sleep ? ColorConstant.PURPLE : ColorConstant.BLUE))
+                 withColor: blueOrPurple)
             
             TextView(text: values.rightSideContent,
                      color: .white,
@@ -67,7 +71,7 @@ struct CardInformation: View {
             informationLabel
             
             Line(orienttion: .horizontal,
-                 withColor: Color(page == .sleep ? ColorConstant.PURPLE : ColorConstant.BLUE))
+                 withColor: blueOrPurple)
         }
     }
 }
