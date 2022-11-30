@@ -97,7 +97,9 @@ struct DailyProgressGraphicView: View {
                             .opacity(0.8)
                     }
                     else {
-                        Rectangle().frame(width: 130, height: 1)
+                        Rectangle()
+                            .strokeBorder(style: StrokeStyle(dash: [3.1]))
+                            .frame(width: 130, height: 1)
                             .offset(x: 17,y: (CGFloat(avg/(values.max() ?? 0))*(-44))+13)
                             .foregroundColor(Color.red)
                             .opacity(0.8)
@@ -116,6 +118,6 @@ extension Date {
 
 struct DailyProgressGraphicView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyProgressGraphicView(values: [0,0,0,9,8,8,9], screen: .runningScreen)
+        DailyProgressGraphicView(values: [0,0,0,0,0,0,9], screen: .runningScreen)
     }
 }
