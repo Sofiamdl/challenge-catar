@@ -19,7 +19,7 @@ struct AppCore: View {
                 case .sleepScreen:
                     SleepScreen()
                 case .reportScreen:
-                    SomeView()
+                    ReportsScreen()
                 }
             }
     }

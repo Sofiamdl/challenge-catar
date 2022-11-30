@@ -41,6 +41,8 @@ struct IdealSleepGraph: View {
                 TextView(text: hoursShown, color: .white, type: .value)
             }
         }
+        .frame(width: 150, height: 110)
+
     }
 }
 
