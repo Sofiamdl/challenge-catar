@@ -35,6 +35,9 @@
 		BF4FFED9293134DF008C321A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4FFED8293134DF008C321A /* Assets.xcassets */; };
 		BF4FFEDC293134DF008C321A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4FFEDB293134DF008C321A /* Preview Assets.xcassets */; };
 		BF4FFEE7293158D3008C321A /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEE6293158D3008C321A /* SomeView.swift */; };
+		BF4FFEEA293159F5008C321A /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEE9293159F5008C321A /* ViewFactory.swift */; };
+		BF4FFEED29315A52008C321A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEEC29315A52008C321A /* Coordinator.swift */; };
+		CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */; };
 		BF4FFEF429364F51008C321A /* TestGraphFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF329364F51008C321A /* TestGraphFile.swift */; };
 		BF4FFEF729366A4D008C321A /* IdealSleepGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +96,9 @@
 		BF4FFED8293134DF008C321A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF4FFEDB293134DF008C321A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF4FFEE6293158D3008C321A /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
+		BF4FFEE9293159F5008C321A /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
+		BF4FFEEC29315A52008C321A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressGraphicView.swift; sourceTree = "<group>"; };
 		BF4FFEF329364F51008C321A /* TestGraphFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGraphFile.swift; sourceTree = "<group>"; };
 		BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealSleepGraph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +117,7 @@
 		0D6B875229340D2100E7C5DA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */,
 				BF4FFEF5293669DC008C321A /* IdealSleepGraph */,
 				0D6B878A2936792800E7C5DA /* Avarage */,
 				0D6B87832935B42700E7C5DA /* ScreenButton */,
@@ -289,6 +296,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */ = {
+			isa = PBXGroup;
+			children = (
+				CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */,
+			);
+			path = DailyProgressGraphic;
+			sourceTree = "<group>";
+		};
 		BF4FFEF5293669DC008C321A /* IdealSleepGraph */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D6B877F2935B0FA00E7C5DA /* ScreenAvaiable.swift in Sources */,
+				CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */,
 				0D6B8767293411F900E7C5DA /* CardInformation.swift in Sources */,
 				0D6B875A29340FA100E7C5DA /* WKInterfaceDevice+Size.swift in Sources */,
 				0D6B87892935B47500E7C5DA /* SelectScreen.swift in Sources */,
