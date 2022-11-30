@@ -30,7 +30,6 @@ struct RunningScreen: View {
                 
                 DailyProgressGraphicView(values: [1,2,3,4,5,6,7],
                                          labels: ["S", "T", "Q", "Q", "S", "S", "D"],
-                                         maxValue: 7,
                                          screen: .runningScreen)
             }
             .padding()
