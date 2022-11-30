@@ -17,7 +17,7 @@ enum LineOrientation {
         case .horizontal:
             return CGSize(width: WKInterfaceDevice.size.width, height: 1)
         case .vertical:
-            return CGSize(width: 3, height: 19)
+            return CGSize(width: 2, height: 19)
         }
     }
 }
