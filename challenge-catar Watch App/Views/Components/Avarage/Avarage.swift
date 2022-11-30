@@ -13,25 +13,25 @@ struct Avarage: View {
     let sleepingHours: String
     
     private var avarageInformation: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: 8) {
             createIcon(withImage: "figure.run")
             TextView(text: distancePerHour,
                      color: .white,
-                     type: .value)
+                     type: .title)
             Line(orienttion: .vertical,
                  withColor: Color(ColorConstant.PURPLE))
             createIcon(withImage: "bed.double.fill")
             TextView(text: sleepingHours,
                      color: .white,
-                     type: .value)
+                     type: .title)
         }
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8){
             TextView(text: "Médias",
-                     color: Color(ColorConstant.LIGHT_GRAY),
-                     type: .description)
+                     color: .white,
+                     type: .secondValue)
             avarageInformation
         }
     }

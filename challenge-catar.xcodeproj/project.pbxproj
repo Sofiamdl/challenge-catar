@@ -39,6 +39,7 @@
 		BF4FFEE7293158D3008C321A /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEE6293158D3008C321A /* SomeView.swift */; };
 		BF4FFEF729366A4D008C321A /* IdealSleepGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */; };
 		BF4FFEF929369916008C321A /* ReportsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF829369916008C321A /* ReportsScreen.swift */; };
+		BF4FFEFD2937C7EE008C321A /* BulletList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEFC2937C7EE008C321A /* BulletList.swift */; };
 		CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		BF4FFEE6293158D3008C321A /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealSleepGraph.swift; sourceTree = "<group>"; };
 		BF4FFEF829369916008C321A /* ReportsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsScreen.swift; sourceTree = "<group>"; };
+		BF4FFEFC2937C7EE008C321A /* BulletList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletList.swift; sourceTree = "<group>"; };
 		CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressGraphicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 		0D6B875229340D2100E7C5DA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BF4FFEFB2937C7D2008C321A /* BulletList */,
 				CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */,
 				BF4FFEF5293669DC008C321A /* IdealSleepGraph */,
 				0D6B878A2936792800E7C5DA /* Avarage */,
@@ -232,7 +235,6 @@
 				0D6B87882935B47500E7C5DA /* SelectScreen.swift */,
 				BF4FFEE6293158D3008C321A /* SomeView.swift */,
 				BF4FFED6293134DD008C321A /* AppCore.swift */,
-				BF4FFEF329364F51008C321A /* TestGraphFile.swift */,
 				BF4FFEF829369916008C321A /* ReportsScreen.swift */,
 				0D6B878F2936901800E7C5DA /* RunningScreen.swift */,
 				0D6B879129373EFF00E7C5DA /* SleepScreen.swift */,
@@ -305,6 +307,14 @@
 				BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */,
 			);
 			path = IdealSleepGraph;
+			sourceTree = "<group>";
+		};
+		BF4FFEFB2937C7D2008C321A /* BulletList */ = {
+			isa = PBXGroup;
+			children = (
+				BF4FFEFC2937C7EE008C321A /* BulletList.swift */,
+			);
+			path = BulletList;
 			sourceTree = "<group>";
 		};
 		CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */ = {
@@ -442,6 +452,7 @@
 				0D6B8770293413E200E7C5DA /* Screen.swift in Sources */,
 				0D6B875F293410D300E7C5DA /* TextType.swift in Sources */,
 				0D6B87822935B3E000E7C5DA /* ScreenObserver.swift in Sources */,
+				BF4FFEFD2937C7EE008C321A /* BulletList.swift in Sources */,
 				0D6B87902936901800E7C5DA /* RunningScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

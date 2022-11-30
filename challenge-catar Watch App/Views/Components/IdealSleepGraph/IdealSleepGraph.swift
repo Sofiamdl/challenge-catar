@@ -37,12 +37,10 @@ struct IdealSleepGraph: View {
             }
             .frame(width: 150, height: 5)
             VStack {
-                TextView(text: "Sono Ideal:", color: Color(ColorConstant.LIGHT_GRAY), type: .idealSleep)
+                TextView(text: "Sono Ideal", color: Color(ColorConstant.LIGHT_GRAY), type: .idealSleep)
                 TextView(text: hoursShown, color: .white, type: .value)
             }
         }
-        .frame(width: 150, height: 110)
-
     }
 }
 
