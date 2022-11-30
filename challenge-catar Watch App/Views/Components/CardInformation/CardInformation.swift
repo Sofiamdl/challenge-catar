@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct CardInformation: View {
     
     let values: CardValues
@@ -16,8 +18,18 @@ struct CardInformation: View {
     
     let insets = EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0)
     
+    private struct TitleLabel {
+        let leftLabel: String
+        let rightLabel: String
+    }
+    
     private var blueOrPurple: Color {
         return page == .running ? Color(ColorConstant.BLUE) : Color(ColorConstant.PURPLE)
+    }
+    
+    private var titleToWrite: TitleLabel {
+        if page == .sleep { return TitleLabel(leftLabel: "Tempo", rightLabel: "Qualidade")}
+        return TitleLabel(leftLabel: "Distância", rightLabel: "Velocidade")
     }
     
     private var titleLabel: some View {
@@ -39,10 +51,10 @@ struct CardInformation: View {
     
     private var subtitleLabel: some View {
         HStack(spacing: page == .sleep ? 56 : 40){
-            TextView(text: page == .sleep ? "Tempo" : "Distância",
+            TextView(text: titleToWrite.leftLabel,
                      color: Color(ColorConstant.LIGHT_GRAY),
                      type: .description)
-            TextView(text: page == .sleep ? "Qualidade" : "Velocidade",
+            TextView(text: titleToWrite.rightLabel,
                      color: Color(ColorConstant.LIGHT_GRAY),
                      type: .description)
         }
