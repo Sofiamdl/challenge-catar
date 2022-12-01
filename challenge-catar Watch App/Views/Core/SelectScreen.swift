@@ -12,8 +12,10 @@ struct SelectScreen: View {
     @ObservedObject var screenObserver = ScreenObserver()
     @State private var scrolling = 0
     
+    let healthSession = HealthSession()
+    
     private let routesScreen: [RouteScreen] = [ .reportScreen, .runningScreen, .sleepScreen ]
-
+    
     private var selectScreenList: some View {
         List {
             ForEach(0..<screenObserver.screens.count){ index in
@@ -52,6 +54,11 @@ struct SelectScreen: View {
                 }
             )
             Spacer()
+        }.onAppear{
+            healthSession.authorizeHealthKit{ (authorized, error) in
+                guard error != nil else { return }
+                healthSession.calculate(.distanceWalking)
+            }
         }
     }
 }
