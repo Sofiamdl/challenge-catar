@@ -12,5 +12,6 @@ import HealthKit
 class RunningCalculate: HealthCalculable {
     
     func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler) {
+        
     }
 }

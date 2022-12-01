@@ -49,11 +49,3 @@ enum StatisticsError: Error {
     case getInitialStatistics
 }
 
-
-class SleepAnalysis: HealthCalculable {
-    
-    func calculte(with healthStore: HKHealthStore,  _ completion: @escaping StatisticsCollectionHandler) {
-        
-    }
-}
-
