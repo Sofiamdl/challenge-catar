@@ -9,11 +9,13 @@ import Foundation
 import HealthKit
 
 
-class Health {
+class HealthSession {
+    
+    typealias HandleAuthorizedHealthKit = (Bool?, Error?) -> Void
     
     let healthKitStore: HKHealthStore = HKHealthStore()
     
-    func authorizeHealthKit(_ completion: @escaping (Bool?, Error?) -> Void){
+    func authorizeHealthKit(_ completion: @escaping HandleAuthorizedHealthKit ){
         
         let types = Set([HKQuantityType(.runningSpeed), HKCategoryType(.sleepAnalysis)])
         
