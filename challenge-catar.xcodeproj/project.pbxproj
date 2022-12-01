@@ -601,8 +601,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "challenge-catar-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "challenge-catar";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Permitir a utilização do healthkit.";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Permitir a utilização do healthkit.";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Testeeeeeee confirma ai";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Testeeeeeee confirma ai";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Testeeeeeee confirma ai";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -635,8 +637,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "challenge-catar-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "challenge-catar";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Permitir a utilização do healthkit.";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Permitir a utilização do healthkit.";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Testeeeeeee confirma ai";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Testeeeeeee confirma ai";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Testeeeeeee confirma ai";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -662,7 +666,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M3SKJK6V42;
+				DEVELOPMENT_TEAM = 4UVYB4V5UN;
 				INFOPLIST_KEY_CFBundleDisplayName = "challenge-catar";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "studies.s.challenge-catar";
@@ -678,7 +682,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M3SKJK6V42;
+				DEVELOPMENT_TEAM = 4UVYB4V5UN;
 				INFOPLIST_KEY_CFBundleDisplayName = "challenge-catar";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "studies.s.challenge-catar";

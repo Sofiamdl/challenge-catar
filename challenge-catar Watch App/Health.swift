@@ -8,6 +8,7 @@
 import Foundation
 import HealthKit
 
+typealias StatisticsCollectionHandler = ((Result<HKStatisticsCollection, Error>) -> Void)
 
 class HealthSession {
     
@@ -19,6 +20,7 @@ class HealthSession {
         
         let typesHealthKitToAskPermission = Set([HKQuantityType(.runningSpeed),
                          HKQuantityType(.distanceWalkingRunning),
+                         HKQuantityType(.stepCount),
                          HKCategoryType(.sleepAnalysis),
                          HKCategoryType(.sleepChanges)])
         
@@ -34,27 +36,29 @@ class HealthSession {
         }
     }
     
-    func calculate(_ type: CalculationType){
+    func statisticsCollection(_ type: CalculationType, _ completion: @escaping StatisticsCollectionHandler){
         let healthCalculateFactory = HealthCalculateFactory.of(type)
-        healthCalculateFactory.calculte()
+        healthCalculateFactory.calculte(with: healthKitStore){ statisticsCollection in
+            completion(statisticsCollection)
+        }
     }
 }
 
 
 enum CalculationType {
-    case runningSpeed
+    case running
     case distanceWalking
     case sleep
 }
 
 protocol HealthCalculable {
-    func calculte()
+    func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler)
 }
 
 class HealthCalculateFactory {
     
     static func of(_ calculation: CalculationType) -> HealthCalculable {
-        if calculation == .runningSpeed {
+        if calculation == .running {
             return RunningCalculate()
         }
         
@@ -68,20 +72,52 @@ class HealthCalculateFactory {
 
 class RunningCalculate: HealthCalculable {
     
-    func calculte() {
+    func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler) {
     }
+}
+
+enum StatisticsError: Error {
+    case getInitialStatistics
 }
 
 
 class DistanceCalculate: HealthCalculable {
     
-    func calculte() {
+    private struct Constant {
+        static let SEVEN_DAYS_BEFORE = -7
+    }
+    
+    func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler ) {
+        let startDate = Calendar.current.date(byAdding: .day,
+                                              value: Constant.SEVEN_DAYS_BEFORE,
+                                              to: Date())
+        let endDate = Date()
+        let predicateDate = HKQuery.predicateForSamples(withStart: startDate,
+                                                        end: endDate,
+                                                        options: .strictStartDate)
+        let daily = DateComponents(day: 1)
+        let query = HKStatisticsCollectionQuery(quantityType: HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                                    quantitySamplePredicate: predicateDate,
+                                                anchorDate: .now,
+                                    intervalComponents: daily)
+        
+        query.initialResultsHandler = { _, statisticsCollection, error in
+//            guard let _ = error else {
+//                completion(.failure(StatisticsError.getInitialStatistics))
+//                return
+//            }
+            
+            guard let statisticsCollection = statisticsCollection else { return }
+            completion(.success(statisticsCollection))
+        }
+        
+        healthStore.execute(query)
     }
 }
 
 class SleepAnalysis: HealthCalculable {
     
-    func calculte() {
+    func calculte(with healthStore: HKHealthStore,  _ completion: @escaping StatisticsCollectionHandler) {
         
     }
 }
