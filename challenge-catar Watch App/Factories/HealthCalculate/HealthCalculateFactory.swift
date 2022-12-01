@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+
+class HealthCalculateFactory {
+    
+    static func of(_ calculation: CalculationType) -> HealthCalculable {
+        if calculation == .running {
+            return RunningCalculate()
+        }
+        
+        if calculation == .distanceWalking {
+            return DistanceCalculate()
+        }
+        
+        return SleepAnalysis()
+    }
+}

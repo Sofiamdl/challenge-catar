@@ -55,26 +55,8 @@ protocol HealthCalculable {
     func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler)
 }
 
-class HealthCalculateFactory {
-    
-    static func of(_ calculation: CalculationType) -> HealthCalculable {
-        if calculation == .running {
-            return RunningCalculate()
-        }
-        
-        if calculation == .distanceWalking {
-            return DistanceCalculate()
-        }
-        
-        return SleepAnalysis()
-    }
-}
 
-class RunningCalculate: HealthCalculable {
-    
-    func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler) {
-    }
-}
+
 
 enum StatisticsError: Error {
     case getInitialStatistics
