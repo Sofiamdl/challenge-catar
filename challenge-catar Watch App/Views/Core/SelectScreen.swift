@@ -8,12 +8,12 @@
 import SwiftUI
 import HealthKit
 
+
 struct SelectScreen: View {
     
     @ObservedObject var screenObserver = ScreenObserver()
     @State private var scrolling = 0
     
-    let healthSession = HealthSession()
     
     private let routesScreen: [RouteScreen] = [ .reportScreen, .runningScreen, .sleepScreen ]
     
@@ -55,34 +55,9 @@ struct SelectScreen: View {
                 }
             )
             Spacer()
-        }.onAppear{
-            healthSession.authorizeHealthKit{ (authorized, error) in
-                healthSession.statisticsCollection(.distanceWalking){ staticsCollection in
-                    switch staticsCollection {
-                        
-                    case .success(let statics):
-                        print(statics)
-                        testaAi(teste: statics)
-                    case .failure:
-                        print("deu mt ruim")
-                    }
-                }
-            }
         }
     }
     
-    func testaAi(teste: HKStatisticsCollection){
-        let startDate = Calendar.current.date(byAdding: .day,
-                                              value: -7,
-                                              to: Date())!
-        let endDate = Date()
-        
-        teste.enumerateStatistics(from: startDate,
-                                  to: endDate) { (statiss, stop) in
-    
-            print(statiss.sumQuantity() ?? "0 m")
-        }
-        
-
-    }
+  
 }
+

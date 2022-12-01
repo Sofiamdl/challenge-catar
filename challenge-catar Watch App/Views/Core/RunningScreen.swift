@@ -6,16 +6,32 @@
 //
 
 import SwiftUI
+import HealthKit
 
 struct RunningScreen: View {
     
-    let todayDistanceVelocityValues = CardValues(leftSideContent: "36 km",
-                                                 rightSideContent: "18 km/h")
+    @State private var meters: [Float] = []
     
-    let avarageDistanceVelocityValues = CardValues(leftSideContent: "36 km",
-                                                   rightSideContent: "18 km/h")
+    private var todayMeters: Float {
+        return meters.last ?? 0.0
+    }
     
+    private var averageMeters: Float {
+        let sumAllMeters = meters.reduce(0,+)
+        return sumAllMeters/Float(meters.count)
+    }
+    
+
+    let healthSession = HealthSession()
+
     var body: some View {
+        
+        let todayDistanceVelocityValues = CardValues(leftSideContent: "\(todayMeters) km",
+                                                     rightSideContent: "18 km/h")
+        
+        let avarageDistanceVelocityValues = CardValues(leftSideContent: "\(averageMeters) km",
+                                                       rightSideContent: "18 km/h")
+        
         ScrollView {
             VStack(alignment: .center, spacing: 8){
                 
@@ -28,13 +44,41 @@ struct RunningScreen: View {
                                 title: .avarage,
                                 page: .running)
                 
-                DailyProgressGraphicView(values: [1,2,3,4,5,6,7],
-                                         labels: ["S", "T", "Q", "Q", "S", "S", "D"],
+                DailyProgressGraphicView(values: meters,
                                          screen: .runningScreen)
             }
             .padding()
         }
         .navigationBarTitle("Corrida")
+        .onAppear{
+            healthSession.authorizeHealthKit{ (authorized, error) in
+                healthSession.statisticsCollection(.distanceWalking){ staticsCollection in
+                    switch staticsCollection {
+                        
+                    case .success(let statistics):
+                        updateViewWith(statistics: statistics)
+                    case .failure:
+                        print("deu mt ruim")
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func updateViewWith(statistics: HKStatisticsCollection){
+        let startDate = Calendar.current.date(byAdding: .day,
+                                              value: -6,
+                                              to: Date())!
+        let endDate = Date()
+        
+        
+        statistics.enumerateStatistics(from: startDate,
+                                  to: endDate) { (statistic, stop) in
+            let meter = DistanceHandler.adapt(quantity: statistic)
+            meters.append(meter/1000)
+            
+        }
     }
 }
 

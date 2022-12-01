@@ -96,7 +96,7 @@ class DistanceCalculate: HealthCalculable {
                                                         end: endDate,
                                                         options: .strictStartDate)
         let daily = DateComponents(day: 1)
-        let query = HKStatisticsCollectionQuery(quantityType: HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+        let query = HKStatisticsCollectionQuery(quantityType: HKQuantityType(.distanceWalkingRunning),
                                     quantitySamplePredicate: predicateDate,
                                                 anchorDate: .now,
                                     intervalComponents: daily)
