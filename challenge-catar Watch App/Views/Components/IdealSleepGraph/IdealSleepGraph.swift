@@ -21,11 +21,15 @@ struct IdealSleepGraph: View {
     init(idealSleepInMinute: Int, averageMinutesSlept: Int) {
         self.idealSleepInMinute = idealSleepInMinute
         self.averageMinutesSlept = averageMinutesSlept
-        self.calculation = (Double(averageMinutesSlept) / Double(idealSleepInMinute) / 2.0) + 0.5
-        let minutes = idealSleepInMinute % 60 > 0 ? " \(idealSleepInMinute%60)min" : ""
-        self.hoursShown = "\(String(Int(idealSleepInMinute/60)))h\(minutes)"
-    }
         
+        let howMuchCompleted = (Double(averageMinutesSlept) / Double(idealSleepInMinute) / 2.0) + 0.5
+        self.calculation = howMuchCompleted
+        
+        let minutes = idealSleepInMinute % 60 > 0 ? " \(idealSleepInMinute%60)min" : ""
+        let hours = Int(idealSleepInMinute/60)
+        self.hoursShown = "\(hours)h\(minutes)"
+    }
+            
     var body: some View {
         ZStack (alignment: .bottom) {
             semiCircles
