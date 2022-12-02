@@ -325,6 +325,14 @@
 			path = Typealias;
 			sourceTree = "<group>";
 		};
+		0D9D65982939E737009698C4 /* HealthSession */ = {
+			isa = PBXGroup;
+			children = (
+				0D7294052937C8970096F38D /* Health.swift */,
+			);
+			path = HealthSession;
+			sourceTree = "<group>";
+		};
 		BF4FFEC2293134DD008C321A = {
 			isa = PBXGroup;
 			children = (
@@ -348,13 +356,13 @@
 				0D7294072938ADBD0096F38D /* challenge-catar Watch App.entitlements */,
 				0D7294082938AE200096F38D /* challenge-catar-Watch-App-Info.plist */,
 				BF4FFED4293134DD008C321A /* challenge_catarApp.swift */,
-				0D7294052937C8970096F38D /* Health.swift */,
 				BF4FFED8293134DF008C321A /* Assets.xcassets */,
 				0D6B876C293412D700E7C5DA /* Constants */,
 				0D9D65922939E3B1009698C4 /* Enums */,
 				0D6B875829340F8900E7C5DA /* Extensions */,
 				0D6B87742935952300E7C5DA /* Factories */,
 				0D9D657529393E3F009698C4 /* Handlers */,
+				0D9D65982939E737009698C4 /* HealthSession */,
 				0D6B87602934111700E7C5DA /* Models */,
 				0D6B87802935B3D000E7C5DA /* Observers */,
 				BF4FFEDA293134DF008C321A /* Preview Content */,
