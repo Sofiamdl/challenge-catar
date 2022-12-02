@@ -9,7 +9,9 @@ import Foundation
 import HealthKit
 
 
-class DistanceHandler {
+class DistanceHandler: StatisticsHandler {
+    
+    typealias typeStatisticComputed = Float
         
     static func adapt(quantity value: HKStatistics? ) -> Float {
         guard let value = value else { return 0 }

@@ -18,7 +18,7 @@ class HealthSession {
  
     func authorizeHealthKit(_ completion: @escaping AuthorizedHealthKitHandler ){
         
-        let typesHealthKitToAskPermission = Set([HKQuantityType(.runningSpeed),
+        let typesHealthKitToAskPermission = Set([HKQuantityType(.walkingSpeed),
                          HKQuantityType(.distanceWalkingRunning),
                          HKQuantityType(.stepCount),
                          HKCategoryType(.sleepAnalysis),
@@ -30,7 +30,6 @@ class HealthSession {
         
         healthKitStore.requestAuthorization(toShare: typesHealthKitToAskPermission,
                                             read: typesHealthKitToAskPermission){ (success, error) in
-            
             if let error = error  { completion(false, error) }
             completion(success, nil)
         }
@@ -43,7 +42,6 @@ class HealthSession {
         }
     }
 }
-
 
 enum StatisticsError: Error {
     case getInitialStatistics

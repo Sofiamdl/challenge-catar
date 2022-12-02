@@ -39,6 +39,9 @@
 		0D9D658229393F87009698C4 /* CalculationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658129393F87009698C4 /* CalculationType.swift */; };
 		0D9D658429393FA0009698C4 /* DistanceCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658329393FA0009698C4 /* DistanceCalculate.swift */; };
 		0D9D658629394015009698C4 /* SleepAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658529394015009698C4 /* SleepAnalysis.swift */; };
+		0D9D6588293943EE009698C4 /* TimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D6587293943EE009698C4 /* TimeHandler.swift */; };
+		0D9D658D2939BB6A009698C4 /* StatisticsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658C2939BB6A009698C4 /* StatisticsHandler.swift */; };
+		0D9D658F2939C417009698C4 /* VelocityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658E2939C417009698C4 /* VelocityHandler.swift */; };
 		BF4FFED0293134DD008C321A /* challenge-catar Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED4293134DD008C321A /* challenge_catarApp.swift */; };
 		BF4FFED7293134DD008C321A /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED6293134DD008C321A /* AppCore.swift */; };
@@ -110,6 +113,9 @@
 		0D9D658129393F87009698C4 /* CalculationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationType.swift; sourceTree = "<group>"; };
 		0D9D658329393FA0009698C4 /* DistanceCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculate.swift; sourceTree = "<group>"; };
 		0D9D658529394015009698C4 /* SleepAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAnalysis.swift; sourceTree = "<group>"; };
+		0D9D6587293943EE009698C4 /* TimeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
+		0D9D658C2939BB6A009698C4 /* StatisticsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsHandler.swift; sourceTree = "<group>"; };
+		0D9D658E2939C417009698C4 /* VelocityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityHandler.swift; sourceTree = "<group>"; };
 		BF4FFEC9293134DD008C321A /* challenge-catar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFED4293134DD008C321A /* challenge_catarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_catarApp.swift; sourceTree = "<group>"; };
@@ -224,7 +230,6 @@
 		0D6B87752935952B00E7C5DA /* Scroll */ = {
 			isa = PBXGroup;
 			children = (
-				0D6B87762935954200E7C5DA /* ScrollableDirection.swift */,
 				0D6B87782935957B00E7C5DA /* ScrollUp.swift */,
 				0D6B877A293595AE00E7C5DA /* ScrollDown.swift */,
 				0D6B877C293596AF00E7C5DA /* ScrollFactory.swift */,
@@ -273,6 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				0D9D657629393E69009698C4 /* DistanceHandler.swift */,
+				0D9D6587293943EE009698C4 /* TimeHandler.swift */,
+				0D9D658E2939C417009698C4 /* VelocityHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -282,12 +289,21 @@
 			children = (
 				0D9D657929393EBF009698C4 /* HealthCalculateFactory.swift */,
 				0D9D657B29393EFF009698C4 /* RunningCalculate.swift */,
-				0D9D657D29393F47009698C4 /* HealthCalculable.swift */,
 				0D9D658129393F87009698C4 /* CalculationType.swift */,
 				0D9D658329393FA0009698C4 /* DistanceCalculate.swift */,
 				0D9D658529394015009698C4 /* SleepAnalysis.swift */,
 			);
 			path = HealthCalculate;
+			sourceTree = "<group>";
+		};
+		0D9D658B2939BB57009698C4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0D6B87762935954200E7C5DA /* ScrollableDirection.swift */,
+				0D9D657D29393F47009698C4 /* HealthCalculable.swift */,
+				0D9D658C2939BB6A009698C4 /* StatisticsHandler.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		BF4FFEC2293134DD008C321A = {
@@ -310,20 +326,21 @@
 		BF4FFED3293134DD008C321A /* challenge-catar Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				0D9D657529393E3F009698C4 /* Handlers */,
-				0D7294082938AE200096F38D /* challenge-catar-Watch-App-Info.plist */,
 				0D7294072938ADBD0096F38D /* challenge-catar Watch App.entitlements */,
-				0D6B87802935B3D000E7C5DA /* Observers */,
-				0D6B87742935952300E7C5DA /* Factories */,
-				0D6B8771293592E000E7C5DA /* Routes */,
-				0D6B876C293412D700E7C5DA /* Constants */,
-				0D6B87602934111700E7C5DA /* Models */,
-				0D6B875829340F8900E7C5DA /* Extensions */,
-				BF4FFEF2293160A6008C321A /* Views */,
+				0D7294082938AE200096F38D /* challenge-catar-Watch-App-Info.plist */,
 				BF4FFED4293134DD008C321A /* challenge_catarApp.swift */,
-				BF4FFED8293134DF008C321A /* Assets.xcassets */,
-				BF4FFEDA293134DF008C321A /* Preview Content */,
 				0D7294052937C8970096F38D /* Health.swift */,
+				BF4FFED8293134DF008C321A /* Assets.xcassets */,
+				0D6B876C293412D700E7C5DA /* Constants */,
+				0D6B875829340F8900E7C5DA /* Extensions */,
+				0D6B87742935952300E7C5DA /* Factories */,
+				0D9D657529393E3F009698C4 /* Handlers */,
+				0D6B87602934111700E7C5DA /* Models */,
+				0D6B87802935B3D000E7C5DA /* Observers */,
+				BF4FFEDA293134DF008C321A /* Preview Content */,
+				0D9D658B2939BB57009698C4 /* Protocols */,
+				0D6B8771293592E000E7C5DA /* Routes */,
+				BF4FFEF2293160A6008C321A /* Views */,
 			);
 			path = "challenge-catar Watch App";
 			sourceTree = "<group>";
@@ -484,10 +501,12 @@
 				0D6B876B2934128B00E7C5DA /* TitleCardInformation.swift in Sources */,
 				0D6B87772935954200E7C5DA /* ScrollableDirection.swift in Sources */,
 				0D9D658629394015009698C4 /* SleepAnalysis.swift in Sources */,
+				0D9D658F2939C417009698C4 /* VelocityHandler.swift in Sources */,
 				0D7294062937C8970096F38D /* Health.swift in Sources */,
 				0D6B876E293412EE00E7C5DA /* ColorConstant.swift in Sources */,
 				BF4FFEF929369916008C321A /* ReportsScreen.swift in Sources */,
 				0D6B87792935957B00E7C5DA /* ScrollUp.swift in Sources */,
+				0D9D6588293943EE009698C4 /* TimeHandler.swift in Sources */,
 				BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */,
 				0D6B877D293596AF00E7C5DA /* ScrollFactory.swift in Sources */,
 				0D9D657729393E69009698C4 /* DistanceHandler.swift in Sources */,
@@ -498,6 +517,7 @@
 				0D6B875D29340FD500E7C5DA /* TextView.swift in Sources */,
 				BF4FFEE7293158D3008C321A /* SomeView.swift in Sources */,
 				0D9D658429393FA0009698C4 /* DistanceCalculate.swift in Sources */,
+				0D9D658D2939BB6A009698C4 /* StatisticsHandler.swift in Sources */,
 				0D6B878E2936796F00E7C5DA /* Avarage.swift in Sources */,
 				0D6B87642934115C00E7C5DA /* CardValues.swift in Sources */,
 				BF4FFEF729366A4D008C321A /* IdealSleepGraph.swift in Sources */,

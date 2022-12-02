@@ -11,7 +11,7 @@ import HealthKit
 class DistanceCalculate: HealthCalculable {
     
     private struct Constant {
-        static let SEVEN_DAYS_BEFORE = -7
+        static let SEVEN_DAYS_BEFORE = -6
     }
     
     func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler ) {

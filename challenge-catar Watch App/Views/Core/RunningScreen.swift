@@ -11,7 +11,10 @@ import HealthKit
 struct RunningScreen: View {
     
     @State private var meters: [Float] = []
+    @State private var speed: [Float] = []
     
+    let healthSession = HealthSession()
+
     private var todayMeters: Float {
         return meters.last ?? 0.0
     }
@@ -21,17 +24,21 @@ struct RunningScreen: View {
         return sumAllMeters/Float(meters.count)
     }
     
-
-    let healthSession = HealthSession()
+    private var todaySpeed: Float {
+        return speed.last ?? 0.0
+    }
+    
+    private var averageSpeed: Float {
+        let sumAllSpeeds = speed.reduce(0,+)
+        return sumAllSpeeds/Float(speed.count)
+    }
 
     var body: some View {
-        
         let todayDistanceVelocityValues = CardValues(leftSideContent: "\(todayMeters) km",
-                                                     rightSideContent: "18 km/h")
+                                                     rightSideContent: "\(todaySpeed) km/h")
         
         let avarageDistanceVelocityValues = CardValues(leftSideContent: "\(averageMeters) km",
-                                                       rightSideContent: "18 km/h")
-        
+                                                       rightSideContent: "\(averageSpeed) km/h")
         ScrollView {
             VStack(alignment: .center, spacing: 8){
                 
@@ -71,13 +78,14 @@ struct RunningScreen: View {
                                               value: -6,
                                               to: Date())!
         let endDate = Date()
-        
-        
         statistics.enumerateStatistics(from: startDate,
                                   to: endDate) { (statistic, stop) in
             let meter = DistanceHandler.adapt(quantity: statistic)
+            let seconds = TimeHandler.adapt(quantity: statistic)
+            let velocityKM = VelocityHandler.toKM(withTimeDuration: seconds,
+                                                  andDistance: meter)
             meters.append(meter/1000)
-            
+            speed.append(velocityKM)
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 enum CalculationType {
-    case running
+    case speed
     case distanceWalking
     case sleep
 }
