@@ -159,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				0D6B875429340D3900E7C5DA /* Line.swift */,
-				0D6B875629340D5400E7C5DA /* LineOrientation.swift */,
 			);
 			path = Line;
 			sourceTree = "<group>";
@@ -176,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				0D6B875C29340FD500E7C5DA /* TextView.swift */,
-				0D6B875E293410D300E7C5DA /* TextType.swift */,
 			);
 			path = TextView;
 			sourceTree = "<group>";
@@ -195,9 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				0D6B8766293411F900E7C5DA /* CardInformation.swift */,
-				0D6B87682934125500E7C5DA /* IconStatus.swift */,
-				0D6B876A2934128B00E7C5DA /* TitleCardInformation.swift */,
-				0D6B876F293413E200E7C5DA /* Screen.swift */,
 			);
 			path = CardInformation;
 			sourceTree = "<group>";
@@ -288,7 +283,6 @@
 			children = (
 				0D9D657929393EBF009698C4 /* HealthCalculateFactory.swift */,
 				0D9D657B29393EFF009698C4 /* RunningCalculate.swift */,
-				0D9D658129393F87009698C4 /* CalculationType.swift */,
 				0D9D658329393FA0009698C4 /* DistanceCalculate.swift */,
 				0D9D658529394015009698C4 /* SleepAnalysis.swift */,
 			);
@@ -303,6 +297,19 @@
 				0D9D658C2939BB6A009698C4 /* StatisticsHandler.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0D9D65922939E3B1009698C4 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				0D6B875629340D5400E7C5DA /* LineOrientation.swift */,
+				0D6B875E293410D300E7C5DA /* TextType.swift */,
+				0D6B876F293413E200E7C5DA /* Screen.swift */,
+				0D6B876A2934128B00E7C5DA /* TitleCardInformation.swift */,
+				0D6B87682934125500E7C5DA /* IconStatus.swift */,
+				0D9D658129393F87009698C4 /* CalculationType.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		BF4FFEC2293134DD008C321A = {
@@ -331,6 +338,7 @@
 				0D7294052937C8970096F38D /* Health.swift */,
 				BF4FFED8293134DF008C321A /* Assets.xcassets */,
 				0D6B876C293412D700E7C5DA /* Constants */,
+				0D9D65922939E3B1009698C4 /* Enums */,
 				0D6B875829340F8900E7C5DA /* Extensions */,
 				0D6B87742935952300E7C5DA /* Factories */,
 				0D9D657529393E3F009698C4 /* Handlers */,
