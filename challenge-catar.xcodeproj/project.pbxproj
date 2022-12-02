@@ -28,7 +28,7 @@
 		0D6B87822935B3E000E7C5DA /* ScreenObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B87812935B3E000E7C5DA /* ScreenObserver.swift */; };
 		0D6B87852935B43700E7C5DA /* ScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B87842935B43700E7C5DA /* ScreenButton.swift */; };
 		0D6B87892935B47500E7C5DA /* SelectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B87882935B47500E7C5DA /* SelectScreen.swift */; };
-		0D6B878E2936796F00E7C5DA /* Avarage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B878D2936796F00E7C5DA /* Avarage.swift */; };
+		0D6B878E2936796F00E7C5DA /* Average.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B878D2936796F00E7C5DA /* Average.swift */; };
 		0D6B87902936901800E7C5DA /* RunningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B878F2936901800E7C5DA /* RunningScreen.swift */; };
 		0D6B879229373EFF00E7C5DA /* SleepScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B879129373EFF00E7C5DA /* SleepScreen.swift */; };
 		0D7294062937C8970096F38D /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7294052937C8970096F38D /* Health.swift */; };
@@ -99,7 +99,7 @@
 		0D6B87812935B3E000E7C5DA /* ScreenObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenObserver.swift; sourceTree = "<group>"; };
 		0D6B87842935B43700E7C5DA /* ScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenButton.swift; sourceTree = "<group>"; };
 		0D6B87882935B47500E7C5DA /* SelectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectScreen.swift; sourceTree = "<group>"; };
-		0D6B878D2936796F00E7C5DA /* Avarage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avarage.swift; sourceTree = "<group>"; };
+		0D6B878D2936796F00E7C5DA /* Average.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Average.swift; sourceTree = "<group>"; };
 		0D6B878F2936901800E7C5DA /* RunningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningScreen.swift; sourceTree = "<group>"; };
 		0D6B879129373EFF00E7C5DA /* SleepScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepScreen.swift; sourceTree = "<group>"; };
 		0D7294052937C8970096F38D /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 				BF4FFEFB2937C7D2008C321A /* BulletList */,
 				CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */,
 				BF4FFEF5293669DC008C321A /* IdealSleepGraph */,
-				0D6B878A2936792800E7C5DA /* Avarage */,
+				0D6B878A2936792800E7C5DA /* Average */,
 				0D6B87832935B42700E7C5DA /* ScreenButton */,
 				0D6B8765293411D000E7C5DA /* CardInformation */,
 				0D6B875B29340FC500E7C5DA /* TextView */,
@@ -263,12 +263,12 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		0D6B878A2936792800E7C5DA /* Avarage */ = {
+		0D6B878A2936792800E7C5DA /* Average */ = {
 			isa = PBXGroup;
 			children = (
-				0D6B878D2936796F00E7C5DA /* Avarage.swift */,
+				0D6B878D2936796F00E7C5DA /* Average.swift */,
 			);
-			path = Avarage;
+			path = Average;
 			sourceTree = "<group>";
 		};
 		0D9D657529393E3F009698C4 /* Handlers */ = {
@@ -514,7 +514,7 @@
 				0D6B875D29340FD500E7C5DA /* TextView.swift in Sources */,
 				0D9D658429393FA0009698C4 /* DistanceCalculate.swift in Sources */,
 				0D9D658D2939BB6A009698C4 /* StatisticsHandler.swift in Sources */,
-				0D6B878E2936796F00E7C5DA /* Avarage.swift in Sources */,
+				0D6B878E2936796F00E7C5DA /* Average.swift in Sources */,
 				0D6B87642934115C00E7C5DA /* CardValues.swift in Sources */,
 				BF4FFEF729366A4D008C321A /* IdealSleepGraph.swift in Sources */,
 				0D6B8770293413E200E7C5DA /* Screen.swift in Sources */,

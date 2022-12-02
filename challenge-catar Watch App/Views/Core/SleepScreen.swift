@@ -12,7 +12,7 @@ struct SleepScreen: View {
     let sleepingHours = CardValues(leftSideContent: "5 horas",
                                                  rightSideContent: "80%")
     
-    let avarageSleepingHours = CardValues(leftSideContent: "5 horas",
+    let averageSleepingHours = CardValues(leftSideContent: "5 horas",
                                           rightSideContent: "80%")
     
     var body: some View {
@@ -24,9 +24,9 @@ struct SleepScreen: View {
                                 title: .today,
                                 page: .sleep)
                 
-                CardInformation(values: avarageSleepingHours,
+                CardInformation(values: averageSleepingHours,
                                 iconStatus: .increasing,
-                                title: .avarage,
+                                title: .average,
                                 page: .sleep)
                 
                 DailyProgressGraphicView(values: [1,2,3,4,5,6,7],

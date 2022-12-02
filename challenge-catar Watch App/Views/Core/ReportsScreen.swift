@@ -11,7 +11,7 @@ struct ReportsScreen: View {
     var body: some View {
         ScrollView {
             VStack (spacing: 6){
-                Avarage(distancePerHour: "50km/h", sleepingHours: "4h")
+                Average(distancePerHour: "50km/h", sleepingHours: "4h")
                 IdealSleepGraph(idealSleepInMinute: 5, averageMinutesSlept: 4)
                     .padding(.top, 32)
                 TextView(text: "Você está com problemas \("na qualidade do") sono.", color: .white, type: .reportDescription)

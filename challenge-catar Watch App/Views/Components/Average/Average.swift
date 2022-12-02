@@ -7,20 +7,25 @@
 
 import SwiftUI
 
-struct Avarage: View {
+struct Average: View {
     
     let distancePerHour: String
     let sleepingHours: String
     
-    private var avarageInformation: some View {
+    private struct Constant {
+        static let RUNNING = "figure.run"
+        static let BED = "bed.double.fill"
+    }
+    
+    private var averageInformation: some View {
         HStack(spacing: 8) {
-            createIcon(withImage: "figure.run")
+            createIcon(withImage: Constant.RUNNING)
             TextView(text: distancePerHour,
                      color: .white,
                      type: .title)
             Line(orienttion: .vertical,
                  withColor: Color(ColorConstant.PURPLE))
-            createIcon(withImage: "bed.double.fill")
+            createIcon(withImage: Constant.BED )
             TextView(text: sleepingHours,
                      color: .white,
                      type: .title)
@@ -32,7 +37,7 @@ struct Avarage: View {
             TextView(text: "Médias",
                      color: .white,
                      type: .secondValue)
-            avarageInformation
+            averageInformation
         }
     }
     
@@ -43,8 +48,8 @@ struct Avarage: View {
     }
 }
 
-struct Avarage_Previews: PreviewProvider {
+struct Average_Previews: PreviewProvider {
     static var previews: some View {
-        Avarage(distancePerHour: "19 km/h", sleepingHours: "5h")
+        Average(distancePerHour: "19 km/h", sleepingHours: "5h")
     }
 }

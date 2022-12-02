@@ -9,5 +9,5 @@ import Foundation
 
 enum TitleCardInformation: String {
     case today = "Hoje"
-    case avarage = "Média Semanal"
+    case average = "Média Semanal"
 }

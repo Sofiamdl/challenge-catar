@@ -37,7 +37,7 @@ struct RunningScreen: View {
         let todayDistanceVelocityValues = CardValues(leftSideContent: "\(todayMeters) km",
                                                      rightSideContent: "\(todaySpeed) km/h")
         
-        let avarageDistanceVelocityValues = CardValues(leftSideContent: "\(averageMeters) km",
+        let averageDistanceVelocityValues = CardValues(leftSideContent: "\(averageMeters) km",
                                                        rightSideContent: "\(averageSpeed) km/h")
         ScrollView {
             VStack(alignment: .center, spacing: 8){
@@ -46,9 +46,9 @@ struct RunningScreen: View {
                                 iconStatus: .withoutIcon,
                                 title: .today, page: .running)
                 
-                CardInformation(values: avarageDistanceVelocityValues,
+                CardInformation(values: averageDistanceVelocityValues,
                                 iconStatus: .increasing,
-                                title: .avarage,
+                                title: .average,
                                 page: .running)
                 
                 DailyProgressGraphicView(values: meters,
