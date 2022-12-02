@@ -23,7 +23,6 @@ struct ScreenButton: View {
                          color: .white,
                          type: .value)
             }
-
         })
         .frame(height: screenSelect.height)
         

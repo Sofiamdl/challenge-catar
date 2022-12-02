@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ReportsScreen: View {
+    
     var body: some View {
+        
         ScrollView {
             VStack (spacing: 6){
                 Average(distancePerHour: "50km/h", sleepingHours: "4h")
@@ -25,13 +27,8 @@ struct ReportsScreen: View {
                 BulletList(elements: ["Estabeleça uma rotina de sono.",
                                       "Respeite o horário de ir dormir.",
                                       "Desligue a TV e demais aparelhos eletrônicos próximo ao horário do sono."])
-
-
             }
             .navigationBarTitle("Relatório Semanal")
-            
         }
-        
-
     }
 }
