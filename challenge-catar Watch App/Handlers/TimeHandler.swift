@@ -11,7 +11,6 @@ import HealthKit
 
 class TimeHandler: StatisticsHandler {
 
-    
     typealias typeStatisticComputed = Float
     
     static func adapt(quantity value: HKStatistics?) -> Float {

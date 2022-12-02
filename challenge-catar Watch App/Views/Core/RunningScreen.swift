@@ -63,17 +63,16 @@ struct RunningScreen: View {
                     switch staticsCollection {
                         
                     case .success(let statistics):
-                        updateViewWith(statistics: statistics)
+                        updateViewWith(statistics)
                     case .failure:
                         print("deu mt ruim")
                     }
                 }
             }
         }
-        
     }
     
-    func updateViewWith(statistics: HKStatisticsCollection){
+    func updateViewWith(_ statistics: HKStatisticsCollection){
         let startDate = Calendar.current.date(byAdding: .day,
                                               value: -6,
                                               to: Date())!
@@ -81,10 +80,11 @@ struct RunningScreen: View {
         statistics.enumerateStatistics(from: startDate,
                                   to: endDate) { (statistic, stop) in
             let meter = DistanceHandler.adapt(quantity: statistic)
+            let metersToKM = meter/1000
             let seconds = TimeHandler.adapt(quantity: statistic)
             let velocityKM = VelocityHandler.toKM(withTimeDuration: seconds,
                                                   andDistance: meter)
-            meters.append(meter/1000)
+            meters.append(metersToKM)
             speed.append(velocityKM)
         }
     }
