@@ -8,12 +8,9 @@
 import Foundation
 import HealthKit
 
-typealias StatisticsCollectionHandler = ((Result<HKStatisticsCollection, Error>) -> Void)
 
 class HealthSession {
-    
-    typealias AuthorizedHealthKitHandler = (Bool, Error?) -> Void
-    
+
     private let healthKitStore: HKHealthStore = HKHealthStore()
  
     func authorizeHealthKit(_ completion: @escaping AuthorizedHealthKitHandler ){
