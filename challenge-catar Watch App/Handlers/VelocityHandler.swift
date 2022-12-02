@@ -9,7 +9,7 @@ import Foundation
 
 class VelocityHandler {
     
-    static func toKM(withTimeDuration time: Float, andDistance distance: Float) -> Float{
+    static func toKM(withTimeDuration time: Float, andDistance distance: Float) -> Float {
         return (distance / time) * 3.6
     }
 }

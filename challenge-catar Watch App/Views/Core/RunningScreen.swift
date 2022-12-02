@@ -57,7 +57,7 @@ struct RunningScreen: View {
             .padding()
         }
         .navigationBarTitle("Corrida")
-        .onAppear{
+        .onAppear {
             healthSession.authorizeHealthKit{ (authorized, error) in
                 healthSession.statisticsCollection(.distanceWalking){ staticsCollection in
                     switch staticsCollection {
