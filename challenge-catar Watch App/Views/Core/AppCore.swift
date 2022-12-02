@@ -9,7 +9,13 @@ import SwiftUI
 import Charts
 
 struct AppCore: View {
-        
+            
+    var body: some View {
+        NavigationStack {
+            selectScreen
+        }
+    }
+    
     private var selectScreen: some View {
         SelectScreen()
             .navigationDestination(for: RouteScreen.self){ route in
@@ -22,12 +28,6 @@ struct AppCore: View {
                     ReportsScreen()
                 }
             }
-    }
-    
-    var body: some View {
-        NavigationStack {
-            selectScreen
-        }
     }
 }
 

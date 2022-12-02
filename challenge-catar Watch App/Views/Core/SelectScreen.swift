@@ -16,6 +16,23 @@ struct SelectScreen: View {
     
     
     private let routesScreen: [RouteScreen] = [ .reportScreen, .runningScreen, .sleepScreen ]
+        
+    var body: some View {
+        VStack {
+            Spacer()
+            scrollViewReaderWithAnimation
+            .gesture(
+                DragGesture().onEnded { value in
+                    let scrollDirection = ScrollFactory.scrollToUpOrDown(withGesture: value)
+                    let (screens, newScrolling) = scrollDirection.execute(with: screenObserver.screens,
+                                                                          andCurrent: scrolling)
+                    scrolling = newScrolling
+                    screenObserver.screens = screens
+                }
+            )
+            Spacer()
+        }
+    }
     
     private var selectScreenList: some View {
         List {
@@ -38,23 +55,6 @@ struct SelectScreen: View {
                         scroll.scrollTo(scrolling)
                     }
                 })
-        }
-    }
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            scrollViewReaderWithAnimation
-            .gesture(
-                DragGesture().onEnded { value in
-                    let scrollDirection = ScrollFactory.scrollToUpOrDown(withGesture: value)
-                    let (screens, newScrolling) = scrollDirection.execute(with: screenObserver.screens,
-                                                                          andCurrent: scrolling)
-                    scrolling = newScrolling
-                    screenObserver.screens = screens
-                }
-            )
-            Spacer()
         }
     }
     
