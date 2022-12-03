@@ -15,6 +15,7 @@ struct SleepScreen: View {
     let averageSleepingHours = CardValues(leftSideContent: "5 horas",
                                           rightSideContent: "80%")
     
+    let healthSession: HealthSession = HealthSession()
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 8){
@@ -36,6 +37,13 @@ struct SleepScreen: View {
             .padding()
         }
         .navigationBarTitle("Sono")
+        .onAppear {
+            healthSession.authorizeHealthKit { (authorized, error) in
+                healthSession.statisticsCollection(.sleep){ _ in
+                    print("rolou")
+                }
+            }
+        }
     }
 }
 
