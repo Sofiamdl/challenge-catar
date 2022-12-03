@@ -14,8 +14,6 @@ struct DailyProgressGraphicView: View {
     var labels: [String] = ["D","S","T","Q","Q","S","S"]
     let screen: RouteScreen
     
-    let arr = [1,2,3,4,5,6]
-    
     var blueOrPurple: Color {
         return screen == .runningScreen ? Color(ColorConstant.BLUE) : Color(ColorConstant.PURPLE)
     }
@@ -43,12 +41,12 @@ struct DailyProgressGraphicView: View {
                 ZStack{
                     HStack {
                         VStack (spacing: 16){
-                            TextView(text: String(Int(values.max() ?? 0))+hrsOrKm, color: Color.green, type: TextType.description).opacity(0.6)
+                            TextView(text: String(ceil(Double(values.max() ?? 0)*10)/10)+hrsOrKm, color: Color.green, type: TextType.description).opacity(0.6)
                             
                             TextView(text: "0"+hrsOrKm , color: Color.red, type: TextType.description).opacity(0.6)
                             Spacer().frame(height: 4)
                         }
-                        Spacer().frame(width: 12)
+                        Spacer().frame(width: 8)
                         ForEach(values.indices, id: \.self) { index in
                             
                             let label = labels[(index+Int(Date().dayNumberOfWeek()!))%7]

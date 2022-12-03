@@ -37,7 +37,7 @@ struct RunningScreen: View {
         let todayDistanceVelocityValues = CardValues(leftSideContent: "\(todayMeters) km",
                                                      rightSideContent: "\(todaySpeed) km/h")
         
-        let averageDistanceVelocityValues = CardValues(leftSideContent: "\(averageMeters) km",
+        let averageDistanceVelocityValues = CardValues(leftSideContent: "\(ceil(averageMeters*10)/10) km",
                                                        rightSideContent: "\(averageSpeed) km/h")
         ScrollView {
             VStack(alignment: .center, spacing: 8){
@@ -67,6 +67,16 @@ struct RunningScreen: View {
                         print("deu mt ruim")
                     }
                 }
+                
+                healthSession.statisticsCollection(.speed){ staticsCollection in
+                    switch staticsCollection {
+                        
+                    case .success(let statistics):
+                        updateViewWithSpeed(statistics)
+                    case .failure:
+                        print("deu mt ruim")
+                    }
+                }
             }
         }
     }
@@ -84,7 +94,20 @@ struct RunningScreen: View {
             let velocityKM = VelocityHandler.toKM(withTimeDuration: seconds,
                                                   andDistance: meter)
             meters.append(metersToKM)
-            speed.append(velocityKM)
+            //speed.append(velocityKM)
+        }
+    }
+    
+    func updateViewWithSpeed(_ statistics: HKStatisticsCollection){
+        let startDate = Calendar.current.date(byAdding: .day,
+                                              value: -6,
+                                              to: Date())!
+        let endDate = Date()
+        statistics.enumerateStatistics(from: startDate,
+                                  to: endDate) { (statistic, stop) in
+            let speedKM = SpeedHandler.adapt(quantity: statistic)
+            
+            speed.append(speedKM)
         }
     }
 }

@@ -24,7 +24,7 @@ class RunningCalculate: HealthCalculable {
                                                         end: endDate,
                                                         options: .strictStartDate)
         let daily = DateComponents(day: 1)
-        let query = HKStatisticsCollectionQuery(quantityType: HKQuantityType(.walkingSpeed),
+        let query = HKStatisticsCollectionQuery(quantityType: HKQuantityType(.appleExerciseTime),
                                     quantitySamplePredicate: predicateDate,
                                                 anchorDate: .now,
                                     intervalComponents: daily)
