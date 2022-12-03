@@ -9,6 +9,8 @@ import Foundation
 import HealthKit
 
 class SleepAnalysis: HealthCalculable {
+
+    typealias StatisticsCollectionType = HKCategorySample
     
     private struct Constant {
         static let SEVEN_DAYS_BEFORE = -6
@@ -17,7 +19,7 @@ class SleepAnalysis: HealthCalculable {
     func calculte(with healthStore: HKHealthStore,  _ completion: @escaping StatisticsCollectionHandler) {
         let startDate = Calendar.current.date(byAdding: .day,
                                               value: Constant.SEVEN_DAYS_BEFORE,
-                                              to: Date())
+                                              to: Date())!
         let endDate = Date()
         let predicateDate = HKQuery.predicateForSamples(withStart: startDate,
                                                         end: endDate,
@@ -30,7 +32,9 @@ class SleepAnalysis: HealthCalculable {
                                   limit: 7,
                                   sortDescriptors: [sortDescriptorEndDate]){
             (query, sleepAnalysisResult, error) in
-            print(sleepAnalysisResult)
+            
+            guard let sleepAnalysisCollection = sleepAnalysisResult else { return }
+            print(sleepAnalysisCollection)
         }
         
         healthStore.execute(query)

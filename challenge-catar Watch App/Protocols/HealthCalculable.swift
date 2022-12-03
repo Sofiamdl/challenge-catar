@@ -10,5 +10,8 @@ import HealthKit
 
 
 protocol HealthCalculable {
+    
+//    associatedtype StatisticsCollectionType
+    
     func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler)
 }

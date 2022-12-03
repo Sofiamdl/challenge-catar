@@ -34,7 +34,9 @@ class HealthSession {
     
     func statisticsCollection(_ type: CalculationType, _ completion: @escaping StatisticsCollectionHandler){
         let healthCalculateFactory = HealthCalculateFactory.of(type)
+        
         healthCalculateFactory.calculte(with: healthKitStore){ statisticsCollection in
+            
             completion(statisticsCollection)
         }
     }

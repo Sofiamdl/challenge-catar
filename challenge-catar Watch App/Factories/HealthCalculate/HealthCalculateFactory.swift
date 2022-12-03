@@ -10,7 +10,7 @@ import Foundation
 
 class HealthCalculateFactory {
     
-    static func of(_ calculation: CalculationType) -> HealthCalculable {
+    static func of(_ calculation: CalculationType) -> any HealthCalculable {
         if calculation == .speed {
             return RunningCalculate()
         }

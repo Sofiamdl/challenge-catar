@@ -61,7 +61,6 @@ struct RunningScreen: View {
             healthSession.authorizeHealthKit{ (authorized, error) in
                 healthSession.statisticsCollection(.distanceWalking){ staticsCollection in
                     switch staticsCollection {
-                        
                     case .success(let statistics):
                         updateViewWith(statistics)
                     case .failure:
