@@ -78,7 +78,7 @@ struct RunningScreen: View {
                                               to: Date())!
         let endDate = Date()
         statistics.enumerateStatistics(from: startDate,
-                                  to: endDate) { (statistic, stop) in
+                                  to: endDate) { (statistic, _) in
             let meter = DistanceHandler.adapt(quantity: statistic)
             let metersToKM = meter/1000
             let seconds = TimeHandler.adapt(quantity: statistic)
