@@ -36,7 +36,24 @@ class SpeedCalculate {
                                    limit: HKObjectQueryNoLimit,
                                    sortDescriptors: [sortByStartDate]) { (_, sample, error) in
             guard let statisticsCollection = sample else { return }
-            completion(.success(sample!))
+            
+            let converted = statisticsCollection.compactMap{ sample in
+                return sample as? HKQuantitySample
+            }
+            
+            let speedCollection = converted.map{ speedElement in
+                return (speedElement.quantity.doubleValue(for: HKUnit.meter().unitDivided(by: HKUnit.second()))) * 3.6
+            }
+            
+            let averageSpeed = speedCollection.reduce(0, +) / Double( speedCollection.count)
+            
+            print(speedCollection)
+
+
+//            statisticsCollection.forEach{ runningAnalysis in
+//                print(runningAnalysis.self.sampleType)
+//
+//            }
         }
                 
         healthKitStore.execute(query)

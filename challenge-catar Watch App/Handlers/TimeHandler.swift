@@ -18,8 +18,8 @@ class TimeHandler: StatisticsHandler {
         let time = value.duration()
         let teste = value.sumQuantity()
         
-        print("time handler duration ",time)
-        print("time handler sum ", teste)
+//        print("time handler duration ",time)
+//        print("time handler sum ", teste)
         return Float(0)
     }
 }
