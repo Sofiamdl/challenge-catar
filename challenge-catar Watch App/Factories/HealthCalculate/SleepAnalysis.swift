@@ -60,6 +60,9 @@ class SleepAnalysis {
             
             self.updateSleepData(with: sleepAnalysisCollectionConverted)
             
+            let sleepDataWithoutFakeTime = RemoveFakeTime(of: self.sleepData).execute()
+            self.sleepData = sleepDataWithoutFakeTime
+            
             completion(.success(self.sleepData))
         }
         
@@ -93,8 +96,29 @@ class SleepAnalysis {
     
 }
 
-class SleepDataFactory {
+class RemoveFakeTime {
     
+    var sleepData: SleepDataCollection
+    
+    init(of data: SleepDataCollection){
+        self.sleepData = data
+    }
+    
+    func execute() -> SleepDataCollection {
+        var newSleepData = self.sleepData
+        sleepData.forEach{ (key , data) in
+            let index = data.firstIndex(where: { (minutes, type) in
+                return minutes >= 600
+            })
+            newSleepData[key]?.remove(at: index ?? 0)
+            
+        }
+        return newSleepData
+    }
+}
+
+class SleepDataFactory {
+
     static func create(atSleepData value: SleepDataCollection, and date: String) -> AppendableSleepData {
         
         if value[date] == nil {
@@ -257,11 +281,12 @@ class SleepDateFormatter {
     }
 }
 
+
+
 class SleepTimer {
     
     static func timeInMinutes(between endDate: Date, and startDate: Date) -> Double {
         let timeMinutes = endDate.timeIntervalSince(startDate) / 60
-        if timeMinutes > 600 { return 0.0 }
         return timeMinutes
     }
 }

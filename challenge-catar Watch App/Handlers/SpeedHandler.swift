@@ -16,10 +16,10 @@ class SpeedHandler: StatisticsHandler {
     static func adapt(quantity value: HKStatistics?) -> Float {
         guard let value = value else { return 1 }
         //let time = value.duration()?.doubleValue(for: .minute())
-        let teste = value.sumQuantity()
-        let testeEnd = value.averageQuantity()?.doubleValue(for: HKUnit.meter().unitDivided(by: HKUnit.second()))
-        print("averageQuantity of speed ", testeEnd)
-        print("sumQuantity of speedHandler ", teste)
+//        let teste = value.sumQuantity()
+//        let testeEnd = value.averageQuantity()?.doubleValue(for: HKUnit.meter().unitDivided(by: HKUnit.second()))
+//        print("averageQuantity of speed ", testeEnd)
+//        print("sumQuantity of speedHandler ", teste)
         print(value)
         return Float(0)
     }
