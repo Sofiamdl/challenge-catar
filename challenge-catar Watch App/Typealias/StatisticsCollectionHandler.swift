@@ -8,4 +8,4 @@
 import Foundation
 import HealthKit
 
-typealias StatisticsCollectionHandler = ((Result<HKStatisticsCollection, Error>) -> Void)
+

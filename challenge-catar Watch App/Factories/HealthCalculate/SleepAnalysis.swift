@@ -13,17 +13,22 @@ typealias TypeSleepAndTime = [(Double, Int)]
 typealias SleepDataCollection = [SleepyDay : TypeSleepAndTime]
 typealias SleepData = (Double, Int)
 
+
+typealias CollectionHandler<T> = ((Result<T, Error>) -> Void)
+typealias StatisticsCollectionHandler = CollectionHandler<HKStatisticsCollection>
+
 class SleepAnalysis {
     
-    private var sleepData: SleepDataCollection = [:]
+    typealias SleepCollectionHandler = ((Result<SleepDataCollection, Error>) -> Void)
     
+    private var sleepData: SleepDataCollection = [:]
     private let healthKitStore: HKHealthStore = HKHealthStore()
     
     private struct Constant {
         static let SEVEN_DAYS_BEFORE = -7
     }
     
-    func calculte(_ completion: @escaping ((Result<SleepDataCollection, Error>) -> Void)) {
+    func calculte(_ completion: @escaping SleepCollectionHandler ) {
         
         let startDate = Calendar.current.date(byAdding: .day,
                                               value: Constant.SEVEN_DAYS_BEFORE,
@@ -71,13 +76,14 @@ class SleepAnalysis {
             let endIntervalDay = endIntervalDayDate?.timeIntervalSince1970
             let initialIntervalDay = initialIntervalDayDate?.timeIntervalSince1970
             
+            let intervals = (initialIntervalDay!, endIntervalDay!, pointInterval)
+            
             let timeMinutes = SleepTimer.timeInMinutes(between: currentAnalyse.endDate,
                                                        and: currentAnalyse.startDate)
             
             let sleepDataFactory = SleepDataFactory.create(atSleepData: self.sleepData,
                                                            and: initialSleepAnalysesAfterFormatter)
             
-            let intervals = (initialIntervalDay!, endIntervalDay!, pointInterval)
             let sleepDataDecorator = ModifySleepDataFactory.change(with: intervals)
             
             let newSleepValues = (timeMinutes, currentAnalyse.value)
@@ -157,6 +163,8 @@ class SleepDataFactory {
         return AppendSleepData(at: date)
     }
 }
+
+
 
 class NullableSleepData: AppendableSleepData {
     
