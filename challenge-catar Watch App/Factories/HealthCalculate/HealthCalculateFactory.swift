@@ -15,10 +15,6 @@ class HealthCalculateFactory {
             return RunningCalculate()
         }
         
-        if calculation == .distanceWalking {
-            return DistanceCalculate()
-        }
-        
-        return SleepAnalysis()
+        return DistanceCalculate()
     }
 }

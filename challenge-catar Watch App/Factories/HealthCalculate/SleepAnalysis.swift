@@ -8,28 +8,34 @@
 import Foundation
 import HealthKit
 
-class SleepAnalysis: HealthCalculable {
+typealias SleepyDay = String
+typealias TypeSleepAndTime = [(Double, Int)]
+typealias SleepDataCollection = [SleepyDay : TypeSleepAndTime]
+typealias SleepData = (Double, Int)
 
-    typealias StatisticsCollectionType = HKCategorySample
+class SleepAnalysis {
+    
+    private var sleepData: SleepDataCollection = [:]
     
     private struct Constant {
-        static let SEVEN_DAYS_BEFORE = -6
+        static let SEVEN_DAYS_BEFORE = -7
     }
     
-    func calculte(with healthStore: HKHealthStore,  _ completion: @escaping StatisticsCollectionHandler) {
-        
-        
-        var dict: [String: [(Double, Int)]] = [:]
+    func calculte(with healthStore: HKHealthStore,  _ completion: @escaping ((Result<SleepDataCollection, Error>) -> Void)) {
         
         let startDate = Calendar.current.date(byAdding: .day,
-                                              value: -7,
+                                              value: Constant.SEVEN_DAYS_BEFORE,
                                               to: Date())!
-        let endDate = Calendar.current.date(byAdding: .day, value: 0 ,to: Date())!
         
+        let endDate = Calendar.current.date(byAdding: .day,
+                                            value: 0,
+                                            to: Date())!
+
         let predicateDate = HKQuery.predicateForSamples(withStart: startDate,
                                                         end: endDate)
         
-        let sortDescriptorEndDate = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        let sortDescriptorEndDate = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
+                                                     ascending: false)
         
         let query = HKSampleQuery(sampleType: HKCategoryType(.sleepAnalysis),
                                   predicate: predicateDate,
@@ -43,88 +49,166 @@ class SleepAnalysis: HealthCalculable {
                 return currentAnalyse as? HKCategorySample
             }
 
-            
             sleepAnalysisCollectionConverted.forEach { currentAnalyse in
-                
-                let formatter = DateFormatter()
-                formatter.dateFormat = "YYYY/MM/dd"
-                            
-                let initialSleepAnalyses = Date(primitivePlottable: currentAnalyse.startDate)
-                
-                let initialSleepAnalysesAfterFormatter = formatter.string(from: initialSleepAnalyses!)
-                
-                let year = initialSleepAnalysesAfterFormatter.split(separator: "/")[0]
-                let month = initialSleepAnalysesAfterFormatter.split(separator: "/")[1]
-                let day = initialSleepAnalysesAfterFormatter.split(separator: "/")[2]
-                
-
-                let initialIntervalDayComponent = DateComponents(year: Int(year),
-                                                   month: Int(month),
-                                                   day: Int(day)! - 1,
-                                                   hour: 16,
-                                                   minute: 0,
-                                                   second: 0)
-                
-                let endIntervalDayComponent = DateComponents(year: Int(year),
-                                                month: Int(month),
-                                                day: Int(day)!,
-                                                hour: 16,
-                                                minute: 0,
-                                                second: 0)
-                
-                let initialIntervalDayDate  = NSCalendar.current.date(from: initialIntervalDayComponent)
-                let endIntervalDayDate = NSCalendar.current.date(from: endIntervalDayComponent)
-                
-                
+    
+                let initialSleepAnalysesAfterFormatter = SleepDateFormatter.create(with: currentAnalyse)
+                let (day, month, year) = SleepDateFormatter.getDayMonthYer(withString: initialSleepAnalysesAfterFormatter)
+                let (initialIntervalDayDate, endIntervalDayDate) = IntervalDayComponent.create(with: day,
+                                                                                                     month,
+                                                                                               and: year)
                 let pointInterval = currentAnalyse.startDate.timeIntervalSince1970
                 let endIntervalDay = endIntervalDayDate?.timeIntervalSince1970
                 let initialIntervalDay = initialIntervalDayDate?.timeIntervalSince1970
                 
-        
-                var timeMinutes = currentAnalyse.endDate.timeIntervalSince(currentAnalyse.startDate) / 60
+                let timeMinutes = SleepTimer.timeInMinutes(between: currentAnalyse.endDate,
+                                                           and: currentAnalyse.startDate)
                 
-        
-                if  timeMinutes > 600 {
-                    timeMinutes = 0
-                }
+                let sleepDataFactory = SleepDataFactory.create(atSleepData: self.sleepData,
+                                                               and: initialSleepAnalysesAfterFormatter)
                 
+                let intervals = (initialIntervalDay!, endIntervalDay!, pointInterval)
+                let sleepDataDecorator = ModifySleepDataFactory.change(with: intervals)
                 
-                if (dict[initialSleepAnalysesAfterFormatter] == nil) {
-                    if initialIntervalDay! <= pointInterval && pointInterval < endIntervalDay! {
-                        dict[initialSleepAnalysesAfterFormatter] = [(timeMinutes, currentAnalyse.value)]
-                    }else {
-                        let fixDay = String(Int(day)! + 1).leftPadding(toLength: 2, withPad: "0")
-                        let newDay = "\(year)/\(month)/\(fixDay)"
-    
-                        if (dict[newDay] == nil) {
-                            dict[newDay] = [(timeMinutes, currentAnalyse.value)]
-                        } else {
-                            dict[newDay]?.append((timeMinutes, currentAnalyse.value))
-                        }
-                    }
-          
-                } else {
-                    if initialIntervalDay! <= pointInterval && pointInterval < endIntervalDay! {
-                        dict[initialSleepAnalysesAfterFormatter]?.append((timeMinutes, currentAnalyse.value))
-                    } else {
-                        let fixDay = String(Int(day)! + 1).leftPadding(toLength: 2, withPad: "0")
-                        let newDay = "\(year)/\(month)/\(fixDay)"
-
-                        if (dict[newDay] == nil) {
-                            dict[newDay] = [(timeMinutes, currentAnalyse.value)]
-                        } else {
-                            dict[newDay]?.append((timeMinutes, currentAnalyse.value))
-                        }
-                    }
-                }
+                let newSleepValues = (timeMinutes, currentAnalyse.value)
+                
+                let newSleepData = sleepDataFactory.doChange(at: self.sleepData,
+                                                             withDecorator: sleepDataDecorator,
+                                                             andValues: newSleepValues)
+                
+                self.sleepData = newSleepData
+//                if (self?.sleepData[initialSleepAnalysesAfterFormatter] == nil) {
+//                    if initialIntervalDay! <= pointInterval && pointInterval < endIntervalDay! {
+//                        self?.sleepData[initialSleepAnalysesAfterFormatter] = [(timeMinutes, currentAnalyse.value)]
+//                    } else {
+//                        let fixDay = String((day + 1)).leftPadding(toLength: 2, withPad: "0")
+//                        let newDay = "\(year)/\(month)/\(fixDay)"
+//
+//                        if (self?.sleepData[newDay] == nil) {
+//                            self?.sleepData[newDay] = [(timeMinutes, currentAnalyse.value)]
+//                        } else {
+//                            self?.sleepData[newDay]?.append((timeMinutes, currentAnalyse.value))
+//                        }
+//                    }
+//
+//                } else {
+//                    if initialIntervalDay! <= pointInterval && pointInterval < endIntervalDay! {
+//                        self?.sleepData[initialSleepAnalysesAfterFormatter]?.append((timeMinutes, currentAnalyse.value))
+//                    } else {
+//                        let fixDay = String((day + 1)).leftPadding(toLength: 2, withPad: "0")
+//                        let newDay = "\(year)/\(month)/\(fixDay)"
+//
+//                        if (self?.sleepData[newDay] == nil) {
+//                            self?.sleepData[newDay] = [(timeMinutes, currentAnalyse.value)]
+//                        } else {
+//                            self?.sleepData[newDay]?.append((timeMinutes, currentAnalyse.value))
+//                        }
+//                    }
+//                }
             }
+            completion(.success(self.sleepData))
         }
-        
-            
         healthStore.execute(query)
-        print(dict)
     }
 
+}
+
+protocol AppendableSleepData {
+    
+    func doChange(at sleepData: SleepDataCollection,
+                  withDecorator decorator: ChangeableSleepData,
+                  andValues values: SleepData ) -> SleepDataCollection
+}
+
+protocol ChangeableSleepData {
+    
+    func execute(with sleepData: SleepDataCollection,
+                 atKey key: String,
+                 and values: SleepData) -> SleepDataCollection
+}
+
+class ModifySleepDataFactory {
+    
+    typealias Intervals = (TimeInterval, TimeInterval, TimeInterval)
+    
+    static func change(with intervals: Intervals) -> ChangeableSleepData {
+        let (initialIntervalDay, endIntervalDay, pointInterval) = intervals
+        if initialIntervalDay <= pointInterval && pointInterval < endIntervalDay {
+            return CreateNewSleepDataKeyValue()
+        }
+        return AppendNewSleepData()
+    }
+}
+
+class CreateNewSleepDataKeyValue: ChangeableSleepData {
+    
+    func execute(with sleepData: SleepDataCollection, atKey key: String, and values: SleepData) -> SleepDataCollection {
+        var newSleepData = sleepData
+        newSleepData[key] = [values]
+        return newSleepData
+    }
+
+}
+
+class AppendNewSleepData: ChangeableSleepData {
+    
+    func execute(with sleepData: SleepDataCollection, atKey key: String, and values: SleepData) -> SleepDataCollection {
+        var newSleepData = sleepData
+        let (day, month, year) = SleepDateFormatter.getDayMonthYer(withString: key)
+        
+        let nextDay = String((day + 1)).leftPadding(toLength: 2, withPad: "0")
+        let newDay = "\(year)/\(month)/\(nextDay)"
+
+        if (newSleepData[newDay] == nil) {
+            newSleepData[newDay] = [values]
+        } else {
+            newSleepData[newDay]?.append(values)
+        }
+        return newSleepData
+    }
+}
+
+
+class SleepDataFactory {
+    
+    static func create(atSleepData value: SleepDataCollection, and date: String) -> AppendableSleepData {
+        
+        if value[date] == nil {
+            return NullableSleepData(at: date)
+        }
+        return AppendSleepData(at: date)
+    }
+}
+
+class NullableSleepData: AppendableSleepData {
+    
+    let date: String
+    
+    init(at date: String){
+        self.date = date
+    }
+    
+    func doChange(at sleepData: SleepDataCollection,
+                  withDecorator decorator: ChangeableSleepData,
+                  andValues values: SleepData) -> SleepDataCollection {
+        return decorator.execute(with: sleepData,
+                                             atKey: date,
+                                             and: values)
+    }
+}
+
+class AppendSleepData: AppendableSleepData {
+    
+    let date: String
+    
+    init(at date: String){
+        self.date = date
+    }
+    
+    func doChange(at sleepData: SleepDataCollection, withDecorator decorator: ChangeableSleepData, andValues values: SleepData) -> SleepDataCollection {
+        return decorator.execute(with: sleepData,
+                                 atKey: date,
+                                 and: values)
+    }
 }
 
 extension String {
@@ -135,5 +219,77 @@ extension String {
         } else {
             return String(self.suffix(toLength))
         }
+    }
+}
+
+class IntervalDayComponent {
+    
+    typealias IntervalDateComponent = (Date?, Date?)
+    
+    private struct Constant {
+        static let TIME_TO_START = 16
+    }
+    
+    static func create(with day: Int, _ month: Int, and year: Int) -> IntervalDateComponent {
+        let initialIntervalDayComponent = DateComponents(year: year,
+                                                         month: month,
+                                                         day: day - 1,
+                                                         hour: Constant.TIME_TO_START,
+                                                         minute: 0,
+                                                         second: 0)
+        
+        let endIntervalDayComponent = DateComponents(year: year,
+                                                     month: month,
+                                                     day: day,
+                                                     hour: Constant.TIME_TO_START,
+                                                     minute: 0,
+                                                     second: 0)
+        
+        let initialIntervalDayDate  = NSCalendar.current.date(from: initialIntervalDayComponent)
+        let endIntervalDayDate = NSCalendar.current.date(from: endIntervalDayComponent)
+        
+        return (initialIntervalDayDate, endIntervalDayDate)
+    }
+}
+
+class SleepDateFormatter {
+    
+    typealias DayMonthYear = (Int, Int, Int)
+
+    struct Constant {
+        static let FORMATTER = "YYYY/MM/dd"
+        static let SEPARATOR = "/"
+    }
+    
+    static func create(with analyse: HKCategorySample?) -> String {
+        guard let analyse = analyse else { return "" }
+        let formatter = DateFormatter()
+        formatter.dateFormat = Constant.FORMATTER
+        return formatter.string(from: analyse.startDate)
+    }
+    
+    static func getDayMonthYer(withString value: String) -> DayMonthYear {
+        let year = value.split(separator: "/")[0]
+        let month = value.split(separator: "/")[1]
+        let day = value.split(separator: "/")[2]
+        
+        let yearConverted = Int(year)
+        let dayConverted = Int(day)
+        let monthConverted = Int(month)
+        
+        guard let yearConverted = yearConverted,
+              let dayConverted = dayConverted,
+              let monthConverted = monthConverted else { return (-1, -1, -1) }
+        
+        return (dayConverted, monthConverted, yearConverted)
+    }
+}
+
+class SleepTimer {
+    
+    static func timeInMinutes(between endDate: Date, and startDate: Date) -> Double {
+        let timeMinutes = endDate.timeIntervalSince(startDate) / 60
+        if timeMinutes > 600 { return 0.0 }
+        return timeMinutes
     }
 }

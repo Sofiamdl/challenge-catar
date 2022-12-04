@@ -10,7 +10,8 @@ import HealthKit
 
 
 class RunningCalculate: HealthCalculable {
-    
+    typealias StatisticsCollectionType = HKStatisticsCollection
+        
     private struct Constant {
         static let SEVEN_DAYS_BEFORE = -6
     }
