@@ -14,6 +14,8 @@ struct RunningScreen: View {
     @State private var speed: [Float] = []
     
     let healthSession = HealthSession()
+    let speedCalculate = SpeedCalculate()
+
 
     private var todayMeters: Float {
         return meters.last ?? 0.0
@@ -67,7 +69,11 @@ struct RunningScreen: View {
                         print("deu mt ruim")
                     }
                 }
+                speedCalculate.calculte() { result in
+                    print(result)
+                }
             }
+            
         }
     }
     
@@ -89,17 +95,18 @@ struct RunningScreen: View {
         }
     }
     
-    func updateViewWithSpeed(_ statistics: HKStatisticsCollection){
+    func updateViewWithSpeed(_ statistics: [HKSample]){
         let startDate = Calendar.current.date(byAdding: .day,
                                               value: -6,
                                               to: Date())!
         let endDate = Date()
-        statistics.enumerateStatistics(from: startDate,
-                                  to: endDate) { (statistic, stop) in
-            let speedKM = SpeedHandler.adapt(quantity: statistic)
-            
-            speed.append(speedKM)
-        }
+        print(statistics)
+//        statistics.enumerateStatistics(from: startDate,
+//                                  to: endDate) { (statistic, stop) in
+//            let speedKM = SpeedHandler.adapt(quantity: statistic)
+//            
+//            speed.append(speedKM)
+//        }
     }
 }
 

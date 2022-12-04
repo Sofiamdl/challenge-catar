@@ -34,7 +34,7 @@
 		0D7294062937C8970096F38D /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7294052937C8970096F38D /* Health.swift */; };
 		0D9D657729393E69009698C4 /* DistanceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657629393E69009698C4 /* DistanceHandler.swift */; };
 		0D9D657A29393EBF009698C4 /* HealthCalculateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657929393EBF009698C4 /* HealthCalculateFactory.swift */; };
-		0D9D657C29393EFF009698C4 /* RunningCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657B29393EFF009698C4 /* RunningCalculate.swift */; };
+		0D9D657C29393EFF009698C4 /* SpeedCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657B29393EFF009698C4 /* SpeedCalculate.swift */; };
 		0D9D657E29393F47009698C4 /* HealthCalculable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657D29393F47009698C4 /* HealthCalculable.swift */; };
 		0D9D658229393F87009698C4 /* CalculationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658129393F87009698C4 /* CalculationType.swift */; };
 		0D9D658429393FA0009698C4 /* DistanceCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658329393FA0009698C4 /* DistanceCalculate.swift */; };
@@ -111,7 +111,7 @@
 		0D7294082938AE200096F38D /* challenge-catar-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "challenge-catar-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0D9D657629393E69009698C4 /* DistanceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceHandler.swift; sourceTree = "<group>"; };
 		0D9D657929393EBF009698C4 /* HealthCalculateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCalculateFactory.swift; sourceTree = "<group>"; };
-		0D9D657B29393EFF009698C4 /* RunningCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCalculate.swift; sourceTree = "<group>"; };
+		0D9D657B29393EFF009698C4 /* SpeedCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedCalculate.swift; sourceTree = "<group>"; };
 		0D9D657D29393F47009698C4 /* HealthCalculable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCalculable.swift; sourceTree = "<group>"; };
 		0D9D658129393F87009698C4 /* CalculationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationType.swift; sourceTree = "<group>"; };
 		0D9D658329393FA0009698C4 /* DistanceCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculate.swift; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				0D9D657929393EBF009698C4 /* HealthCalculateFactory.swift */,
-				0D9D657B29393EFF009698C4 /* RunningCalculate.swift */,
+				0D9D657B29393EFF009698C4 /* SpeedCalculate.swift */,
 				0D9D658329393FA0009698C4 /* DistanceCalculate.swift */,
 				0D9D658529394015009698C4 /* SleepAnalysis.swift */,
 			);
@@ -524,7 +524,7 @@
 				0D9D657A29393EBF009698C4 /* HealthCalculateFactory.swift in Sources */,
 				0D6B875A29340FA100E7C5DA /* WKInterfaceDevice+Size.swift in Sources */,
 				0D6B87892935B47500E7C5DA /* SelectScreen.swift in Sources */,
-				0D9D657C29393EFF009698C4 /* RunningCalculate.swift in Sources */,
+				0D9D657C29393EFF009698C4 /* SpeedCalculate.swift in Sources */,
 				0D6B87852935B43700E7C5DA /* ScreenButton.swift in Sources */,
 				0D6B87622934112600E7C5DA /* TextStyle.swift in Sources */,
 				0D6B875729340D5400E7C5DA /* LineOrientation.swift in Sources */,
@@ -712,7 +712,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "challenge-catar";
+				PRODUCT_BUNDLE_IDENTIFIER = "challenge-catarSofia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -748,7 +748,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "challenge-catar";
+				PRODUCT_BUNDLE_IDENTIFIER = "challenge-catarSofia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

@@ -8,15 +8,18 @@
 import Foundation
 import HealthKit
 
+typealias TesteHandler = CollectionHandler<[HKSample]>
 
-class RunningCalculate: HealthCalculable {
-    typealias StatisticsCollectionType = HKStatisticsCollection
+class SpeedCalculate {
+    typealias StatisticsCollectionType = [HKSample]
         
     private struct Constant {
         static let SEVEN_DAYS_BEFORE = -6
     }
+    private let healthKitStore: HKHealthStore = HKHealthStore()
+
     
-    func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler) {
+    func calculte( _ completion: @escaping TesteHandler) {
         
         let start = Calendar.current.date(byAdding: .day,
                                           value: Constant.SEVEN_DAYS_BEFORE,
@@ -28,14 +31,14 @@ class RunningCalculate: HealthCalculable {
         let runningSpeedType = HKSampleType.quantityType(forIdentifier: .runningSpeed)!
         let sortByStartDate = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
         
-        let query = HKSampleQuery(sampleType: walkSpeedType,
+        let query = HKSampleQuery(sampleType: runningSpeedType,
                                    predicate: datePredicate,
                                    limit: HKObjectQueryNoLimit,
-                                   sortDescriptors: [sortByStartDate]) { (_, statisticsCollection, error) in
-            guard let statisticsCollection = statisticsCollection else { return }
-            completion(.success(statisticsCollection))
+                                   sortDescriptors: [sortByStartDate]) { (_, sample, error) in
+            guard let statisticsCollection = sample else { return }
+            completion(.success(sample!))
         }
-        
-        healthStore.execute(query)
+                
+        healthKitStore.execute(query)
     }
 }
