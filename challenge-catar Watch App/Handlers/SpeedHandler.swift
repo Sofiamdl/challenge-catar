@@ -18,6 +18,7 @@ class SpeedHandler: StatisticsHandler {
         //let time = value.duration()?.doubleValue(for: .minute())
         let teste = value.sumQuantity()
         let testeEnd = value.averageQuantity()?.doubleValue(for: HKUnit.meter().unitDivided(by: HKUnit.second()))
+        print("value of speed ", value)
         print("averageQuantity of speed ", testeEnd)
         print("sumQuantity of speedHandler ", teste)
         print(value)

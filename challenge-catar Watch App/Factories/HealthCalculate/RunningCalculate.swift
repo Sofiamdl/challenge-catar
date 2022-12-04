@@ -17,20 +17,21 @@ class RunningCalculate: HealthCalculable {
     }
     
     func calculte(with healthStore: HKHealthStore, _ completion: @escaping StatisticsCollectionHandler) {
-        let startDate = Calendar.current.date(byAdding: .day,
-                                              value: Constant.SEVEN_DAYS_BEFORE,
-                                              to: Date())
-        let endDate = Date()
-        let predicateDate = HKQuery.predicateForSamples(withStart: startDate,
-                                                        end: endDate,
-                                                        options: .strictStartDate)
-        let daily = DateComponents(day: 1)
-        let query = HKStatisticsCollectionQuery(quantityType: HKQuantityType(.appleExerciseTime),
-                                    quantitySamplePredicate: predicateDate,
-                                                anchorDate: .now,
-                                    intervalComponents: daily)
         
-        query.initialResultsHandler = { _, statisticsCollection, error in
+        let start = Calendar.current.date(byAdding: .day,
+                                          value: Constant.SEVEN_DAYS_BEFORE,
+                                          to: Date())
+        let end = Date()
+      
+        let datePredicate = HKQuery.predicateForSamples(withStart: start, end: end, options: [])
+
+        let runningSpeedType = HKSampleType.quantityType(forIdentifier: .runningSpeed)!
+        let sortByStartDate = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
+        
+        let query = HKSampleQuery(sampleType: walkSpeedType,
+                                   predicate: datePredicate,
+                                   limit: HKObjectQueryNoLimit,
+                                   sortDescriptors: [sortByStartDate]) { (_, statisticsCollection, error) in
             guard let statisticsCollection = statisticsCollection else { return }
             completion(.success(statisticsCollection))
         }
