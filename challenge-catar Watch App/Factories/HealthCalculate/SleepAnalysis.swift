@@ -48,66 +48,42 @@ class SleepAnalysis {
             let sleepAnalysisCollectionConverted = sleepAnalysisCollection.compactMap { currentAnalyse in
                 return currentAnalyse as? HKCategorySample
             }
-
-            sleepAnalysisCollectionConverted.forEach { currentAnalyse in
-    
-                let initialSleepAnalysesAfterFormatter = SleepDateFormatter.create(with: currentAnalyse)
-                let (day, month, year) = SleepDateFormatter.getDayMonthYer(withString: initialSleepAnalysesAfterFormatter)
-                let (initialIntervalDayDate, endIntervalDayDate) = IntervalDayComponent.create(with: day,
-                                                                                                     month,
-                                                                                               and: year)
-                let pointInterval = currentAnalyse.startDate.timeIntervalSince1970
-                let endIntervalDay = endIntervalDayDate?.timeIntervalSince1970
-                let initialIntervalDay = initialIntervalDayDate?.timeIntervalSince1970
-                
-                let timeMinutes = SleepTimer.timeInMinutes(between: currentAnalyse.endDate,
-                                                           and: currentAnalyse.startDate)
-                
-                let sleepDataFactory = SleepDataFactory.create(atSleepData: self.sleepData,
-                                                               and: initialSleepAnalysesAfterFormatter)
-                
-                let intervals = (initialIntervalDay!, endIntervalDay!, pointInterval)
-                let sleepDataDecorator = ModifySleepDataFactory.change(with: intervals)
-                
-                let newSleepValues = (timeMinutes, currentAnalyse.value)
-                
-                let newSleepData = sleepDataFactory.doChange(at: self.sleepData,
-                                                             withDecorator: sleepDataDecorator,
-                                                             andValues: newSleepValues)
-                
-                self.sleepData = newSleepData
-//                if (self?.sleepData[initialSleepAnalysesAfterFormatter] == nil) {
-//                    if initialIntervalDay! <= pointInterval && pointInterval < endIntervalDay! {
-//                        self?.sleepData[initialSleepAnalysesAfterFormatter] = [(timeMinutes, currentAnalyse.value)]
-//                    } else {
-//                        let fixDay = String((day + 1)).leftPadding(toLength: 2, withPad: "0")
-//                        let newDay = "\(year)/\(month)/\(fixDay)"
-//
-//                        if (self?.sleepData[newDay] == nil) {
-//                            self?.sleepData[newDay] = [(timeMinutes, currentAnalyse.value)]
-//                        } else {
-//                            self?.sleepData[newDay]?.append((timeMinutes, currentAnalyse.value))
-//                        }
-//                    }
-//
-//                } else {
-//                    if initialIntervalDay! <= pointInterval && pointInterval < endIntervalDay! {
-//                        self?.sleepData[initialSleepAnalysesAfterFormatter]?.append((timeMinutes, currentAnalyse.value))
-//                    } else {
-//                        let fixDay = String((day + 1)).leftPadding(toLength: 2, withPad: "0")
-//                        let newDay = "\(year)/\(month)/\(fixDay)"
-//
-//                        if (self?.sleepData[newDay] == nil) {
-//                            self?.sleepData[newDay] = [(timeMinutes, currentAnalyse.value)]
-//                        } else {
-//                            self?.sleepData[newDay]?.append((timeMinutes, currentAnalyse.value))
-//                        }
-//                    }
-//                }
-            }
+            
+            self.updateSleepData(with: sleepAnalysisCollectionConverted)
+            
             completion(.success(self.sleepData))
         }
         healthStore.execute(query)
+    }
+    
+    private func updateSleepData(with collection: [HKCategorySample]){
+        collection.forEach { currentAnalyse in
+
+            let initialSleepAnalysesAfterFormatter = SleepDateFormatter.create(with: currentAnalyse)
+            let (day, month, year) = SleepDateFormatter.getDayMonthYer(withString: initialSleepAnalysesAfterFormatter)
+            let (initialIntervalDayDate, endIntervalDayDate) = IntervalDayComponent.create(with: day,
+                                                                                                 month,
+                                                                                           and: year)
+            let pointInterval = currentAnalyse.startDate.timeIntervalSince1970
+            let endIntervalDay = endIntervalDayDate?.timeIntervalSince1970
+            let initialIntervalDay = initialIntervalDayDate?.timeIntervalSince1970
+            
+            let timeMinutes = SleepTimer.timeInMinutes(between: currentAnalyse.endDate,
+                                                       and: currentAnalyse.startDate)
+            
+            let sleepDataFactory = SleepDataFactory.create(atSleepData: self.sleepData,
+                                                           and: initialSleepAnalysesAfterFormatter)
+            
+            let intervals = (initialIntervalDay!, endIntervalDay!, pointInterval)
+            let sleepDataDecorator = ModifySleepDataFactory.change(with: intervals)
+            
+            let newSleepValues = (timeMinutes, currentAnalyse.value)
+            
+            let newSleepData = sleepDataFactory.doChange(at: self.sleepData,
+                                                         withDecorator: sleepDataDecorator,
+                                                         andValues: newSleepValues)
+            self.sleepData = newSleepData
+        }
     }
 
 }
