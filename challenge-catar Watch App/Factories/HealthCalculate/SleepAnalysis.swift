@@ -55,6 +55,7 @@ class SleepAnalysis {
             
             completion(.success(self.sleepData))
         }
+        
         healthKitStore.execute(query)
     }
     

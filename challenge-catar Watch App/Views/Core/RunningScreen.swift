@@ -81,6 +81,7 @@ struct RunningScreen: View {
             let meter = DistanceHandler.adapt(quantity: statistic)
             let metersToKM = meter/1000
             let seconds = TimeHandler.adapt(quantity: statistic)
+            print(seconds)
             let velocityKM = VelocityHandler.toKM(withTimeDuration: seconds,
                                                   andDistance: meter)
             meters.append(metersToKM)
