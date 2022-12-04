@@ -53,6 +53,15 @@
 		BF4FFEF729366A4D008C321A /* IdealSleepGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */; };
 		BF4FFEF929369916008C321A /* ReportsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEF829369916008C321A /* ReportsScreen.swift */; };
 		BF4FFEFD2937C7EE008C321A /* BulletList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFEFC2937C7EE008C321A /* BulletList.swift */; };
+		CA0CDB50293D4436003079C7 /* String+LeftPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB4F293D4436003079C7 /* String+LeftPadding.swift */; };
+		CA0CDB53293D44BB003079C7 /* SleepDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB52293D44BB003079C7 /* SleepDataFactory.swift */; };
+		CA0CDB55293D4518003079C7 /* NullableSleepData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB54293D4518003079C7 /* NullableSleepData.swift */; };
+		CA0CDB57293D4547003079C7 /* AppendSleepData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB56293D4547003079C7 /* AppendSleepData.swift */; };
+		CA0CDB59293D459A003079C7 /* AppendableSleepData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB58293D459A003079C7 /* AppendableSleepData.swift */; };
+		CA0CDB5C293D45E7003079C7 /* RemoveFakeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB5B293D45E7003079C7 /* RemoveFakeTime.swift */; };
+		CA0CDB5E293D4604003079C7 /* IntervalDayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB5D293D4604003079C7 /* IntervalDayComponent.swift */; };
+		CA0CDB60293D462F003079C7 /* SleepDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB5F293D462F003079C7 /* SleepDateFormatter.swift */; };
+		CA0CDB62293D465D003079C7 /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB61293D465D003079C7 /* SleepTimer.swift */; };
 		CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */; };
 		CA0FB102293A24DF00E2BE1A /* SpeedHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */; };
 /* End PBXBuildFile section */
@@ -131,6 +140,15 @@
 		BF4FFEF629366A4D008C321A /* IdealSleepGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealSleepGraph.swift; sourceTree = "<group>"; };
 		BF4FFEF829369916008C321A /* ReportsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsScreen.swift; sourceTree = "<group>"; };
 		BF4FFEFC2937C7EE008C321A /* BulletList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletList.swift; sourceTree = "<group>"; };
+		CA0CDB4F293D4436003079C7 /* String+LeftPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LeftPadding.swift"; sourceTree = "<group>"; };
+		CA0CDB52293D44BB003079C7 /* SleepDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDataFactory.swift; sourceTree = "<group>"; };
+		CA0CDB54293D4518003079C7 /* NullableSleepData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullableSleepData.swift; sourceTree = "<group>"; };
+		CA0CDB56293D4547003079C7 /* AppendSleepData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppendSleepData.swift; sourceTree = "<group>"; };
+		CA0CDB58293D459A003079C7 /* AppendableSleepData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppendableSleepData.swift; sourceTree = "<group>"; };
+		CA0CDB5B293D45E7003079C7 /* RemoveFakeTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFakeTime.swift; sourceTree = "<group>"; };
+		CA0CDB5D293D4604003079C7 /* IntervalDayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalDayComponent.swift; sourceTree = "<group>"; };
+		CA0CDB5F293D462F003079C7 /* SleepDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDateFormatter.swift; sourceTree = "<group>"; };
+		CA0CDB61293D465D003079C7 /* SleepTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimer.swift; sourceTree = "<group>"; };
 		CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressGraphicView.swift; sourceTree = "<group>"; };
 		CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				0D6B875929340FA100E7C5DA /* WKInterfaceDevice+Size.swift */,
+				CA0CDB4F293D4436003079C7 /* String+LeftPadding.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +241,7 @@
 		0D6B87742935952300E7C5DA /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				CA0CDB51293D448A003079C7 /* SleepData */,
 				0D9D657829393E8D009698C4 /* HealthCalculate */,
 				0D6B87752935952B00E7C5DA /* Scroll */,
 			);
@@ -302,6 +322,7 @@
 				0D6B87762935954200E7C5DA /* ScrollableDirection.swift */,
 				0D9D657D29393F47009698C4 /* HealthCalculable.swift */,
 				0D9D658C2939BB6A009698C4 /* StatisticsHandler.swift */,
+				CA0CDB58293D459A003079C7 /* AppendableSleepData.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -356,6 +377,7 @@
 		BF4FFED3293134DD008C321A /* challenge-catar Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				CA0CDB5A293D45D0003079C7 /* Utils */,
 				0D7294072938ADBD0096F38D /* challenge-catar Watch App.entitlements */,
 				0D7294082938AE200096F38D /* challenge-catar-Watch-App-Info.plist */,
 				BF4FFED4293134DD008C321A /* challenge_catarApp.swift */,
@@ -409,6 +431,27 @@
 				BF4FFEFC2937C7EE008C321A /* BulletList.swift */,
 			);
 			path = BulletList;
+			sourceTree = "<group>";
+		};
+		CA0CDB51293D448A003079C7 /* SleepData */ = {
+			isa = PBXGroup;
+			children = (
+				CA0CDB52293D44BB003079C7 /* SleepDataFactory.swift */,
+				CA0CDB54293D4518003079C7 /* NullableSleepData.swift */,
+				CA0CDB56293D4547003079C7 /* AppendSleepData.swift */,
+			);
+			path = SleepData;
+			sourceTree = "<group>";
+		};
+		CA0CDB5A293D45D0003079C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CA0CDB5B293D45E7003079C7 /* RemoveFakeTime.swift */,
+				CA0CDB5D293D4604003079C7 /* IntervalDayComponent.swift */,
+				CA0CDB5F293D462F003079C7 /* SleepDateFormatter.swift */,
+				CA0CDB61293D465D003079C7 /* SleepTimer.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		CA0FB0FE29367C1300E2BE1A /* DailyProgressGraphic */ = {
@@ -526,6 +569,7 @@
 				0D6B87892935B47500E7C5DA /* SelectScreen.swift in Sources */,
 				0D9D657C29393EFF009698C4 /* RunningCalculate.swift in Sources */,
 				0D6B87852935B43700E7C5DA /* ScreenButton.swift in Sources */,
+				CA0CDB57293D4547003079C7 /* AppendSleepData.swift in Sources */,
 				0D6B87622934112600E7C5DA /* TextStyle.swift in Sources */,
 				0D6B875729340D5400E7C5DA /* LineOrientation.swift in Sources */,
 				0D6B87692934125500E7C5DA /* IconStatus.swift in Sources */,
@@ -535,9 +579,15 @@
 				0D6B87772935954200E7C5DA /* ScrollableDirection.swift in Sources */,
 				0D9D658629394015009698C4 /* SleepAnalysis.swift in Sources */,
 				0D9D658F2939C417009698C4 /* VelocityHandler.swift in Sources */,
+				CA0CDB59293D459A003079C7 /* AppendableSleepData.swift in Sources */,
 				0D7294062937C8970096F38D /* Health.swift in Sources */,
 				0D6B876E293412EE00E7C5DA /* ColorConstant.swift in Sources */,
+				CA0CDB60293D462F003079C7 /* SleepDateFormatter.swift in Sources */,
+				CA0CDB55293D4518003079C7 /* NullableSleepData.swift in Sources */,
+				CA0CDB53293D44BB003079C7 /* SleepDataFactory.swift in Sources */,
+				CA0CDB62293D465D003079C7 /* SleepTimer.swift in Sources */,
 				BF4FFEF929369916008C321A /* ReportsScreen.swift in Sources */,
+				CA0CDB50293D4436003079C7 /* String+LeftPadding.swift in Sources */,
 				0D6B87792935957B00E7C5DA /* ScrollUp.swift in Sources */,
 				0D9D6588293943EE009698C4 /* TimeHandler.swift in Sources */,
 				0D9D65952939E69F009698C4 /* StatisticsCollectionHandler.swift in Sources */,
@@ -555,8 +605,10 @@
 				0D9D658D2939BB6A009698C4 /* StatisticsHandler.swift in Sources */,
 				0D6B878E2936796F00E7C5DA /* Average.swift in Sources */,
 				0D9D65972939E6D7009698C4 /* AuthorizedHealthKitHandler.swift in Sources */,
+				CA0CDB5E293D4604003079C7 /* IntervalDayComponent.swift in Sources */,
 				0D6B87642934115C00E7C5DA /* CardValues.swift in Sources */,
 				BF4FFEF729366A4D008C321A /* IdealSleepGraph.swift in Sources */,
+				CA0CDB5C293D45E7003079C7 /* RemoveFakeTime.swift in Sources */,
 				0D6B8770293413E200E7C5DA /* Screen.swift in Sources */,
 				0D6B875F293410D300E7C5DA /* TextType.swift in Sources */,
 				0D6B87822935B3E000E7C5DA /* ScreenObserver.swift in Sources */,
