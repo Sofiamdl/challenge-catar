@@ -10,9 +10,4 @@ import Foundation
 enum CalculationType {
     case speed
     case distanceWalking
-    case sleep
-    
-    var teste: String {
-        return "oi"
-    }
 }

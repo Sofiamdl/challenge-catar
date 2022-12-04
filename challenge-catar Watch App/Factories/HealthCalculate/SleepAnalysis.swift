@@ -17,11 +17,13 @@ class SleepAnalysis {
     
     private var sleepData: SleepDataCollection = [:]
     
+    private let healthKitStore: HKHealthStore = HKHealthStore()
+    
     private struct Constant {
         static let SEVEN_DAYS_BEFORE = -7
     }
     
-    func calculte(with healthStore: HKHealthStore,  _ completion: @escaping ((Result<SleepDataCollection, Error>) -> Void)) {
+    func calculte(_ completion: @escaping ((Result<SleepDataCollection, Error>) -> Void)) {
         
         let startDate = Calendar.current.date(byAdding: .day,
                                               value: Constant.SEVEN_DAYS_BEFORE,
@@ -53,7 +55,7 @@ class SleepAnalysis {
             
             completion(.success(self.sleepData))
         }
-        healthStore.execute(query)
+        healthKitStore.execute(query)
     }
     
     private func updateSleepData(with collection: [HKCategorySample]){

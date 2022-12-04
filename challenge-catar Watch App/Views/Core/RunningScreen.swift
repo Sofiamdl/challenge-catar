@@ -67,16 +67,6 @@ struct RunningScreen: View {
                         print("deu mt ruim")
                     }
                 }
-                
-                healthSession.statisticsCollection(.speed){ staticsCollection in
-                    switch staticsCollection {
-                        
-                    case .success(let statistics):
-                        updateViewWithSpeed(statistics)
-                    case .failure:
-                        print("deu mt ruim")
-                    }
-                }
             }
         }
     }
