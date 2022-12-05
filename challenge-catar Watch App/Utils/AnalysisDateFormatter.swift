@@ -8,7 +8,7 @@
 import Foundation
 import HealthKit
 
-class SleepDateFormatter {
+class AnalysisDateFormatter {
     
     typealias DayMonthYear = (Int, Int, Int)
     
@@ -17,11 +17,11 @@ class SleepDateFormatter {
         static let SEPARATOR = "/"
     }
     
-    static func create(with analyse: HKCategorySample?) -> String {
-        guard let analyse = analyse else { return "" }
+    static func create(with date: Date?) -> String {
+        guard let date = date else { return "" }
         let formatter = DateFormatter()
         formatter.dateFormat = Constant.FORMATTER
-        return formatter.string(from: analyse.startDate)
+        return formatter.string(from: date )
     }
     
     static func getDayMonthYer(withString value: String) -> DayMonthYear {

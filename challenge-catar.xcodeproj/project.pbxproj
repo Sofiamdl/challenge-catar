@@ -34,7 +34,7 @@
 		0D7294062937C8970096F38D /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7294052937C8970096F38D /* Health.swift */; };
 		0D9D657729393E69009698C4 /* DistanceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657629393E69009698C4 /* DistanceHandler.swift */; };
 		0D9D657A29393EBF009698C4 /* HealthCalculateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657929393EBF009698C4 /* HealthCalculateFactory.swift */; };
-		0D9D657C29393EFF009698C4 /* RunningCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657B29393EFF009698C4 /* RunningCalculate.swift */; };
+		0D9D657C29393EFF009698C4 /* SpeedCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657B29393EFF009698C4 /* SpeedCalculate.swift */; };
 		0D9D657E29393F47009698C4 /* HealthCalculable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D657D29393F47009698C4 /* HealthCalculable.swift */; };
 		0D9D658229393F87009698C4 /* CalculationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658129393F87009698C4 /* CalculationType.swift */; };
 		0D9D658429393FA0009698C4 /* DistanceCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658329393FA0009698C4 /* DistanceCalculate.swift */; };
@@ -60,7 +60,7 @@
 		CA0CDB59293D459A003079C7 /* AppendableSleepData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB58293D459A003079C7 /* AppendableSleepData.swift */; };
 		CA0CDB5C293D45E7003079C7 /* RemoveFakeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB5B293D45E7003079C7 /* RemoveFakeTime.swift */; };
 		CA0CDB5E293D4604003079C7 /* IntervalDayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB5D293D4604003079C7 /* IntervalDayComponent.swift */; };
-		CA0CDB60293D462F003079C7 /* SleepDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB5F293D462F003079C7 /* SleepDateFormatter.swift */; };
+		CA0CDB60293D462F003079C7 /* AnalysisDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB5F293D462F003079C7 /* AnalysisDateFormatter.swift */; };
 		CA0CDB62293D465D003079C7 /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB61293D465D003079C7 /* SleepTimer.swift */; };
 		CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */; };
 		CA0FB102293A24DF00E2BE1A /* SpeedHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */; };
@@ -120,7 +120,7 @@
 		0D7294082938AE200096F38D /* challenge-catar-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "challenge-catar-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0D9D657629393E69009698C4 /* DistanceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceHandler.swift; sourceTree = "<group>"; };
 		0D9D657929393EBF009698C4 /* HealthCalculateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCalculateFactory.swift; sourceTree = "<group>"; };
-		0D9D657B29393EFF009698C4 /* RunningCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCalculate.swift; sourceTree = "<group>"; };
+		0D9D657B29393EFF009698C4 /* SpeedCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedCalculate.swift; sourceTree = "<group>"; };
 		0D9D657D29393F47009698C4 /* HealthCalculable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCalculable.swift; sourceTree = "<group>"; };
 		0D9D658129393F87009698C4 /* CalculationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationType.swift; sourceTree = "<group>"; };
 		0D9D658329393FA0009698C4 /* DistanceCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculate.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		CA0CDB58293D459A003079C7 /* AppendableSleepData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppendableSleepData.swift; sourceTree = "<group>"; };
 		CA0CDB5B293D45E7003079C7 /* RemoveFakeTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFakeTime.swift; sourceTree = "<group>"; };
 		CA0CDB5D293D4604003079C7 /* IntervalDayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalDayComponent.swift; sourceTree = "<group>"; };
-		CA0CDB5F293D462F003079C7 /* SleepDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDateFormatter.swift; sourceTree = "<group>"; };
+		CA0CDB5F293D462F003079C7 /* AnalysisDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisDateFormatter.swift; sourceTree = "<group>"; };
 		CA0CDB61293D465D003079C7 /* SleepTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimer.swift; sourceTree = "<group>"; };
 		CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressGraphicView.swift; sourceTree = "<group>"; };
 		CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedHandler.swift; sourceTree = "<group>"; };
@@ -309,7 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				0D9D657929393EBF009698C4 /* HealthCalculateFactory.swift */,
-				0D9D657B29393EFF009698C4 /* RunningCalculate.swift */,
+				0D9D657B29393EFF009698C4 /* SpeedCalculate.swift */,
 				0D9D658329393FA0009698C4 /* DistanceCalculate.swift */,
 				0D9D658529394015009698C4 /* SleepAnalysis.swift */,
 			);
@@ -448,7 +448,7 @@
 			children = (
 				CA0CDB5B293D45E7003079C7 /* RemoveFakeTime.swift */,
 				CA0CDB5D293D4604003079C7 /* IntervalDayComponent.swift */,
-				CA0CDB5F293D462F003079C7 /* SleepDateFormatter.swift */,
+				CA0CDB5F293D462F003079C7 /* AnalysisDateFormatter.swift */,
 				CA0CDB61293D465D003079C7 /* SleepTimer.swift */,
 			);
 			path = Utils;
@@ -567,7 +567,7 @@
 				0D9D657A29393EBF009698C4 /* HealthCalculateFactory.swift in Sources */,
 				0D6B875A29340FA100E7C5DA /* WKInterfaceDevice+Size.swift in Sources */,
 				0D6B87892935B47500E7C5DA /* SelectScreen.swift in Sources */,
-				0D9D657C29393EFF009698C4 /* RunningCalculate.swift in Sources */,
+				0D9D657C29393EFF009698C4 /* SpeedCalculate.swift in Sources */,
 				0D6B87852935B43700E7C5DA /* ScreenButton.swift in Sources */,
 				CA0CDB57293D4547003079C7 /* AppendSleepData.swift in Sources */,
 				0D6B87622934112600E7C5DA /* TextStyle.swift in Sources */,
@@ -582,7 +582,7 @@
 				CA0CDB59293D459A003079C7 /* AppendableSleepData.swift in Sources */,
 				0D7294062937C8970096F38D /* Health.swift in Sources */,
 				0D6B876E293412EE00E7C5DA /* ColorConstant.swift in Sources */,
-				CA0CDB60293D462F003079C7 /* SleepDateFormatter.swift in Sources */,
+				CA0CDB60293D462F003079C7 /* AnalysisDateFormatter.swift in Sources */,
 				CA0CDB55293D4518003079C7 /* NullableSleepData.swift in Sources */,
 				CA0CDB53293D44BB003079C7 /* SleepDataFactory.swift in Sources */,
 				CA0CDB62293D465D003079C7 /* SleepTimer.swift in Sources */,

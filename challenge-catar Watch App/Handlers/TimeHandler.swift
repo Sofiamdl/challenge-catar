@@ -15,11 +15,6 @@ class TimeHandler: StatisticsHandler {
     
     static func adapt(quantity value: HKStatistics?) -> Float {
         guard let _ = value else { return 1 }
-//        let time = value.duration()
-//        let teste = value.sumQuantity()
-        
-//        print("time handler duration ",time)
-//        print("time handler sum ", teste)
         return Float(0)
     }
 }

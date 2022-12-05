@@ -14,6 +14,10 @@ struct DailyProgressGraphicView: View {
     var labels: [String] = ["D","S","T","Q","Q","S","S"]
     let screen: RouteScreen
     
+    var runOrSleep: Int {
+        return screen == .runningScreen ? 1 : 60
+    }
+    
     var blueOrPurple: Color {
         return screen == .runningScreen ? Color(ColorConstant.BLUE) : Color(ColorConstant.PURPLE)
     }
@@ -41,7 +45,7 @@ struct DailyProgressGraphicView: View {
                 ZStack{
                     HStack {
                         VStack (spacing: 16){
-                            TextView(text: String(ceil(Double(values.max() ?? 0)*10)/10)+hrsOrKm, color: Color.green, type: TextType.description).opacity(0.6)
+                            TextView(text: String((Int(ceil(Double(values.max() ?? 0)*10)/10)/runOrSleep))+hrsOrKm, color: Color.green, type: TextType.description).opacity(0.6)
                             
                             TextView(text: "0"+hrsOrKm , color: Color.red, type: TextType.description).opacity(0.6)
                             Spacer().frame(height: 4)

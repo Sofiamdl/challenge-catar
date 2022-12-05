@@ -20,12 +20,11 @@ class DistanceCalculate: HealthCalculable {
                                               to: Date())
         let endDate = Date()
         let predicateDate = HKQuery.predicateForSamples(withStart: startDate,
-                                                        end: endDate,
-                                                        options: .strictStartDate)
+                                                        end: endDate)
         let daily = DateComponents(day: 1)
         let query = HKStatisticsCollectionQuery(quantityType: HKQuantityType(.distanceWalkingRunning),
                                     quantitySamplePredicate: predicateDate,
-                                                anchorDate: .now,
+                                                anchorDate: .distantPast,
                                     intervalComponents: daily)
         
         query.initialResultsHandler = { _, statisticsCollection, error in

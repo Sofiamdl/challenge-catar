@@ -11,10 +11,6 @@ import Foundation
 class HealthCalculateFactory {
     
     static func of(_ calculation: CalculationType) -> any HealthCalculable {
-        if calculation == .speed {
-            return RunningCalculate()
-        }
-        
         return DistanceCalculate()
     }
 }

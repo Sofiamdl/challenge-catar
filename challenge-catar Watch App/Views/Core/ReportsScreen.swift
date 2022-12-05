@@ -8,20 +8,39 @@
 import SwiftUI
 
 struct ReportsScreen: View {
+    @State private var averageSpeed: Double = 0.0
+    @State private var inBed: [Float] = []
+    @State private var orderedWeekSpeedAverage: [Double] = []
+    @State private var allSleep: [Double] = []
+
+    let healthSession = HealthSession()
+    let sleepAnalysis = SleepAnalysis()
+
+    let speedCalculate = SpeedCalculate()
+
+    private var averageHour: Float {
+        let inBedFiltered = inBed.filter{ value in
+            return value != 0.0
+        }
+        
+        let sum = inBedFiltered.reduce(0,+)
+        let average = sum / Float(inBedFiltered.count)
+        return floor(average)
+    }
     
     var body: some View {
         
         ScrollView {
             VStack (spacing: 6){
-                Average(distancePerHour: "50km/h", sleepingHours: "4h")
-                IdealSleepGraph(idealSleepInMinute: 5, averageMinutesSlept: 4)
+                Average(distancePerHour: "\(ceil(averageSpeed*10)/10)k/h", sleepingHours: "\(ceil((averageHour/60)*10)/10)h")
+                IdealSleepGraph(idealSleepInMinute: Int(inBed.max() ?? 0), averageMinutesSlept: Double(floor(averageHour*10)/10))
                     .padding(.top, 32)
                 TextView(text: "Você está com problemas \("na qualidade do") sono.", color: .white, type: .reportDescription)
                     .multilineTextAlignment(.center)
                     .padding(.top, 2)
                     .padding(.bottom, 2)
                 Line(orienttion: .horizontal, withColor: Color(ColorConstant.BLUE))
-                TextView(text: "A porcentagem ideal é acima de 85% enquanto a sua foi de x%.", color: Color(ColorConstant.LIGHT_GRAY), type: .regular)
+                TextView(text: "A porcentagem ideal é acima de 75% enquanto a sua foi de x%.", color: Color(ColorConstant.LIGHT_GRAY), type: .regular)
                 Line(orienttion: .horizontal, withColor: Color(ColorConstant.BLUE))
                 TextView(text: "Aqui estão algumas dicas para melhorar sua qualidade de sono:", color: Color(ColorConstant.BLUE), type: .idealSleep)
                 BulletList(elements: ["Estabeleça uma rotina de sono.",
@@ -29,6 +48,57 @@ struct ReportsScreen: View {
                                       "Desligue a TV e demais aparelhos eletrônicos próximo ao horário do sono."])
             }
             .navigationBarTitle("Relatório Semanal")
+        }.onAppear{
+            healthSession.authorizeHealthKit{ (authorized, error) in
+                speedCalculate.calculte(){ (averageSpeed, orderedWeekSpeedAverage) in
+                    self.averageSpeed = averageSpeed
+                    self.orderedWeekSpeedAverage = orderedWeekSpeedAverage
+                }
+                sleepAnalysis.calculte(){ resultSleepCollection in
+                    switch resultSleepCollection {
+                    case .success(let sleepDate):
+                        updateView(with: sleepDate)
+                    case .failure:
+                        print("deu ruim")
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    func updateView(with data: SleepDataCollection){
+        
+        let keys = (data.map({ (key, _) -> String in
+            return key
+        }) as Array)
+        
+        let keySorted = keys.sorted()
+        keySorted.enumerated().forEach{ (index, date) in
+//            let (values, type) = data[date]!
+            
+            let allValues = data[date]!
+            
+            let allValuesInBed = allValues.filter { (minutes, type) in
+                return  type == 0
+            }
+            
+            let allValuesSleep = allValues.filter{ (minutes, type) in
+                return type == 3 || type == 4 || type == 5
+            }
+            
+            var sumInBed = 0.0
+            for (minutes, _) in allValuesInBed {
+                sumInBed += minutes
+            }
+            
+            var sumAllSleep = 0.0
+            for (minutes, _) in allValuesSleep {
+                sumAllSleep += minutes
+            }
+            
+            inBed.append(Float(sumAllSleep))
+            allSleep.append((sumAllSleep/(sumInBed == 0 ? 1 : sumInBed))*100)
         }
     }
 }

@@ -44,7 +44,7 @@ class SleepAnalysis {
                                                         end: endDate)
         
         let sortDescriptorEndDate = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
-                                                     ascending: false)
+                                                     ascending: true)
         
         let query = HKSampleQuery(sampleType: HKCategoryType(.sleepAnalysis),
                                   predicate: predicateDate,
@@ -72,8 +72,8 @@ class SleepAnalysis {
     private func updateSleepData(with collection: [HKCategorySample]){
         collection.forEach { currentAnalyse in
             
-            let initialSleepAnalysesAfterFormatter = SleepDateFormatter.create(with: currentAnalyse)
-            let (day, month, year) = SleepDateFormatter.getDayMonthYer(withString: initialSleepAnalysesAfterFormatter)
+            let initialSleepAnalysesAfterFormatter = AnalysisDateFormatter.create(with: currentAnalyse.startDate)
+            let (day, month, year) = AnalysisDateFormatter.getDayMonthYer(withString: initialSleepAnalysesAfterFormatter)
             let (initialIntervalDayDate, endIntervalDayDate) = IntervalDayComponent.create(with: day,
                                                                                            month,
                                                                                            and: year)

@@ -10,7 +10,7 @@ import SwiftUI
 struct IdealSleepGraph: View {
     
     let idealSleepInMinute: Int
-    let averageMinutesSlept: Int
+    let averageMinutesSlept: Double
     var calculation: Double
     var hoursShown: String
     
@@ -18,7 +18,7 @@ struct IdealSleepGraph: View {
         static let ALL_COMPLETED: Double = 1
     }
 
-    init(idealSleepInMinute: Int, averageMinutesSlept: Int) {
+    init(idealSleepInMinute: Int, averageMinutesSlept: Double) {
         self.idealSleepInMinute = idealSleepInMinute
         self.averageMinutesSlept = averageMinutesSlept
         

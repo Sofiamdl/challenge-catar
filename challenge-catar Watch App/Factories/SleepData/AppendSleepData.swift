@@ -19,7 +19,7 @@ class AppendSleepData: AppendableSleepData {
         var newSleepData = sleepData
         
         let (initialIntervalDay, endIntervalDay, pointInterval) = intervals
-        let (day,month,year) = SleepDateFormatter.getDayMonthYer(withString: self.date)
+        let (day,month,year) = AnalysisDateFormatter.getDayMonthYer(withString: self.date)
         
         let today = String(day).leftPadding(toLength: 2, withPad: "0")
         let key = "\(year)/\(month)/\(today)"
