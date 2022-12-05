@@ -8,38 +8,52 @@
 import SwiftUI
 
 struct IdealSleepGraph: View {
+    
     let idealSleepInMinute: Int
-    let averageMinutesSlept: Int
-    var calculation: Double!
-    var hoursShown: String!
+    let averageMinutesSlept: Double
+    var calculation: Double
+    var hoursShown: String
+    
+    private struct Constant {
+        static let ALL_COMPLETED: Double = 1
+    }
 
-    init(idealSleepInMinute: Int, averageMinutesSlept: Int) {
+    init(idealSleepInMinute: Int, averageMinutesSlept: Double) {
         self.idealSleepInMinute = idealSleepInMinute
         self.averageMinutesSlept = averageMinutesSlept
-        self.calculation = (Double(averageMinutesSlept) / Double(idealSleepInMinute) / 2.0) + 0.5
+        
+        let howMuchCompleted = (Double(averageMinutesSlept) / Double(idealSleepInMinute) / 2.0) + 0.5
+        self.calculation = howMuchCompleted
+        
         let minutes = idealSleepInMinute % 60 > 0 ? " \(idealSleepInMinute%60)min" : ""
-        self.hoursShown = "\(String(Int(idealSleepInMinute/60)))h\(minutes)"
+        let hours = Int(idealSleepInMinute/60)
+        self.hoursShown = "\(hours)h\(minutes)"
     }
-    
+            
     var body: some View {
         ZStack (alignment: .bottom) {
-            ZStack {
-                Circle()
-                    .trim(from: 0.5, to: 1.0)
-                    .stroke(Color(ColorConstant.BLUE), style: StrokeStyle(lineWidth: 5, lineCap: .round))
-                    .opacity(0.5)
-                    .frame(width: 150, height: 110)
-                
-                Circle()
-                    .trim(from: 0.5, to: calculation)
-                    .stroke(Color(ColorConstant.BLUE), style: StrokeStyle(lineWidth: 5, lineCap: .round))
-                    .frame(width: 150, height: 110)
-            }
-            .frame(width: 150, height: 5)
-            VStack {
-                TextView(text: "Sono Ideal", color: Color(ColorConstant.LIGHT_GRAY), type: .idealSleep)
-                TextView(text: hoursShown, color: .white, type: .value)
-            }
+            semiCircles
+            semiCircleText
+        }
+    }
+    
+    private var semiCircles: some View {
+        ZStack {
+            SemiCircle(completed: Constant.ALL_COMPLETED)
+            SemiCircle(completed: calculation)
+        }
+        .frame(width: 150, height: 5)
+    }
+    
+    private var semiCircleText: some View {
+        VStack {
+            TextView(text: "Sono Ideal",
+                     color: Color(ColorConstant.LIGHT_GRAY),
+                     type: .idealSleep)
+            
+            TextView(text: hoursShown,
+                     color: .white,
+                     type: .value)
         }
     }
 }

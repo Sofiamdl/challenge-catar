@@ -6,14 +6,34 @@
 //
 
 import SwiftUI
+import HealthKit
+
 
 struct SelectScreen: View {
     
     @ObservedObject var screenObserver = ScreenObserver()
     @State private var scrolling = 0
     
+    
     private let routesScreen: [RouteScreen] = [ .reportScreen, .runningScreen, .sleepScreen ]
-
+        
+    var body: some View {
+        VStack {
+            Spacer()
+            scrollViewReaderWithAnimation
+            .gesture(
+                DragGesture().onEnded { value in
+                    let scrollDirection = ScrollFactory.scrollToUpOrDown(withGesture: value)
+                    let (screens, newScrolling) = scrollDirection.execute(with: screenObserver.screens,
+                                                                          andCurrent: scrolling)
+                    scrolling = newScrolling
+                    screenObserver.screens = screens
+                }
+            )
+            Spacer()
+        }
+    }
+    
     private var selectScreenList: some View {
         List {
             ForEach(0..<screenObserver.screens.count){ index in
@@ -38,20 +58,6 @@ struct SelectScreen: View {
         }
     }
     
-    var body: some View {
-        VStack {
-            Spacer()
-            scrollViewReaderWithAnimation
-            .gesture(
-                DragGesture().onEnded { value in
-                    let scrollDirection = ScrollFactory.scrollToUpOrDown(withGesture: value)
-                    let (screens, newScrolling) = scrollDirection.execute(with: screenObserver.screens,
-                                                                          andCurrent: scrolling)
-                    scrolling = newScrolling
-                    screenObserver.screens = screens
-                }
-            )
-            Spacer()
-        }
-    }
+  
 }
+

@@ -32,6 +32,17 @@ struct CardInformation: View {
         return TitleLabel(leftLabel: "Distância", rightLabel: "Velocidade")
     }
     
+    var body: some View {
+        VStack(alignment: .leading, spacing: 7) {
+            titleLabel
+            subtitleLabel
+            informationLabel
+            
+            Line(orienttion: .horizontal,
+                 withColor: blueOrPurple)
+        }
+    }
+    
     private var titleLabel: some View {
         HStack(spacing: 10){
             TextView(text: title.rawValue,
@@ -74,16 +85,5 @@ struct CardInformation: View {
                      type: .value)
         }
         .padding(insets)
-    }
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 7) {
-            titleLabel
-            subtitleLabel
-            informationLabel
-            
-            Line(orienttion: .horizontal,
-                 withColor: blueOrPurple)
-        }
     }
 }
