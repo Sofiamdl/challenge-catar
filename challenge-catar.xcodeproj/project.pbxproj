@@ -39,7 +39,6 @@
 		0D9D658229393F87009698C4 /* CalculationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658129393F87009698C4 /* CalculationType.swift */; };
 		0D9D658429393FA0009698C4 /* DistanceCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658329393FA0009698C4 /* DistanceCalculate.swift */; };
 		0D9D658629394015009698C4 /* SleepAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658529394015009698C4 /* SleepAnalysis.swift */; };
-		0D9D6588293943EE009698C4 /* TimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D6587293943EE009698C4 /* TimeHandler.swift */; };
 		0D9D658D2939BB6A009698C4 /* StatisticsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658C2939BB6A009698C4 /* StatisticsHandler.swift */; };
 		0D9D658F2939C417009698C4 /* VelocityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658E2939C417009698C4 /* VelocityHandler.swift */; };
 		0D9D65912939E070009698C4 /* SemiCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D65902939E070009698C4 /* SemiCircle.swift */; };
@@ -66,7 +65,6 @@
 		CA0CDB60293D462F003079C7 /* AnalysisDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB5F293D462F003079C7 /* AnalysisDateFormatter.swift */; };
 		CA0CDB62293D465D003079C7 /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB61293D465D003079C7 /* SleepTimer.swift */; };
 		CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */; };
-		CA0FB102293A24DF00E2BE1A /* SpeedHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +126,6 @@
 		0D9D658129393F87009698C4 /* CalculationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationType.swift; sourceTree = "<group>"; };
 		0D9D658329393FA0009698C4 /* DistanceCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculate.swift; sourceTree = "<group>"; };
 		0D9D658529394015009698C4 /* SleepAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAnalysis.swift; sourceTree = "<group>"; };
-		0D9D6587293943EE009698C4 /* TimeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
 		0D9D658C2939BB6A009698C4 /* StatisticsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsHandler.swift; sourceTree = "<group>"; };
 		0D9D658E2939C417009698C4 /* VelocityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityHandler.swift; sourceTree = "<group>"; };
 		0D9D65902939E070009698C4 /* SemiCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiCircle.swift; sourceTree = "<group>"; };
@@ -156,7 +153,6 @@
 		CA0CDB5F293D462F003079C7 /* AnalysisDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisDateFormatter.swift; sourceTree = "<group>"; };
 		CA0CDB61293D465D003079C7 /* SleepTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimer.swift; sourceTree = "<group>"; };
 		CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressGraphicView.swift; sourceTree = "<group>"; };
-		CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,8 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				0D9D657629393E69009698C4 /* DistanceHandler.swift */,
-				0D9D6587293943EE009698C4 /* TimeHandler.swift */,
-				CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */,
 				0D9D658E2939C417009698C4 /* VelocityHandler.swift */,
 				0D9D659F293FAAE0009698C4 /* UpdateViewHandler.swift */,
 			);
@@ -600,11 +594,9 @@
 				0D9D65A0293FAAE0009698C4 /* UpdateViewHandler.swift in Sources */,
 				CA0CDB50293D4436003079C7 /* String+LeftPadding.swift in Sources */,
 				0D6B87792935957B00E7C5DA /* ScrollUp.swift in Sources */,
-				0D9D6588293943EE009698C4 /* TimeHandler.swift in Sources */,
 				0D9D65952939E69F009698C4 /* CollectionHandler.swift in Sources */,
 				BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */,
 				0D6B877D293596AF00E7C5DA /* ScrollFactory.swift in Sources */,
-				CA0FB102293A24DF00E2BE1A /* SpeedHandler.swift in Sources */,
 				0D9D657729393E69009698C4 /* DistanceHandler.swift in Sources */,
 				0D6B8773293592EC00E7C5DA /* RouteScreen.swift in Sources */,
 				0D9D65912939E070009698C4 /* SemiCircle.swift in Sources */,
