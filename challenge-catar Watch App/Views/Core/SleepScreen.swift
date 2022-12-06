@@ -85,12 +85,9 @@ struct SleepScreen: View {
     
     func updateView(with data: SleepDataCollection){
        let (newInBed, newAllSleep) = UpdateViewHandler.create(data)
-       
        inBed = newInBed
        allSleep = newAllSleep
     }
-    
-
 }
 
 struct SleepScreen_Previews: PreviewProvider {

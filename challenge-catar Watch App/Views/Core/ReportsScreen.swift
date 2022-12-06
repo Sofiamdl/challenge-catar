@@ -63,12 +63,10 @@ struct ReportsScreen: View {
                     }
                 }
             }
-            
         }
     }
     
     func updateView(with data: SleepDataCollection){
-        
          let (newInBed, newAllSleep) = UpdateViewHandler.create(data)
         
         inBed = newInBed
