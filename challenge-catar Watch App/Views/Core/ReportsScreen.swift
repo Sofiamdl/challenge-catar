@@ -69,35 +69,9 @@ struct ReportsScreen: View {
     
     func updateView(with data: SleepDataCollection){
         
-        let keys = (data.map({ (key, _) -> String in
-            return key
-        }) as Array)
+         let (newInBed, newAllSleep) = UpdateViewHandler.create(data)
         
-        let keySorted = keys.sorted()
-        keySorted.enumerated().forEach{ (index, date) in
-            
-            let allValues = data[date]!
-            
-            let allValuesInBed = allValues.filter { (minutes, type) in
-                return  type == 0
-            }
-            
-            let allValuesSleep = allValues.filter{ (minutes, type) in
-                return type == 3 || type == 4 || type == 5
-            }
-            
-            var sumInBed = 0.0
-            for (minutes, _) in allValuesInBed {
-                sumInBed += minutes
-            }
-            
-            var sumAllSleep = 0.0
-            for (minutes, _) in allValuesSleep {
-                sumAllSleep += minutes
-            }
-            
-            inBed.append(Float(sumAllSleep))
-            allSleep.append((sumAllSleep/(sumInBed == 0 ? 1 : sumInBed))*100)
-        }
+        inBed = newInBed
+        allSleep = newAllSleep
     }
 }
