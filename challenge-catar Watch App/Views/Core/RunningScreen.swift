@@ -20,23 +20,22 @@ struct RunningScreen: View {
     let speedCalculate = SpeedCalculate()
 
     private var todayMeters: Float {
-        return meters.last ?? 0.0
+        let today = meters.last ?? 0.0
+        return Decimal.fixNumber(with: today)
     }
     
     private var averageMeters: Float {
         let sumAllMeters = meters.reduce(0,+)
-        return sumAllMeters/Float(meters.count)
+        let average = sumAllMeters/Float(meters.count)
+        return Decimal.fixNumber(with: average)
     }
-    
-
-    
 
     var body: some View {
-        let todayDistanceVelocityValues = CardValues(leftSideContent: "\(ceil(todayMeters*10)/10) km",
-                                                     rightSideContent: "\(ceil(todaySpeed*10)/10) k/h")
+        let todayDistanceVelocityValues = CardValues(leftSideContent: "\(todayMeters) km",
+                                                     rightSideContent: "\(todaySpeed) k/h")
         
-        let averageDistanceVelocityValues = CardValues(leftSideContent: "\(ceil(averageMeters*10)/10) km",
-                                                       rightSideContent: "\(ceil(averageSpeed*10)/10) k/h")
+        let averageDistanceVelocityValues = CardValues(leftSideContent: "\(averageMeters) km",
+                                                       rightSideContent: "\(averageSpeed) k/h")
         ScrollView {
             VStack(alignment: .center, spacing: 8){
                 
@@ -66,9 +65,11 @@ struct RunningScreen: View {
                     }
                 }
             }
-            speedCalculate.calculte(){ (averageSpeed, orderedWeekSpeedAverage) in
-                self.averageSpeed = averageSpeed
-                self.todaySpeed = orderedWeekSpeedAverage.last!
+
+            speedCalculate.calculte { (averageSpeed, orderedWeekSpeedAverage) in
+                self.averageSpeed = Decimal.fixNumber(with: averageSpeed)
+                let todaySpeedToFix = orderedWeekSpeedAverage.last ?? 0.0
+                self.todaySpeed = Decimal.fixNumber(with: todaySpeedToFix)
             }
             
         }
