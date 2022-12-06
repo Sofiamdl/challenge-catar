@@ -46,6 +46,7 @@ struct SleepScreen: View {
 
     let healthSession: HealthSession = HealthSession()
     let sleepAnalysis = SleepAnalysis()
+    
     var body: some View {
         
         let sleepingHours = CardValues(leftSideContent: "\(todaySleep) horas",
