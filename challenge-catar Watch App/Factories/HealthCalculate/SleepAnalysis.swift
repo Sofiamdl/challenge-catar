@@ -8,20 +8,7 @@
 import Foundation
 import HealthKit
 
-typealias SleepyDay = String
-typealias TypeSleepAndTime = [(Double, Int)]
-typealias SleepDataCollection = [SleepyDay : TypeSleepAndTime]
-typealias SleepData = (Double, Int)
-
-typealias Intervals = (TimeInterval, TimeInterval, TimeInterval)
-
-
-typealias CollectionHandler<T> = ((Result<T, Error>) -> Void)
-typealias StatisticsCollectionHandler = CollectionHandler<HKStatisticsCollection>
-
 class SleepAnalysis {
-    
-    typealias SleepCollectionHandler = ((Result<SleepDataCollection, Error>) -> Void)
     
     private var sleepData: SleepDataCollection = [:]
     private let healthKitStore: HKHealthStore = HKHealthStore()
@@ -88,8 +75,12 @@ class SleepAnalysis {
             
             let sleepDataFactory = SleepDataFactory.create(atSleepData: self.sleepData,
                                                            and: initialSleepAnalysesAfterFormatter)
+            
             let newSleepValues = (timeMinutes, currentAnalyse.value)
-            let newSleepData = sleepDataFactory.doChange(at: self.sleepData, andValues: newSleepValues, intervals: intervals)
+            
+            let newSleepData = sleepDataFactory.doChange(at: self.sleepData,
+                                                         andValues: newSleepValues,
+                                                         intervals: intervals)
             self.sleepData = newSleepData
         }
     }

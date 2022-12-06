@@ -39,12 +39,15 @@
 		0D9D658229393F87009698C4 /* CalculationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658129393F87009698C4 /* CalculationType.swift */; };
 		0D9D658429393FA0009698C4 /* DistanceCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658329393FA0009698C4 /* DistanceCalculate.swift */; };
 		0D9D658629394015009698C4 /* SleepAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658529394015009698C4 /* SleepAnalysis.swift */; };
-		0D9D6588293943EE009698C4 /* TimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D6587293943EE009698C4 /* TimeHandler.swift */; };
 		0D9D658D2939BB6A009698C4 /* StatisticsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658C2939BB6A009698C4 /* StatisticsHandler.swift */; };
 		0D9D658F2939C417009698C4 /* VelocityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D658E2939C417009698C4 /* VelocityHandler.swift */; };
 		0D9D65912939E070009698C4 /* SemiCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D65902939E070009698C4 /* SemiCircle.swift */; };
-		0D9D65952939E69F009698C4 /* StatisticsCollectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D65942939E69F009698C4 /* StatisticsCollectionHandler.swift */; };
+		0D9D65952939E69F009698C4 /* CollectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D65942939E69F009698C4 /* CollectionHandler.swift */; };
 		0D9D65972939E6D7009698C4 /* AuthorizedHealthKitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D65962939E6D7009698C4 /* AuthorizedHealthKitHandler.swift */; };
+		0D9D659A293FA3BD009698C4 /* Sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D6599293FA3BD009698C4 /* Sleep.swift */; };
+		0D9D659E293FA55D009698C4 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D659D293FA55D009698C4 /* Decimal.swift */; };
+		0D9D65A0293FAAE0009698C4 /* UpdateViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D659F293FAAE0009698C4 /* UpdateViewHandler.swift */; };
+		0D9D65A2293FB596009698C4 /* Array+ShiftRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D65A1293FB596009698C4 /* Array+ShiftRight.swift */; };
 		BF4FFED0293134DD008C321A /* challenge-catar Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED4293134DD008C321A /* challenge_catarApp.swift */; };
 		BF4FFED7293134DD008C321A /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED6293134DD008C321A /* AppCore.swift */; };
@@ -63,7 +66,6 @@
 		CA0CDB60293D462F003079C7 /* AnalysisDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB5F293D462F003079C7 /* AnalysisDateFormatter.swift */; };
 		CA0CDB62293D465D003079C7 /* SleepTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CDB61293D465D003079C7 /* SleepTimer.swift */; };
 		CA0FB10029367EA000E2BE1A /* DailyProgressGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */; };
-		CA0FB102293A24DF00E2BE1A /* SpeedHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,12 +127,15 @@
 		0D9D658129393F87009698C4 /* CalculationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationType.swift; sourceTree = "<group>"; };
 		0D9D658329393FA0009698C4 /* DistanceCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculate.swift; sourceTree = "<group>"; };
 		0D9D658529394015009698C4 /* SleepAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAnalysis.swift; sourceTree = "<group>"; };
-		0D9D6587293943EE009698C4 /* TimeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
 		0D9D658C2939BB6A009698C4 /* StatisticsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsHandler.swift; sourceTree = "<group>"; };
 		0D9D658E2939C417009698C4 /* VelocityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityHandler.swift; sourceTree = "<group>"; };
 		0D9D65902939E070009698C4 /* SemiCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiCircle.swift; sourceTree = "<group>"; };
-		0D9D65942939E69F009698C4 /* StatisticsCollectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionHandler.swift; sourceTree = "<group>"; };
+		0D9D65942939E69F009698C4 /* CollectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHandler.swift; sourceTree = "<group>"; };
 		0D9D65962939E6D7009698C4 /* AuthorizedHealthKitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedHealthKitHandler.swift; sourceTree = "<group>"; };
+		0D9D6599293FA3BD009698C4 /* Sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sleep.swift; sourceTree = "<group>"; };
+		0D9D659D293FA55D009698C4 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
+		0D9D659F293FAAE0009698C4 /* UpdateViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewHandler.swift; sourceTree = "<group>"; };
+		0D9D65A1293FB596009698C4 /* Array+ShiftRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ShiftRight.swift"; sourceTree = "<group>"; };
 		BF4FFEC9293134DD008C321A /* challenge-catar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFED4293134DD008C321A /* challenge_catarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_catarApp.swift; sourceTree = "<group>"; };
@@ -150,7 +155,6 @@
 		CA0CDB5F293D462F003079C7 /* AnalysisDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisDateFormatter.swift; sourceTree = "<group>"; };
 		CA0CDB61293D465D003079C7 /* SleepTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimer.swift; sourceTree = "<group>"; };
 		CA0FB0FF29367EA000E2BE1A /* DailyProgressGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressGraphicView.swift; sourceTree = "<group>"; };
-		CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 			children = (
 				0D6B875929340FA100E7C5DA /* WKInterfaceDevice+Size.swift */,
 				CA0CDB4F293D4436003079C7 /* String+LeftPadding.swift */,
+				0D9D65A1293FB596009698C4 /* Array+ShiftRight.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,9 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				0D9D657629393E69009698C4 /* DistanceHandler.swift */,
-				0D9D6587293943EE009698C4 /* TimeHandler.swift */,
-				CA0FB101293A24DF00E2BE1A /* SpeedHandler.swift */,
 				0D9D658E2939C417009698C4 /* VelocityHandler.swift */,
+				0D9D659F293FAAE0009698C4 /* UpdateViewHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -343,8 +347,9 @@
 		0D9D65932939E67C009698C4 /* Typealias */ = {
 			isa = PBXGroup;
 			children = (
-				0D9D65942939E69F009698C4 /* StatisticsCollectionHandler.swift */,
+				0D9D65942939E69F009698C4 /* CollectionHandler.swift */,
 				0D9D65962939E6D7009698C4 /* AuthorizedHealthKitHandler.swift */,
+				0D9D6599293FA3BD009698C4 /* Sleep.swift */,
 			);
 			path = Typealias;
 			sourceTree = "<group>";
@@ -377,7 +382,6 @@
 		BF4FFED3293134DD008C321A /* challenge-catar Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				CA0CDB5A293D45D0003079C7 /* Utils */,
 				0D7294072938ADBD0096F38D /* challenge-catar Watch App.entitlements */,
 				0D7294082938AE200096F38D /* challenge-catar-Watch-App-Info.plist */,
 				BF4FFED4293134DD008C321A /* challenge_catarApp.swift */,
@@ -394,6 +398,7 @@
 				0D9D658B2939BB57009698C4 /* Protocols */,
 				0D6B8771293592E000E7C5DA /* Routes */,
 				0D9D65932939E67C009698C4 /* Typealias */,
+				CA0CDB5A293D45D0003079C7 /* Utils */,
 				BF4FFEF2293160A6008C321A /* Views */,
 			);
 			path = "challenge-catar Watch App";
@@ -450,6 +455,7 @@
 				CA0CDB5D293D4604003079C7 /* IntervalDayComponent.swift */,
 				CA0CDB5F293D462F003079C7 /* AnalysisDateFormatter.swift */,
 				CA0CDB61293D465D003079C7 /* SleepTimer.swift */,
+				0D9D659D293FA55D009698C4 /* Decimal.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				0D6B87852935B43700E7C5DA /* ScreenButton.swift in Sources */,
 				CA0CDB57293D4547003079C7 /* AppendSleepData.swift in Sources */,
 				0D6B87622934112600E7C5DA /* TextStyle.swift in Sources */,
+				0D9D659A293FA3BD009698C4 /* Sleep.swift in Sources */,
 				0D6B875729340D5400E7C5DA /* LineOrientation.swift in Sources */,
 				0D6B87692934125500E7C5DA /* IconStatus.swift in Sources */,
 				BF4FFED7293134DD008C321A /* AppCore.swift in Sources */,
@@ -587,13 +594,13 @@
 				CA0CDB53293D44BB003079C7 /* SleepDataFactory.swift in Sources */,
 				CA0CDB62293D465D003079C7 /* SleepTimer.swift in Sources */,
 				BF4FFEF929369916008C321A /* ReportsScreen.swift in Sources */,
+				0D9D65A0293FAAE0009698C4 /* UpdateViewHandler.swift in Sources */,
 				CA0CDB50293D4436003079C7 /* String+LeftPadding.swift in Sources */,
 				0D6B87792935957B00E7C5DA /* ScrollUp.swift in Sources */,
-				0D9D6588293943EE009698C4 /* TimeHandler.swift in Sources */,
-				0D9D65952939E69F009698C4 /* StatisticsCollectionHandler.swift in Sources */,
+				0D9D65A2293FB596009698C4 /* Array+ShiftRight.swift in Sources */,
+				0D9D65952939E69F009698C4 /* CollectionHandler.swift in Sources */,
 				BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */,
 				0D6B877D293596AF00E7C5DA /* ScrollFactory.swift in Sources */,
-				CA0FB102293A24DF00E2BE1A /* SpeedHandler.swift in Sources */,
 				0D9D657729393E69009698C4 /* DistanceHandler.swift in Sources */,
 				0D6B8773293592EC00E7C5DA /* RouteScreen.swift in Sources */,
 				0D9D65912939E070009698C4 /* SemiCircle.swift in Sources */,
@@ -614,6 +621,7 @@
 				0D6B87822935B3E000E7C5DA /* ScreenObserver.swift in Sources */,
 				BF4FFEFD2937C7EE008C321A /* BulletList.swift in Sources */,
 				0D6B87902936901800E7C5DA /* RunningScreen.swift in Sources */,
+				0D9D659E293FA55D009698C4 /* Decimal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

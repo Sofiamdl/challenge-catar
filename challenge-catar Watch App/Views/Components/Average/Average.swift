@@ -32,8 +32,10 @@ struct Average: View {
             TextView(text: distancePerHour,
                      color: .white,
                      type: .title)
+            
             Line(orienttion: .vertical,
                  withColor: Color(ColorConstant.PURPLE))
+            
             createIcon(withImage: Constant.BED)
             TextView(text: sleepingHours,
                      color: .white,
