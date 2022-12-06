@@ -91,7 +91,6 @@ struct SleepScreen: View {
         
         let keySorted = keys.sorted()
         keySorted.enumerated().forEach{ (index, date) in
-//            let (values, type) = data[date]!
             
             let allValues = data[date]!
             
