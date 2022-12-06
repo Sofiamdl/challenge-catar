@@ -9,30 +9,33 @@ import SwiftUI
 
 struct SleepScreen: View {
 
-
-    
     @State private var inBed: [Float] = []
     @State private var allSleep: [Double] = []
     
     private var todaySleep: Float {
-        return Float(floor(((inBed.last ?? 0.0)/60)*10)/10)
+        let todayMinutes = inBed.last ?? 0.0
+        let todayHours =  todayMinutes / 60
+        return Decimal.fixNumber(with: todayHours)
     }
     
     private var sleepQuality: Int {
-        return Int(floor(allSleep.last ?? 0.0))
+        let todaySleepQuality = allSleep.last ?? 0.0
+        return Int(floor(todaySleepQuality))
     }
     
     private var averageHour: Float {
-        let inBedFiltered = inBed.filter{ value in
-            return value != 0.0
-        }
         
-        let sum = inBedFiltered.reduce(0,+)
-        let average = sum / Float(inBedFiltered.count * 60)
-        return floor(average)
+        let inBedFiltered = inBed.filter{ currentInBed in
+            return currentInBed != 0.0
+        }
+
+        let inBedFilteredSum = inBedFiltered.reduce(0,+)
+        let inBedAverage = inBedFilteredSum / Float(inBedFiltered.count * 60)
+        return floor(inBedAverage)
     }
     
     private var avarageWeekSleep: Float {
+        
         let allSleepFiltered = allSleep.filter{ value in
             return value != 0.0
         }
