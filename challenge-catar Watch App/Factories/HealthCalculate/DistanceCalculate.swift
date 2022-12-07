@@ -28,10 +28,10 @@ class DistanceCalculate: HealthCalculable {
                                     intervalComponents: daily)
         
         query.initialResultsHandler = { _, statisticsCollection, error in
-//            guard let _ = error else {
-//                completion(.failure(StatisticsError.getInitialStatistics))
-//                return
-//            }
+            guard error != nil else {
+                completion(.failure(DistanceCalculateError.getInitialResult))
+                return
+            }
             
             guard let statisticsCollection = statisticsCollection else { return }
             completion(.success(statisticsCollection))

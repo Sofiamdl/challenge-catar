@@ -48,6 +48,7 @@
 		0D9D659E293FA55D009698C4 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D659D293FA55D009698C4 /* Decimal.swift */; };
 		0D9D65A0293FAAE0009698C4 /* UpdateViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D659F293FAAE0009698C4 /* UpdateViewHandler.swift */; };
 		0D9D65A2293FB596009698C4 /* Array+ShiftRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D65A1293FB596009698C4 /* Array+ShiftRight.swift */; };
+		0D9D65A52940CD11009698C4 /* DistanceCalculateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9D65A42940CD11009698C4 /* DistanceCalculateError.swift */; };
 		BF4FFED0293134DD008C321A /* challenge-catar Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BF4FFED5293134DD008C321A /* challenge_catarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED4293134DD008C321A /* challenge_catarApp.swift */; };
 		BF4FFED7293134DD008C321A /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FFED6293134DD008C321A /* AppCore.swift */; };
@@ -136,6 +137,7 @@
 		0D9D659D293FA55D009698C4 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		0D9D659F293FAAE0009698C4 /* UpdateViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewHandler.swift; sourceTree = "<group>"; };
 		0D9D65A1293FB596009698C4 /* Array+ShiftRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ShiftRight.swift"; sourceTree = "<group>"; };
+		0D9D65A42940CD11009698C4 /* DistanceCalculateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculateError.swift; sourceTree = "<group>"; };
 		BF4FFEC9293134DD008C321A /* challenge-catar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFECF293134DD008C321A /* challenge-catar Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "challenge-catar Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4FFED4293134DD008C321A /* challenge_catarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challenge_catarApp.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		0D9D65922939E3B1009698C4 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				0D9D65A32940CD00009698C4 /* Error */,
 				0D6B875629340D5400E7C5DA /* LineOrientation.swift */,
 				0D6B875E293410D300E7C5DA /* TextType.swift */,
 				0D6B876F293413E200E7C5DA /* Screen.swift */,
@@ -360,6 +363,14 @@
 				0D7294052937C8970096F38D /* Health.swift */,
 			);
 			path = HealthSession;
+			sourceTree = "<group>";
+		};
+		0D9D65A32940CD00009698C4 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0D9D65A42940CD11009698C4 /* DistanceCalculateError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		BF4FFEC2293134DD008C321A = {
@@ -595,6 +606,7 @@
 				CA0CDB62293D465D003079C7 /* SleepTimer.swift in Sources */,
 				BF4FFEF929369916008C321A /* ReportsScreen.swift in Sources */,
 				0D9D65A0293FAAE0009698C4 /* UpdateViewHandler.swift in Sources */,
+				0D9D65A52940CD11009698C4 /* DistanceCalculateError.swift in Sources */,
 				CA0CDB50293D4436003079C7 /* String+LeftPadding.swift in Sources */,
 				0D6B87792935957B00E7C5DA /* ScrollUp.swift in Sources */,
 				0D9D65A2293FB596009698C4 /* Array+ShiftRight.swift in Sources */,
@@ -756,7 +768,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"challenge-catar Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = CMWHQAT5B4;
+				DEVELOPMENT_TEAM = 4UVYB4V5UN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "challenge-catar-Watch-App-Info.plist";
@@ -792,7 +804,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"challenge-catar Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = CMWHQAT5B4;
+				DEVELOPMENT_TEAM = 4UVYB4V5UN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "challenge-catar-Watch-App-Info.plist";
@@ -826,7 +838,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CMWHQAT5B4;
+				DEVELOPMENT_TEAM = 4UVYB4V5UN;
 				INFOPLIST_KEY_CFBundleDisplayName = "challenge-catar";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "studies.s.challenge-catar";
@@ -842,7 +854,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CMWHQAT5B4;
+				DEVELOPMENT_TEAM = 4UVYB4V5UN;
 				INFOPLIST_KEY_CFBundleDisplayName = "challenge-catar";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "studies.s.challenge-catar";

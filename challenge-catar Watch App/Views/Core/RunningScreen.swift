@@ -14,6 +14,7 @@ struct RunningScreen: View {
     @State private var speed: [Float] = []
     @State private var averageSpeed: Double = 0.0
     @State private var todaySpeed: Double = 0.0
+    @State private var showAlertError = false
     
     let healthSession = HealthSession()
 
@@ -54,6 +55,11 @@ struct RunningScreen: View {
             .padding()
         }
         .navigationBarTitle("Corrida")
+        .alert("Permissão", isPresented: $showAlertError){
+            Button("OK"){
+                showAlertError.toggle()
+            }
+        }
         .onAppear {
             healthSession.authorizeHealthKit{ (authorized, error) in
                 healthSession.statisticsCollection(.distanceWalking){ staticsCollection in
@@ -61,7 +67,7 @@ struct RunningScreen: View {
                     case .success(let statistics):
                         updateViewWith(statistics)
                     case .failure:
-                        print("deu mt ruim")
+                        showAlertError.toggle()
                     }
                 }
             }

@@ -24,7 +24,6 @@ struct SleepScreen: View {
     }
     
     private var averageHour: Float {
-        
         let inBedFiltered = inBed.filter{ currentInBed in
             return currentInBed != 0.0
         }
@@ -75,7 +74,7 @@ struct SleepScreen: View {
         .navigationBarTitle("Sono")
         .onAppear {
             healthSession.authorizeHealthKit { (authorized, error) in
-                sleepAnalysis.calculte(){ resultSleepCollection in
+                sleepAnalysis.calculte { resultSleepCollection in
                     switch resultSleepCollection {
                     case .success(let sleepDate):
                         updateView(with: sleepDate)
